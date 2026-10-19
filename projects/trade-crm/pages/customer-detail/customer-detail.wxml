@@ -1,0 +1,125 @@
+<view class="page" wx:if="{{!loading}}">
+  <view class="section">
+    <view class="head">
+      <view class="head-main">
+        <text class="title">{{form.company || form.contact || '未命名客户'}}</text>
+        <text class="tag {{form.level === 'A' ? 'tag-a' : (form.level === 'B' ? 'tag-b' : 'tag-c')}}">{{form.level || 'C'}} 级</text>
+      </view>
+      <text class="muted" wx:if="{{form.verdict}}">背调结论：{{form.verdict}}</text>
+    </view>
+
+    <view class="quick">
+      <view class="quick-btn" bindtap="copyEmail" wx:if="{{form.email}}">复制邮箱</view>
+      <view class="quick-btn" bindtap="callPhone" wx:if="{{form.phone}}">拨号</view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">背调画像（只读）</view>
+    <view class="kv" wx:if="{{form.businessType}}">
+      <text class="k">业务类型</text><text class="v">{{form.businessType}}</text>
+    </view>
+    <view class="kv" wx:if="{{form.headcount}}">
+      <text class="k">企业规模</text><text class="v">{{form.headcount}}</text>
+    </view>
+    <view class="kv" wx:if="{{form.purchasePotential}}">
+      <text class="k">采购潜力</text><text class="v">{{form.purchasePotential}}</text>
+    </view>
+    <view class="kv" wx:if="{{form.productCategory}}">
+      <text class="k">意向品类</text><text class="v">{{form.productCategory}}</text>
+    </view>
+    <view class="kv" wx:if="{{form.intent}}">
+      <text class="k">合作意向</text><text class="v">{{form.intent}}</text>
+    </view>
+    <view class="block" wx:if="{{form.profile}}">
+      <text class="k">主营与供应链</text>
+      <text class="v">{{form.profile}}</text>
+    </view>
+    <view class="block" wx:if="{{form.strategy}}">
+      <text class="k">推销策略</text>
+      <text class="v">{{form.strategy}}</text>
+      <view class="btn btn-ghost" bindtap="copyStrategy">复制策略</view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">可编辑信息</view>
+    <view class="field">
+      <text class="label">公司名称</text>
+      <input class="input" data-key="company" value="{{form.company}}" bindinput="onField" placeholder="必填" />
+    </view>
+    <view class="field">
+      <text class="label">联系人</text>
+      <input class="input" data-key="contact" value="{{form.contact}}" bindinput="onField" />
+    </view>
+    <view class="field">
+      <text class="label">职位</text>
+      <input class="input" data-key="jobTitle" value="{{form.jobTitle}}" bindinput="onField" />
+    </view>
+    <view class="field">
+      <text class="label">国家</text>
+      <input class="input" data-key="country" value="{{form.country}}" bindinput="onField" />
+    </view>
+    <view class="field">
+      <text class="label">邮箱</text>
+      <input class="input" data-key="email" value="{{form.email}}" bindinput="onField" />
+    </view>
+    <view class="field">
+      <text class="label">电话</text>
+      <input class="input" data-key="phone" value="{{form.phone}}" bindinput="onField" />
+    </view>
+    <view class="field">
+      <text class="label">官网</text>
+      <input class="input" data-key="website" value="{{form.website}}" bindinput="onField" />
+    </view>
+    <view class="field">
+      <text class="label">阶段</text>
+      <picker mode="selector" range="{{stages}}" value="{{stageIndex}}" bindchange="onStage">
+        <view class="picker">{{stages[stageIndex]}}</view>
+      </picker>
+    </view>
+    <view class="field">
+      <text class="label">等级</text>
+      <picker mode="selector" range="{{levels}}" value="{{levelIndex}}" bindchange="onLevel">
+        <view class="picker">{{levels[levelIndex]}} 级</view>
+      </picker>
+    </view>
+    <view class="field">
+      <text class="label">下次跟进</text>
+      <picker mode="date" value="{{nextDate}}" bindchange="onDate">
+        <view class="picker">{{nextDate || '请选择日期'}}</view>
+      </picker>
+    </view>
+    <view class="field">
+      <text class="label">备注</text>
+      <textarea class="textarea" data-key="notes" value="{{form.notes}}" bindinput="onField" />
+    </view>
+    <view class="btn" bindtap="save">保存</view>
+  </view>
+
+  <view class="section" wx:if="{{canManage && !isNew}}">
+    <view class="section-title">负责人</view>
+    <picker mode="selector" range="{{members}}" range-key="name" value="{{memberIndex}}" bindchange="onOwner">
+      <view class="picker">{{members[memberIndex].name || '选择成员'}}</view>
+    </picker>
+    <view class="btn btn-ghost" bindtap="transfer">转交给该成员</view>
+  </view>
+
+  <view class="section" wx:if="{{!isNew}}">
+    <view class="section-title">跟进记录</view>
+    <view class="tl-item" wx:for="{{followups}}" wx:key="_id">
+      <view class="tl-date">{{item.dateText}}</view>
+      <view class="tl-body">
+        <text class="tl-content">{{item.content}}</text>
+        <text class="muted">由 {{item.authorName}} 记录</text>
+      </view>
+    </view>
+    <view class="empty" wx:if="{{!followups.length}}">还没有跟进记录</view>
+    <textarea class="textarea add" value="{{content}}" bindinput="onContent" placeholder="这次沟通了什么" />
+    <view class="btn btn-ghost" bindtap="addFollowUp">添加跟进</view>
+  </view>
+
+  <view class="section" wx:if="{{!isNew && canManage}}">
+    <view class="btn btn-danger" bindtap="remove">删除客户</view>
+  </view>
+</view>

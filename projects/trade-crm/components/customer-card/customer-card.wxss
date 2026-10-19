@@ -1,0 +1,48 @@
+.card {
+  padding: 24rpx 0;
+  border-bottom: 1rpx solid #EDF0F5;
+}
+
+.card:last-child {
+  border-bottom: none;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.company {
+  font-size: 30rpx;
+  font-weight: 500;
+  margin-right: 12rpx;
+}
+
+.sub {
+  margin-top: 8rpx;
+  font-size: 24rpx;
+  color: #6B7688;
+}
+
+.dot {
+  margin: 0 10rpx;
+  color: #C6CDD9;
+}
+
+.footer {
+  margin-top: 14rpx;
+  justify-content: space-between;
+}
+
+.due {
+  font-size: 24rpx;
+}
+
+.btn-mini {
+  padding: 8rpx 20rpx;
+  border: 1rpx solid #D8DEE9;
+  border-radius: 24rpx;
+  font-size: 24rpx;
+  color: #4A5568;
+}

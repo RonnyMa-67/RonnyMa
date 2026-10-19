@@ -1,0 +1,9 @@
+{
+  "name": "dailyReminder",
+  "version": "1.0.0",
+  "description": "每天早九点推送当日待跟进客户",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+.DS_Store
+__pycache__/
+*.pyc
+.local/
+projects/trade-crm/data/
+project.private.config.json

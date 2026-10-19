@@ -1,0 +1,22 @@
+<view class="card" bindtap="onTap">
+  <view class="row">
+    <text class="company">{{item.company || item.contact || '未命名客户'}}</text>
+    <text class="tag {{item.level === 'A' ? 'tag-a' : (item.level === 'B' ? 'tag-b' : 'tag-c')}}">{{item.level || 'C'}} 级</text>
+  </view>
+  <view class="row sub">
+    <text>{{item.country || '地区未填'}}</text>
+    <text class="dot">·</text>
+    <text>{{item.stage || '待联系'}}</text>
+    <text class="dot" wx:if="{{item.purchasePotential}}">·</text>
+    <text wx:if="{{item.purchasePotential}}">{{item.purchasePotential}}</text>
+  </view>
+  <view class="row sub" wx:if="{{item.contact || item.verdict}}">
+    <text>{{item.contact || '未填联系人'}}</text>
+    <text class="dot" wx:if="{{item.verdict}}">·</text>
+    <text wx:if="{{item.verdict}}">背调：{{item.verdict}}</text>
+  </view>
+  <view class="row footer">
+    <text class="{{item.isOverdue ? 'due danger-text' : 'due muted'}}">{{item.dueText}}</text>
+    <view class="btn-mini" catchtap="onMark">标记已跟进</view>
+  </view>
+</view>

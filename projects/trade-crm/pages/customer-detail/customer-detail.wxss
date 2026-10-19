@@ -1,0 +1,65 @@
+.head {
+  margin-bottom: 8rpx;
+}
+
+.head-main {
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  font-size: 34rpx;
+  font-weight: 500;
+  margin-right: 14rpx;
+}
+
+.quick {
+  display: flex;
+  margin-top: 20rpx;
+}
+
+.quick-btn {
+  padding: 12rpx 32rpx;
+  margin-right: 16rpx;
+  border: 1rpx solid #D8DEE9;
+  border-radius: 28rpx;
+  font-size: 26rpx;
+  color: #4A5568;
+}
+
+.kv {
+  display: flex;
+  padding: 8rpx 0;
+  font-size: 26rpx;
+}
+
+.kv .k {
+  width: 160rpx;
+  color: #8A94A6;
+}
+
+.kv .v {
+  flex: 1;
+}
+
+.block {
+  padding: 12rpx 0;
+  border-top: 1rpx solid #EDF0F5;
+}
+
+.block .k {
+  display: block;
+  font-size: 24rpx;
+  color: #8A94A6;
+  margin-bottom: 6rpx;
+}
+
+.block .v {
+  display: block;
+  font-size: 27rpx;
+  line-height: 1.7;
+}
+
+.add {
+  margin-top: 20rpx;
+}

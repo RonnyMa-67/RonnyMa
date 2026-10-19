@@ -1,0 +1,9 @@
+{
+  "name": "crm",
+  "version": "1.0.0",
+  "description": "外贸 CRM 统一业务网关（含团队权限校验）",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

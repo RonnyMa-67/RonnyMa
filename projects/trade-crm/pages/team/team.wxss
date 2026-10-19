@@ -1,0 +1,78 @@
+.page {
+  padding-bottom: 60rpx;
+}
+
+.input {
+  display: block;
+  margin: 20rpx 0;
+  padding: 20rpx 24rpx;
+  background: #F5F6F8;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+}
+
+.code-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20rpx;
+}
+
+.code {
+  font-size: 40rpx;
+  letter-spacing: 6rpx;
+  font-weight: 500;
+}
+
+.btn-inline {
+  width: 240rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  font-size: 26rpx;
+  margin: 0;
+}
+
+.metrics {
+  display: flex;
+  margin-bottom: 16rpx;
+}
+
+.metric {
+  flex: 1;
+  text-align: center;
+}
+
+.metric .num {
+  display: block;
+  font-size: 40rpx;
+  font-weight: 500;
+}
+
+.metric .lbl {
+  display: block;
+  font-size: 24rpx;
+  color: #8A94A6;
+}
+
+.member-stat {
+  display: flex;
+  justify-content: space-between;
+  padding: 10rpx 0;
+  font-size: 28rpx;
+}
+
+.member {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #EDF0F5;
+}
+
+.member-name {
+  font-size: 30rpx;
+}
+
+.tip {
+  margin-top: 16rpx;
+}

@@ -1,0 +1,15 @@
+{
+  "sourceId": "demo-001",
+  "company": "Example Equipment",
+  "contact": "Demo Buyer",
+  "country": "德国",
+  "email": "buyer@example.com",
+  "phone": "",
+  "website": "https://example.com",
+  "stage": "待联系",
+  "teamId": "REPLACE_WITH_YOUR_TEAM_ID",
+  "ownerId": "",
+  "ownerName": "",
+  "level": "B",
+  "notes": "完全虚构的示例；请勿当作真实客户。"
+}

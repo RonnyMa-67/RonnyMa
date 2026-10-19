@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<!-- ==================================================================
+     LeadScope 工作台层 · 黑白 + 酸橙绿
+     六页：总览 / 线索 / 单条详情 / 广告组分析 / 方法帮助 / 设置
+     每页有完整示例态与空状态；统计、表格、详情、行动卡、导出同源。
+     ================================================================== -->
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LeadScope 工作台</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+/* ---- 工作台布局：左侧固定轨 + 内容 ---- */
+.shell{display:grid;grid-template-columns:var(--rail-w) minmax(0,1fr);min-height:100vh;position:relative;z-index:1}
+.rail{background:var(--rail-bg);color:#fff;padding:22px 14px;display:flex;flex-direction:column;gap:4px;
+  position:sticky;top:0;height:100vh;box-sizing:border-box}
+.rail .logo{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-family:var(--f-disp);
+  font-weight:700;font-size:15px;padding:6px 10px 18px;letter-spacing:-.01em}
+.rail .logo svg circle{fill:var(--accent)}
+.rail a.it,.rail button.it{display:flex;align-items:center;gap:11px;padding:10px 12px;border-radius:12px;color:rgba(255,255,255,.72);
+  text-decoration:none;font-size:14px;transition:background var(--dur),color var(--dur);width:100%;text-align:left}
+.rail a.it:hover,.rail button.it:hover{background:rgba(255,255,255,.09);color:#fff}
+.rail a.it.on{background:rgba(255,255,255,.14);color:#fff;font-weight:600}
+.rail a.it.on svg{color:var(--accent)}
+.rail .sp{flex:1}
+.rail .bottom{display:flex;flex-direction:column;gap:4px;border-top:1px solid rgba(255,255,255,.14);padding-top:12px}
+.main{padding:26px 32px 90px;min-width:0}
+.topbar{display:flex;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+.topbar h1{font-family:var(--f-disp);font-weight:700;letter-spacing:-.02em;font-size:var(--t-h);line-height:1.14}
+.topbar .sub{font-size:13.5px;color:var(--ink-2);margin-top:4px}
+.topbar .right{margin-left:auto;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+
+/* KPI */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:22px}
+.kpi{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-card);padding:18px 20px;
+  box-shadow:var(--sh-1);min-width:0}
+.kpi .k{font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--ink-3);display:flex;align-items:center;gap:7px}
+.kpi .v{font-family:var(--f-disp);font-weight:700;font-size:32px;letter-spacing:-.02em;margin-top:8px;
+  font-variant-numeric:tabular-nums;line-height:1}
+.kpi .s{font-size:12.5px;color:var(--ink-3);margin-top:6px}
+
+/* 分布 */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+.grid-8-4{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:16px;align-items:start}
+.dist{display:flex;flex-direction:column;gap:11px;margin-top:14px}
+.drow{display:grid;grid-template-columns:74px minmax(0,1fr) 34px;gap:10px;align-items:center;font-size:13px}
+.drow .lb{color:var(--ink-2);white-space:nowrap}
+.drow .track{height:8px;border-radius:4px;background:rgba(0,0,0,.06);overflow:hidden}
+html[data-theme="dark"] .drow .track{background:rgba(255,255,255,.08)}
+.drow .track i{display:block;height:100%;border-radius:4px;background:var(--ink-3)}
+.drow.hot .track i{background:var(--accent)}
+.drow .n{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.srcrow{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);font-size:13.5px}
+.srcrow:last-child{border-bottom:none}
+.srcrow .b{width:10px;height:10px;border-radius:3px;background:var(--ink-3);flex:none}
+.srcrow .n{margin-left:auto;font-variant-numeric:tabular-nums;font-weight:600}
+
+/* 筛选栏 */
+.filters{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+.filters .select select{font-size:13px;padding:6px 30px 6px 11px}
+.filters input[type="search"]{font:inherit;font-size:13.5px;padding:7px 12px;border-radius:12px;
+  border:1px solid var(--border);background:var(--surface);color:var(--ink);min-width:150px}
+.filters .count{font-size:13px;color:var(--ink-3);margin-left:auto;font-variant-numeric:tabular-nums}
+.seg{display:inline-flex;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--surface)}
+.seg button{font-size:13px;padding:7px 13px;border-right:1px solid var(--border);color:var(--ink-2)}
+.seg button:last-child{border-right:none}
+.seg button.on{background:var(--ink);color:#fff;font-weight:600}
+.seg button:disabled{opacity:.45;cursor:not-allowed}
+
+/* 表格 */
+.tblwrap{overflow:auto;border:1px solid var(--border);border-radius:16px;background:var(--surface)}
+.tbl{width:100%;border-collapse:collapse;min-width:900px}
+.tbl th{font-size:11.5px;font-weight:700;color:var(--ink-3);text-align:left;letter-spacing:.04em;
+  padding:11px 13px;border-bottom:1px solid var(--line-2);white-space:nowrap;background:var(--surface);position:sticky;top:0;z-index:2}
+.tbl td{font-size:13.5px;padding:11px 13px;border-bottom:1px solid var(--border);vertical-align:middle}
+.tbl tbody tr:last-child td{border-bottom:none}
+.tbl tbody tr{cursor:pointer;transition:background var(--dur)}
+.tbl tbody tr:hover{background:var(--ink-soft)}
+.tbl .mut{color:var(--ink-3)}
+.tbl .nowrap{white-space:nowrap}
+
+/* 详情四层 */
+.lead-head{display:flex;align-items:flex-start;gap:14px;flex-wrap:wrap;margin-bottom:20px}
+.lead-head h1{font-family:var(--f-disp);font-weight:700;font-size:clamp(22px,2.4vw,30px);letter-spacing:-.02em}
+.lead-head .meta{font-size:13px;color:var(--ink-3);margin-top:6px}
+.layers{display:flex;flex-direction:column;gap:16px}
+.layer{border:1px solid var(--border);border-radius:var(--r-card);background:var(--surface);overflow:hidden}
+.layer > h2{font-family:var(--f-disp);font-weight:700;font-size:15px;letter-spacing:-.01em;
+  padding:15px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.layer > h2 .n{font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--ink-3)}
+.layer > h2 .st{margin-left:auto}
+.layer .bd2{padding:18px 20px}
+.kv{display:grid;grid-template-columns:120px minmax(0,1fr);gap:9px 16px;font-size:13.5px}
+.kv dt{color:var(--ink-3)}
+.kv dd{min-width:0;overflow-wrap:anywhere}
+.evi{border:1px solid var(--border);border-radius:14px;background:var(--canvas);padding:13px 15px;margin-bottom:10px}
+.evi:last-child{margin-bottom:0}
+.evi h4{font-size:11.5px;font-weight:700;letter-spacing:.07em;color:var(--ink-3);margin-bottom:7px;
+  display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.evi ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+.evi li{display:flex;gap:9px;font-size:13.5px;line-height:1.65;color:var(--ink-2);align-items:flex-start}
+.evi li svg{flex:none;margin-top:3px}
+.evi li b{color:var(--ink);font-weight:600}
+.mark{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;padding:2px 8px;
+  border-radius:999px;border:1px solid var(--line-2);background:var(--surface);color:var(--ink-2);white-space:nowrap}
+.gaplist{list-style:none;display:flex;flex-direction:column;gap:8px}
+.gaplist li{display:flex;gap:9px;font-size:13.5px;color:var(--ink-2);align-items:flex-start}
+.flagrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;padding-top:14px;border-top:1px solid var(--border)}
+.flagrow .fl{display:flex;flex-direction:column;gap:5px;font-size:12px;color:var(--ink-3)}
+.flagrow .fl b{font-size:13.5px;color:var(--ink);font-weight:600}
+.handgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.handgrid label{display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:700;color:var(--ink-3)}
+.handgrid input,.handgrid textarea{font:inherit;font-size:13.5px;padding:9px 11px;border-radius:12px;
+  border:1px solid var(--border);background:var(--canvas);color:var(--ink);width:100%}
+.handgrid textarea{resize:vertical;min-height:56px}
+.note{font-size:12.5px;color:var(--ink-3);line-height:1.7;margin-top:10px}
+
+/* 导入 */
+.imp{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:16px}
+.imp .box{cursor:pointer;transition:border-color var(--dur)}
+.imp .box:hover{border-color:var(--ink-3)}
+.imp .box svg{color:var(--ink-2)}
+.imp h3{font-size:14.5px;margin-top:10px}
+.imp p{font-size:12.5px;color:var(--ink-3);margin-top:5px;line-height:1.6;text-align:left}
+.drop{border:1.5px dashed var(--border);border-radius:16px;background:var(--canvas);padding:26px;text-align:center;cursor:pointer}
+.drop b{font-size:14.5px;display:block}
+.drop p{font-size:12.5px;color:var(--ink-3);margin-top:6px}
+.fieldmap{width:100%;border-collapse:collapse;font-size:13px;margin-top:14px}
+.fieldmap th{text-align:left;font-size:11.5px;color:var(--ink-3);padding:8px 10px;border-bottom:1px solid var(--line-2)}
+.fieldmap td{padding:9px 10px;border-bottom:1px solid var(--border);color:var(--ink-2)}
+.fieldmap td:first-child{color:var(--ink);font-weight:600}
+.okrow{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.okrow:last-child{border-bottom:none}
+.okrow label{display:flex;gap:8px;align-items:center;font-size:13.5px}
+.okrow .bad{font-size:12.5px;color:var(--ink-3)}
+
+/* 设置 */
+.setrow{display:flex;align-items:center;gap:14px;padding:16px 0;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.setrow:last-child{border-bottom:none}
+.setrow .lbl{font-size:14px;font-weight:600}
+.setrow .d{font-size:12.5px;color:var(--ink-3);margin-top:3px;max-width:46ch}
+.setrow .r{margin-left:auto;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+
+/* 状态条 */
+.stateline{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+
+/* 手机 */
+.tabbar{display:none}
+@media(max-width:960px){
+  .shell{grid-template-columns:1fr}
+  .rail{position:fixed;left:0;top:0;bottom:0;width:64px;padding:16px 8px;z-index:35}
+  .rail .logo span,.rail a.it span,.rail button.it span{display:none}
+  .rail a.it,.rail button.it{justify-content:center;padding:11px}
+  .main{padding:18px 14px 100px;margin-left:64px}
+  .kpis{grid-template-columns:1fr 1fr}
+  .grid-2,.grid-8-4{grid-template-columns:1fr}
+  .imp{grid-template-columns:1fr 1fr}
+  .handgrid{grid-template-columns:1fr}
+  .kv{grid-template-columns:96px minmax(0,1fr)}
+  .tabbar{display:flex;position:fixed;left:64px;right:0;bottom:0;z-index:34;background:var(--surface);
+    border-top:1px solid var(--border);padding:8px 6px;gap:2px}
+  .tabbar a{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:10.5px;
+    color:var(--ink-3);text-decoration:none;padding:6px 2px;border-radius:10px}
+  .tabbar a.on{color:var(--ink);background:var(--ink-soft);font-weight:600}
+}
+@media(max-width:600px){
+  .kpis{grid-template-columns:1fr 1fr;gap:10px}
+  .kpi .v{font-size:26px}
+  .imp{grid-template-columns:1fr}
+  .tabbar{left:52px}
+  .rail{width:52px}
+  .main{margin-left:52px;padding:14px 10px 96px}
+}
+</style>
+<link rel="stylesheet" href="design.css">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+<div id="app"></div>
+<div id="view"></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script src="local-data.js"></script>
+<script>
+(function(){
+  var LS = window.LS, APP = window.APP, T = LS.T;
+  var I = APP.icon, ESC = APP.esc, ST = APP.st, LENS = APP.lensMark;
+
+  /* ---------- 数据模式：示例 / 空 ---------- */
+  var MODE = 'sample';
+  function leads(bid){
+    if (MODE === 'empty') return [];
+    return LS.byBatch(bid);
+  }
+  function setMode(m){ MODE = m; APP.rerenderNow(); }
+
+  /* ---------- 壳 ---------- */
+  function shell(active, title, sub, rightHtml, bodyHtml){
+    var items = [
+      ['overview','grid',T({zh:'数据看板',en:'Dashboard'})],
+      ['batches','table',T({zh:'客户资产',en:'Clients'})],
+      ['attrib','card',T({zh:'表单分析',en:'Form analysis'})]
+    ];
+    var rail = '<div class="shell"><aside class="rail"><a class="logo" href="#/overview">' + LENS(22) + '<span>LeadScope</span></a>';
+    items.forEach(function(it){
+      rail += '<a class="it' + (active === it[0] ? ' on' : '') + '" href="#/' + it[0] + '"'
+        + (active === it[0] ? ' aria-current="page"' : '') + '>' + I(it[1], 24) + '<span>' + it[2] + '</span></a>';
+    });
+    rail += '<div class="sp"></div><div class="bottom">'
+      + '<a class="it" href="#/learn">' + I('help',24) + '<span>' + T({zh:'Meta 教程',en:'Meta workflow'}) + '</span></a>'
+      + '<a class="it" href="#/settings">' + I('gear',24) + '<span>' + T({zh:'设置',en:'Settings'}) + '</span></a>'
+      + '<a class="it" href="#/home">' + I('export',17) + '<span>' + T({zh:'返回公开页',en:'Public site'}) + '</span></a>'
+      + '<button class="it" type="button" data-act="theme">' + I('dot',17) + '<span>'
+      + T({zh:'深浅主题',en:'Theme'}) + '</span></button></div></aside>';
+
+    var bar = '<div class="main"><div class="topbar"><div>' + (title ? '<h1>' + title + '</h1>' : '')
+      + (sub ? '<div class="sub">' + sub + '</div>' : '') + '</div>'
+      + '<div class="right">' + (rightHtml || '') + '</div></div>' + bodyHtml + '</div>';
+    return rail + bar + '</div>' + APP.tabbar('work');
+  }
+  function modeSwitch(){
+    return '<span class="seg" role="group" aria-label="' + T({zh:'数据模式',en:'Data mode'}) + '">'
+      + '<button type="button" data-act="mode" data-mode="sample" class="' + (MODE==='sample'?'on':'') + '">'
+      + T({zh:'内容预览',en:'Preview'}) + '</button>'
+      + '<button type="button" data-act="mode" data-mode="empty" class="' + (MODE==='empty'?'on':'') + '">'
+      + T({zh:'空态预览',en:'Empty preview'}) + '</button></span>';
+  }
+  function stateline(){
+    var q=APP.route().q,r=q.id?LS.findLead(q.id):null,b=LS.BATCHES.find(function(x){return x.id===(q.batch||LS.BATCHES[0].id);});
+    var local=r?r.local:(b&&b.local);if(APP.route().q.tab==='import')return '<div class="stateline"><span class="st">'+T({zh:'手动导入 · 文件只在浏览器内解析',en:'Manual import · files stay in your browser'})+'</span></div>';if(APP.route().page==='attrib')local=ATTR&&ATTR.src==='file';
+    return '<div class="stateline"><span class="st">'+(MODE==='empty'?T({zh:'空状态预览',en:'Empty preview'}):local?T({zh:'你的本地记录 · 尚未独立核实',en:'Your local records · unverified'}):T({zh:'虚构示例数据',en:'Fictional sample data'}))+'</span><span class="st">'+T({zh:'自动背调待接入',en:'Automated screening not connected'})+'</span></div>';
+  }
+  function batchSel(cur){
+    var h = '<span class="select"><select data-act="batch" aria-label="' + T({zh:'批次',en:'Batch'}) + '">';
+    LS.BATCHES.forEach(function(b){
+      h += '<option value="' + b.id + '"' + (cur===b.id?' selected':'') + '>'
+        + T(b.label) + ' · ' + leads(b.id).length + '</option>';
+    });
+    return h + '</select></span>';
+  }
+
+  /* ================= Dashboard ================= */
+  APP.page('overview',{render:function(){
+    var c=function(z,e){return T({zh:z,en:e});},bid=APP.route().q.batch||LS.BATCHES[0].id;
+    if(!LS.BATCHES.some(function(b){return b.id===bid;}))bid=LS.BATCHES[0].id;
+    var list=leads(bid),k=LS.kpi(list),h=stateline();
+    if(MODE==='empty'||!list.length)return shell('overview',c('工作台','Workspace'),'',batchSel(bid),h+APP.state('empty',{title:c('从客户线索开始','Start with your leads'),body:c('导入现有表格，或手工录入一条线索。','Import your CSV or enter one lead.'),action:'<a class="btn btn-primary" href="#/batches?tab=import">'+c('导入线索','Import leads')+'</a>'}));
+    var pending=list.filter(function(r){return r.ana.verdict==='pending';}),unassigned=list.filter(function(r){return T(r.hand.owner)===c('待分配','Unassigned');});
+    var next=pending.length?{kind:'pending',n:pending.length,title:c('先补齐资料','Clarify missing details'),desc:c('身份或需求还不足，先打开客户档案确认。','Open these records and confirm identity or intent.')}:unassigned.length?{kind:'owner',n:unassigned.length,title:c('安排跟进人','Assign an owner'),desc:c('给待跟进客户明确负责人。','Give these clients a clear owner.')}:{kind:'all',n:list.length,title:c('查看客户档案','Review client records'),desc:c('从现有记录里安排下一步。','Choose the next action from your records.')};
+    h+='<section class="workspace-next"><div class="workspace-next-label">'+I('up',30)+'<span>'+c('现在先做','START HERE')+'</span></div><div><strong>'+next.n+'</strong><h2>'+next.title+'</h2><p>'+next.desc+'</p></div><button class="btn btn-primary" data-act="dash-filter" data-kind="'+next.kind+'" data-batch="'+bid+'">'+c('查看这批客户','Open clients')+'</button></section>';
+    h+='<div class="workspace-counts"><div><small>'+c('本批客户','In this batch')+'</small><b>'+k.total+'</b></div><div><small>'+c('强匹配','Strong fit')+'</small><b>'+k.strong+'</b></div><div><small>'+c('待补信息','Needs info')+'</small><b>'+k.pending+'</b></div><div><small>'+c('待分配','Unassigned')+'</small><b>'+k.unassigned+'</b></div></div>';
+    h+='<section class="workspace-recent"><div class="workspace-section-head"><h2>'+c('最近的客户','Client records')+'</h2><a href="#/batches?batch='+bid+'">'+c('查看全部','View all')+'</a></div><div class="workspace-recent-list">'+list.slice(0,4).map(function(r){return '<a href="#/lead?id='+r.id+'"><span class="contact-avatar">'+ESC((T(r.raw.name)||'?').slice(0,1))+'</span><span><b>'+ESC(T(r.raw.name)||c('未具名','Unnamed'))+'</b><small>'+ESC(T(r.ent.nameRaw||r.raw.company)||c('公司待核对','Company to confirm'))+' · '+ESC(T(r.raw.country))+'</small></span><em class="lead-verdict verdict-'+r.ana.verdict+'">'+T(LS.VERDICT[r.ana.verdict])+'</em></a>';}).join('')+'</div></section>';
+    h+='<div class="workspace-tools"><a href="#/batches?tab=import">'+I('paste',28)+'<span><b>'+c('导入线索或背调结果','Import leads or research results')+'</b><small>CSV</small></span></a><a href="#/attrib">'+I('card',28)+'<span><b>'+c('查看 Meta 表单分析','Review Meta form analysis')+'</b><small>'+c('按广告组查看已有字段','By ad set and available fields')+'</small></span></a><button data-act="export" data-kind="19">'+I('export',28)+'<span><b>'+c('导出交接表','Export hand-off')+'</b><small>'+c('交到团队自己的在线文档','For your team document')+'</small></span></button></div>';
+    var sd=LS.sourceDist(list),max=Math.max.apply(null,sd.map(function(x){return x.n;}).concat([1]));
+    h+='<details class="workspace-insights"><summary>'+I('lens',26)+'<span>'+c('展开数据分布','Explore the breakdown')+'</span></summary><div class="workspace-insight-grid"><section><h3>'+c('结论分布','Assessment mix')+'</h3>'+distBars(list)+'</section><section><h3>'+c('来源分布','Sources')+'</h3><div class="source-chart">'+sd.map(function(x){return '<div><span>'+T(x.label)+'</span><div class="source-track"><i style="width:'+Math.round(x.n/max*100)+'%"></i></div><b>'+x.n+'</b></div>';}).join('')+'</div></section></div></details>';
+    return shell('overview',c('工作台','Workspace'),c('从当前这批开始。','This batch at a glance.'),batchSel(bid)+'<a class="btn btn-ghost btn-sm" href="#/batches?tab=import">'+c('导入','Import')+'</a>',h);
+  }});
+
+  function kpi(k, v, s){
+    return '<div class="kpi"><div class="k">' + k + '</div><div class="v">' + v + '</div><div class="s">' + s + '</div></div>';
+  }
+  function distBars(list){
+    var total = list.length || 1;
+    var h = '<div class="dist">';
+    Object.keys(LS.VERDICT).forEach(function(x){
+      var n = list.filter(function(r){ return r.ana.verdict === x; }).length;
+      h += '<div class="drow' + (x==='strong'?' hot':'') + '"><span class="lb">' + T(LS.VERDICT[x]) + '</span>'
+        + '<span class="track"><i style="width:' + Math.round(n/total*100) + '%"></i></span>'
+        + '<span class="n">' + n + '</span></div>';
+    });
+    return h + '</div>';
+  }
+  function srcBars(list){
+    var d = LS.sourceDist(list);
+    return d.map(function(x){
+      return '<div class="srcrow"><span class="b"></span><span>' + T(x.label) + '</span>'
+        + '<span class="n">' + x.n + '</span></div>';
+    }).join('');
+  }
+
+  /* ================= 线索 ================= */
+  var ASSET_VIEW='table';
+  var F = { verdict:'', source:'', info:'', priority:'', q:'' };
+  APP.page('batches', {
+    render: function(){
+      var q = APP.route().q;
+      var bid = q.batch || LS.BATCHES[0].id;
+      if(!LS.BATCHES.some(function(b){return b.id===bid;}))bid=LS.BATCHES[0].id;
+      if (q.tab === 'import') {
+        return shell('batches', T({zh:'导入',en:'Import'}),
+          T({zh:'选择来源，再上传文件或录入线索。',en:'Choose the source, then upload or enter your leads.'}),
+          '', stateline() + importHTML());
+      }
+      var list = leads(bid);
+      var h = stateline();
+      if (MODE === 'empty') {
+        h += APP.state('empty', {
+          title: T({zh:'还没有线索',en:'No leads yet'}),
+          body: T({zh:'导入表格、粘贴文本、录名片或单条录入都可以。缺公司名也能导入，会标记待补。',
+                   en:'Import a file, paste text, enter a card, or key one in. Missing company is fine — it gets a needs-info tag.'}),
+          action: '<a class="btn btn-primary" href="#/batches?tab=import">' + T({zh:'去导入',en:'Go to import'}) + '</a>'
+        });
+        return shell('batches', T({zh:'线索',en:'Leads'}), '', '', h);
+      }
+
+      var rows = LS.filterRows(list, F);
+      var countries={},businesses={},owners={unassigned:T({zh:'待分配',en:'Unassigned'})};
+      list.forEach(function(r){var c=T(r.raw.country)||'—',b=T(r.ana.biztype)||'—',o=T(r.hand.owner);countries[c]=c;businesses[b]=b;if(o&&o!==T({zh:'待分配',en:'Unassigned'}))owners[o]=o;});
+      h+='<div class="asset-controls"><div class="asset-control-main"><input type="search" aria-label="'+T({zh:'搜索客户',en:'Search clients'})+'" data-act="search" placeholder="'+ESC(T({zh:'搜索姓名、公司、国家…',en:'Search name, company, country…'}))+'" value="'+ESC(F.q)+'"><span class="select">'+selFilter('verdict',T({zh:'全部结论',en:'All verdicts'}),LS.VERDICT,F.verdict)+'</span><span class="seg"><button data-act="asset-view" data-v="table" class="'+(ASSET_VIEW==='table'?'on':'')+'">'+I('table',22)+T({zh:'表格',en:'Table'})+'</button><button data-act="asset-view" data-v="cards" class="'+(ASSET_VIEW==='cards'?'on':'')+'">'+I('card',22)+T({zh:'档案卡',en:'Cards'})+'</button></span></div><div class="asset-control-secondary"><span>'+rows.length+' / '+list.length+' '+T({zh:'条记录',en:'records'})+'</span><details class="asset-more"><summary>'+I('filter',18)+T({zh:'更多筛选与分布',en:'More filters & breakdown'})+'</summary><div class="asset-more-body"><div class="asset-more-filters">'
+        + selFilter('source',T({zh:'全部来源',en:'All sources'}),LS.SOURCES_LABELS,F.source)
+        + selFilter('country',T({zh:'全部国家',en:'All markets'}),countries,F.country)
+        + selFilter('business',T({zh:'全部业务',en:'All businesses'}),businesses,F.business)
+        + selFilter('owner',T({zh:'全部负责人',en:'All owners'}),owners,F.owner)
+        + selFilter('info',T({zh:'全部信息状态',en:'All info states'}),LS.INFOSTATE,F.info)
+        + selFilter('priority',T({zh:'全部优先级',en:'All priorities'}),LS.PRIORITY,F.priority)
+        + '</div>'+assetDistribution(list,'country',countries,T({zh:'国家分布',en:'Markets'}))+assetDistribution(list,'business',businesses,T({zh:'业务构成',en:'Business types'}))+'</div></details>'
+        + (Object.keys(F).some(function(k){return !!F[k];})?'<button class="text-action" data-act="clearfilter">'+T({zh:'清除筛选',en:'Clear filters'})+'</button>':'')
+        + '<button class="text-action" data-act="export" data-kind="ext">'+I('export',18)+T({zh:'导出',en:'Export'})+'</button></div></div>';
+      if (!rows.length) {
+        h += APP.state('empty', {
+          title: T({zh:'筛选结果为空',en:'Nothing matches these filters'}),
+          body: T({zh:'换一个条件，或清掉筛选再看全部。',en:'Loosen a filter, or clear them to see everything.'}),
+          action: '<button class="btn btn-ghost btn-sm" data-act="clearfilter">' + T({zh:'清掉筛选',en:'Clear filters'}) + '</button>'
+        });
+      } else {
+        h+=assetRecords(rows);
+      }
+      return shell('batches', T({zh:'客户资产',en:'Client assets'}),
+        T((LS.BATCHES.filter(function(b){return b.id===bid;})[0]||LS.BATCHES[0]).label) + ' · ' + list.length + ' ' + T({zh:'条',en:'leads'}),
+        batchSel(bid) + '<a class="btn btn-ghost btn-sm" href="#/batches?tab=import">' + T({zh:'导入',en:'Import'}) + '</a>', h);
+    }
+  });
+  function assetDistribution(list,key,options,title){
+    var entries=Object.keys(options).map(function(v){return {v:v,n:list.filter(function(r){return (T(key==='country'?r.raw.country:r.ana.biztype)||'—')===v;}).length};}).sort(function(a,b){return b.n-a.n;}).slice(0,6);
+    return '<section class="asset-distribution"><h2>'+title+'</h2><div>'+entries.map(function(x){return '<button data-act="asset-drill" data-key="'+key+'" data-v="'+ESC(x.v)+'" class="'+(F[key]===x.v?'on':'')+'"><span>'+ESC(x.v)+'</span><b>'+x.n+'</b><i style="width:'+Math.round(x.n/list.length*100)+'%"></i></button>';}).join('')+'</div></section>';
+  }
+  function assetRecords(rows){
+    var c=function(z,e){return T({zh:z,en:e});},text=function(v){return ESC(T(v)||'—');};
+    if(ASSET_VIEW==='table')return '<div class="tblwrap"><table class="tbl asset-table"><thead><tr>'+[c('联系人 / 主体','Contact / entity'),c('联系方式','Contact details'),c('业务 / 采购量级','Business / scale'),c('结论','Assessment'),c('负责人 / 跟进','Owner / follow-up'),c('档案','Record')].map(function(v){return '<th>'+v+'</th>';}).join('')+'</tr></thead><tbody>'+rows.map(function(r){return '<tr><td><b>'+text(r.raw.name)+'</b><div>'+text(r.ent.nameRaw||r.raw.company)+'</div><small>'+text(r.raw.country)+'</small></td><td>'+text(r.raw.email)+'<div>'+text(r.raw.phone)+'</div></td><td>'+text(r.ana.biztype)+'<details><summary>'+c('查看量级描述','Scale notes')+'</summary>'+text(r.ana.scale)+'</details></td><td><span class="lead-verdict verdict-'+r.ana.verdict+'">'+T(LS.VERDICT[r.ana.verdict])+'</span></td><td>'+text(r.hand.owner)+'<div>'+text(r.hand.followup)+'</div></td><td><a class="btn btn-ghost btn-sm" href="#/lead?id='+r.id+'">'+c('打开','Open')+' →</a></td></tr>';}).join('')+'</tbody></table></div>';
+    return '<div class="asset-cards">'+rows.map(function(r){return '<article class="asset-card"><header><span class="contact-avatar">'+text((T(r.raw.name)||'?').slice(0,1))+'</span><div><h3>'+text(r.raw.name)+'</h3><p>'+text(r.ent.nameRaw||r.raw.company)+'</p></div><span class="lead-verdict verdict-'+r.ana.verdict+'">'+T(LS.VERDICT[r.ana.verdict])+'</span></header><div class="asset-meta">'+I('globe',22)+text(r.raw.country)+' · '+ESC(LS.SOURCES[r.source].short)+'</div><div class="asset-business"><b>'+text(r.ana.biztype)+'</b><details><summary>'+c('采购量级与业务描述','Scale & business notes')+'</summary><p>'+text(r.ana.mainbiz)+'</p><p>'+text(r.ana.scale)+'</p></details></div><div class="asset-strategy"><span>'+I('up',26)+'</span><p>'+text(r.ana.strategy)+'</p></div><footer><div><small>'+c('负责人','OWNER')+'</small><b>'+text(r.hand.owner)+'</b></div><a class="btn btn-ghost btn-sm" href="#/lead?id='+r.id+'">'+c('查看与跟进','Review & follow up')+' →</a></footer>'+(T(r.hand.followup)?'<p class="asset-followup">'+I('pen',20)+text(r.hand.followup)+'</p>':'')+'</article>';}).join('')+'</div>';
+  }
+  function selFilter(key, allLabel, table, cur){
+    var h = '<span class="select"><select aria-label="' + ESC(allLabel) + '" data-act="filter" data-key="' + key + '"><option value="">' + allLabel + '</option>';
+    Object.keys(table).forEach(function(x){
+      h += '<option value="' + ESC(x) + '"' + (cur===x?' selected':'') + '>' + T(table[x].label || table[x]) + '</option>';
+    });
+    return h + '</select></span>';
+  }
+
+  /* ---------- 导入 ---------- */
+  var IMPORT_ROWS=[], IMPORT_FIELDS=[];
+  function sourceSelect(){return '<select id="import-source" aria-label="'+T({zh:'线索来源',en:'Lead source'})+'">'+Object.keys(LS.SOURCES).map(function(k){return '<option value="'+k+'"'+(APP.route().q.source===k?' selected':'')+'>'+T(LS.SOURCES[k].label)+'</option>';}).join('')+'</select>';}
+  function importHTML(){
+    return '<div class="local-toolbar"><b>'+T({zh:'这批线索来自',en:'Lead source'})+'</b>'+sourceSelect()+'<span class="st">'+T({zh:'在当前浏览器标签页暂存，建议及时导出',en:'Stored in this tab; export a backup'})+'</span></div>'
+    +'<div class="imp">'+impBox('table',T({zh:'导入 CSV',en:'Import CSV'}),T({zh:'原始询盘或 19 列背调结果；导入前预览确认',en:'Raw inquiries or 19-column results; preview before importing'}),'pickfile',false)
+    +impBox('paste',T({zh:'粘贴字段',en:'Paste fields'}),T({zh:'每行「字段：值」，确认后保存成线索',en:'One field: value per line, then confirm and save'}),'pickpaste',false)
+    +impBox('photo',T({zh:'名片与图片',en:'Cards & images'}),T({zh:'OCR 待接入；现在可以手工录入名片内容',en:'OCR not connected; enter card details manually'}),'pickcard',true)
+    +impBox('pen',T({zh:'单条录入',en:'Single entry'}),T({zh:'邮件、名片或零散线索，缺公司名也可保存',en:'Emails, cards or individual leads; company name is optional'}),'picksingle',false)+'</div>'
+    +'<input id="lead-file" type="file" accept=".csv,text/csv" hidden><div class="local-message" id="import-message" role="status"></div><div id="import-preview"></div>'
+    +'<section class="card" style="padding:26px;margin-top:20px"><div class="chead"><h2>'+T({zh:'粘贴原始字段',en:'Paste raw fields'})+'</h2></div><textarea id="paste-in" rows="5" class="inp" style="width:100%;font:inherit" aria-label="'+T({zh:'粘贴原始字段',en:'Paste raw fields'})+'" placeholder="'+T({zh:'姓名：Alex&#10;公司：Example Trading&#10;邮箱：demo-buyer@example.com',en:'Contact: Alex&#10;Company: Example Trading&#10;Email: demo-buyer@example.com'})+'"></textarea><div class="local-toolbar"><button class="btn btn-ghost" data-act="dopaste">'+T({zh:'解析并预览',en:'Parse and preview'})+'</button><span class="note">'+T({zh:'正文不会被 AI 自动提取。原文始终保留。',en:'No AI extraction. Original text is preserved.'})+'</span></div><div id="paste-out"></div></section>'
+    +'<section class="card" id="single-entry" style="padding:26px;margin-top:20px"><div class="chead"><h2>'+T({zh:'手工录入一条线索',en:'Enter a lead'})+'</h2></div><form id="single-form"><div class="local-form">'+[['name','姓名 / Contact'],['company','公司 / Company'],['email','邮箱 / Email'],['phone','电话 / Phone'],['country','国家 / Country'],['title','职位 / Title'],['category','意向品类 / Category'],['website','官网 / Website']].map(function(x){return '<label>'+T({zh:x[1].split(' / ')[0],en:x[1].split(' / ')[1]})+'<input name="'+x[0]+'" type="text"></label>';}).join('')+'<label class="wide">'+T({zh:'原始需求或名片备注',en:'Original request / card notes'})+'<textarea name="inquiry" rows="4"></textarea></label></div><button type="submit" class="btn btn-primary">'+T({zh:'保存为待核实线索',en:'Save as unverified lead'})+'</button></form></section>'
+    +'<p class="note">'+T({zh:'目前支持 UTF-8 CSV、字段粘贴和手工录入。XLSX 请先另存为 CSV。导入不会自动背调，也不会把公司名或企业邮箱当成有效客户。',en:'Supports UTF-8 CSV, field paste and manual entry. Save XLSX as CSV first. Import does not run screening or treat company names and corporate emails as proof of value.'})+'</p>';
+  }
+  function importSource(){var el=document.getElementById('import-source');return el?el.value:'email';}
+  function saveRecords(records,label){if(!records.length){APP.toast(T({zh:'没有可保存的线索',en:'No records to save'}));return;}var id=LS.addLocalBatch(records,label);if(!LS.storageAvailable)APP.toast(T({zh:'浏览器无法暂存：记录仅在本页内存中，请立即导出备份。',en:'Browser storage is unavailable. Export now; these records exist only in memory.'}));MODE='sample';F={verdict:'',source:'',info:'',priority:'',q:''};APP.go('batches',{batch:id});}
+  function previewImport(rows){
+    IMPORT_FIELDS=rows; IMPORT_ROWS=rows.map(function(r){return LS.makeLocal(r,importSource(),Object.keys(r).map(function(k){return k+'：'+r[k];}).join('\n'));});
+    document.getElementById('import-preview').innerHTML='<div class="card" style="padding:24px;margin-top:20px"><div class="chead"><h2>'+T({zh:'确认字段预览',en:'Confirm imported fields'})+'</h2><span>'+rows.length+' '+T({zh:'条',en:'leads'})+'</span></div><p class="note">'+T({zh:'预览前 10 条。未知列保留在原始字段中；分析内容仍标记为未独立核实。',en:'First 10 rows shown. Unknown columns are preserved; assessments remain unverified.'})+'</p><div class="tblwrap import-preview"><table class="tbl"><thead><tr><th>'+T({zh:'姓名',en:'Contact'})+'</th><th>'+T({zh:'公司',en:'Company'})+'</th><th>Email</th><th>'+T({zh:'品类',en:'Category'})+'</th></tr></thead><tbody>'+rows.slice(0,10).map(function(r){return '<tr><td>'+ESC(r.name||'—')+'</td><td>'+ESC(r.company||r.entmap||'—')+'</td><td>'+ESC(r.email||'—')+'</td><td>'+ESC(r.category||'—')+'</td></tr>';}).join('')+'</tbody></table></div><div class="local-toolbar"><button class="btn btn-primary" data-act="confirmimport">'+T({zh:'确认保存本批',en:'Confirm batch'})+'</button><button class="btn btn-ghost" data-act="cancelimport">'+T({zh:'取消',en:'Cancel'})+'</button></div></div>';
+  }
+  function readLeadFile(file){
+    var msg=document.getElementById('import-message');
+    IMPORT_ROWS=[];IMPORT_FIELDS=[];document.getElementById('import-preview').innerHTML='';
+    document.getElementById('lead-file').value='';
+    if(!/\.csv$/i.test(file.name)){msg.textContent=T({zh:'请选择 CSV 文件；Excel 请先另存为 UTF-8 CSV。',en:'Choose CSV. Save Excel as UTF-8 CSV first.'});return;}
+    if(file.size>10*1024*1024){msg.textContent=T({zh:'文件超过 10 MB，请拆成较小批次。',en:'File exceeds 10 MB. Split into smaller batches.'});return;}
+    var rd=new FileReader();rd.onerror=function(){msg.textContent=T({zh:'文件读取失败，请重试。',en:'Could not read file. Please retry.'});};rd.onload=function(){try{var p=LS.parseTable(rd.result);if(!p.rows.length)throw new Error(T({zh:'没有数据行',en:'No data rows'}));var recognized=false;var rows=p.rows.map(function(row){var out={};Object.keys(row).forEach(function(k){var col=LS.COLS19.find(function(c){return k.trim()===c.zh||k.trim().toLowerCase()===c.en.toLowerCase();});var std=col?col.k:LS.aliasOf(k);if(std)recognized=true;if(std&&Object.prototype.hasOwnProperty.call(out,std))throw new Error(T({zh:'两个列名映射到了同一字段，请先合并或重命名。',en:'Two columns map to the same field. Merge or rename them first.'}));out[std||k]=row[k];});return out;});if(!recognized)throw new Error(T({zh:'未识别任何字段，请使用姓名、公司、邮箱等列名。',en:'No recognized fields. Use Contact, Company or Email columns.'}));msg.textContent='';previewImport(rows);}catch(e){msg.textContent=T({zh:'导入失败：',en:'Import failed: '})+e.message;}};rd.readAsText(file,'utf-8');
+  }
+  document.addEventListener('change',function(e){if(e.target.id==='lead-file'&&e.target.files[0])readLeadFile(e.target.files[0]);});
+  document.addEventListener('submit',function(e){if(e.target.id!=='single-form')return;e.preventDefault();var obj=Object.fromEntries(new FormData(e.target));if(!Object.values(obj).some(function(v){return v.trim();})){APP.toast(T({zh:'至少填写一项识别信息或需求',en:'Enter at least one identification field or request'}));return;}saveRecords([LS.makeLocal(obj,importSource(),obj.inquiry)],T({zh:'手工录入',en:'Manual entry'}));});
+  function impBox(ic, t, p, act, disabled){
+    return '<button class="box card" type="button" data-act="' + act + '"'
+      + (disabled ? ' data-unavailable="true"' : '') + '>'
+      + I(ic,20) + '<h3>' + t + '</h3><p>' + p + '</p>'
+      + '<div style="margin-top:10px">' + ST(disabled ? 'todo' : 'ready') + '</div></button>';
+  }
+  function doPaste(){
+    var txt=document.getElementById('paste-in').value;if(!txt.trim()){APP.toast(T({zh:'先粘贴字段',en:'Paste fields first'}));return;}
+    var got={};txt.split(/\n+/).forEach(function(l){var m=l.match(/^([^：:]{1,30})[：:]\s*(.+)$/);if(m){var key=LS.aliasOf(m[1])||m[1].trim();got[key]=m[2].trim();}});
+    if(!Object.keys(got).length){document.getElementById('paste-out').textContent=T({zh:'请使用「字段：值」，例如「公司：Example Trading」。整段正文请填到手工录入的原始需求。',en:'Use field: value. Enter plain inquiry text in the manual-entry notes.'});return;}
+    got.inquiry=txt;previewImport([got]);document.getElementById('import-preview').scrollIntoView({block:'center',behavior:'smooth'});
+  }
+
+  /* ================= 单条详情 ================= */
+  APP.page('lead', {
+    render: function(page, q){
+      var r = LS.findLead(q.id);
+      if (!r) {
+        return shell('batches', T({zh:'线索详情',en:'Lead detail'}), '', '',
+          '<div class="empty" style="margin-top:30px">' + LENS(40)
+          + '<h3>' + T({zh:'找不到这条线索',en:'Lead not found'}) + '</h3>'
+          + '<p>' + T({zh:'链接里的 ID 不存在，可能来自旧批次。',en:'That ID does not exist; it may be from an old batch.'}) + '</p>'
+          + '<a class="btn btn-ghost" href="#/batches">' + T({zh:'回批次列表',en:'Back to batches'}) + '</a></div>');
+      }
+      if (MODE === 'empty') {
+        return shell('batches', T({zh:'线索详情',en:'Lead detail'}), '', '', APP.state('empty', {
+          title: T({zh:'空状态下没有这条',en:'Nothing to show in empty mode'}),
+          body: T({zh:'切回示例数据就能看到这条的完整判断。',en:'Switch back to sample data to see this lead.'})
+        }));
+      }
+      var e = r.ext();
+      var related = LS.linksOf(r);
+
+      var h = stateline() + '<div class="lead-head"><div><h1>' + ESC(T(r.raw.name) || T({zh:'未具名线索',en:'Unnamed lead'})) + '</h1>'
+        + '<div class="meta">' + r.id + ' · ' + T(LS.SOURCES[r.source].label) + ' · ' + ESC(T(r.raw.country))
+        + (related.length ? ' · ' + T({zh:'关联',en:'linked'}) + ' ' + related.join(', ') : '') + '</div></div>'
+        + '<div style="margin-left:auto;display:flex;gap:10px;flex-wrap:wrap;align-items:center">'
+        + '<span class="st"><i></i>' + T(LS.VERDICT[r.ana.verdict]) + '</span>'
+        + '<button class="btn btn-ghost btn-sm" data-act="back">' + T({zh:'返回',en:'Back'}) + '</button>'
+        + '<button class="btn btn-ghost btn-sm" data-act="copy" data-copy="' + ESC(T(r.ana.strategy)) + '">'
+        + T({zh:'复制下一步',en:'Copy next step'}) + '</button></div></div>';
+
+      h += '<div class="layers">';
+      /* 一、原始需求 */
+      h += layer(1, T({zh:'原始需求',en:'Raw request'}), 'manual', '<dl class="kv">'
+        + kv(T({zh:'姓名',en:'Name'}), ESC(T(r.raw.name)))
+        + kv(T({zh:'职位',en:'Title'}), ESC(T(r.raw.title)))
+        + kv(T({zh:'品类',en:'Category'}), ESC(T(r.raw.category)))
+        + kv(T({zh:'合作意向',en:'Intent'}), ESC(T(r.raw.intent)))
+        + kv(T({zh:'国家',en:'Country'}), ESC(T(r.raw.country)))
+        + kv(T({zh:'邮箱',en:'Email'}), ESC(r.raw.email))
+        + kv(T({zh:'电话',en:'Phone'}), ESC(r.raw.phone))
+        + kv(T({zh:'官网',en:'Website'}), APP.safeLink(r.raw.website, r.raw.website))
+        + kv(T({zh:'公司名（自填）',en:'Company (as given)'}), ESC(T(r.raw.company)))
+        + kv(T({zh:'来源',en:'Source'}), T(LS.SOURCES[r.source].label) + ' · ' + ESC(T(e.form)))
+        + extKv(r, e)
+        + '</dl>'
+        + (e.rawText ? evi(r.local?T({zh:'导入字段快照',en:'Imported field snapshot'}):T({zh:'表单原文',en:'Form as submitted'}), [ {kind:'original', zh:T(e.rawText), en:T(e.rawText)} ]) : '')
+        + (e.inquiry ? evi(T({zh:'询盘原文',en:'Inquiry text'}), [ {kind:'original', zh:T(e.inquiry), en:T(e.inquiry)} ]) : ''));
+
+      /* 二、主体识别 */
+      var ocr = e.ocr;
+      h += layer(2, T({zh:'主体识别',en:'Entity ID'}), r.ent.identified ? 'ready' : 'pending',
+        '<dl class="kv">'
+        + kv(T({zh:'识别结果',en:'Matched to'}), ESC(T(r.ent.name)))
+        + kv(T({zh:'原始写法',en:'As written'}), ESC(T(r.ent.nameRaw)))
+        + kv(T({zh:'注册地',en:'Registry'}), ESC(T(r.ent.registry)))
+        + kv(T({zh:'置信度',en:'Confidence'}), confLabel(r.ent.confidence))
+        + '</dl>'
+        + evi(T({zh:'依据（每条标事实 / 推测 / 未知）',en:'Evidence (each tagged fact / inference / unknown)'}), r.ent.evidence)
+        + (ocr ? ocrBlock(ocr) : '')
+        + (related.length ? relatedBlock(related) : ''));
+
+      /* 三、业务判断 */
+      h += layer(3, T({zh:'业务判断',en:'Business judgment'}), r.local ? 'manual' : r.ana.verdict==='pending' ? 'pending' : 'ready',
+        '<dl class="kv">'
+        + kv(T({zh:'实际业务',en:'Actual business'}), ESC(T(r.ana.biztype)))
+        + kv(T({zh:'角色',en:'Role'}), r.ana.roleCode ? ESC(({L1:T({zh:'进口商 / 经销商',en:'Importer / distributor'}),L2:T({zh:'贸易商 / 中间商',en:'Trader / intermediary'}),L3:T({zh:'商用终端 / 连锁采购',en:'Commercial end user / chain buyer'})})[r.ana.roleCode]||r.ana.roleCode) : T({zh:'未判',en:'Not set'}))
+        + kv(T({zh:'自报类型（仅对照）',en:'Self-reported (cross-check only)'}), ESC(T(r.ana.selftype)))
+        + kv(T(LS.COLS19[12]), ESC(T(r.ana.mainbiz)))
+        + kv(T(LS.COLS19[13]), ESC(T(r.ana.scale)))
+        + kv(T(LS.COLS19[14]), '<b>' + T(LS.VERDICT[r.ana.verdict]) + '</b>')
+        + '</dl>'
+        + evi(T({zh:'判断依据',en:'Evidence'}), r.ana.evidence)
+        + gapBlock(r.ana.gaps)
+        + flagsBlock(r));
+
+      /* 四、下一步策略 */
+      h += layer(4, T({zh:'下一步策略',en:'Next-step strategy'}), r.local ? 'manual' : 'ready',
+        '<p style="font-size:14.5px;line-height:1.8;color:var(--ink-2);margin-bottom:14px">' + ESC(T(r.ana.strategy)) + '</p>'
+        + '<div class="handgrid">'
+        + '<label>' + T(LS.COLS19[16]) + '<input data-hand="owner" value="' + ESC(T(r.hand.owner)) + '"></label>'
+        + '<label>' + T(LS.COLS19[17]) + '<textarea data-hand="followup">' + ESC(T(r.hand.followup)) + '</textarea></label>'
+        + '<label>' + T(LS.COLS19[18]) + '<textarea data-hand="memo">' + ESC(T(r.hand.memo)) + '</textarea></label>'
+        + '</div>'
+        + '<p class="note">' + T({zh:'记下负责人、跟进情况和备注，再导出到你们自己的在线文档或表格。本地记录在当前标签页暂存；示例编辑刷新后重置，请及时导出。',
+          en:'Record the owner, follow-up and notes, then export for your own online document or spreadsheet. Imported records stay in this tab; sample edits reset on refresh. Export anything you need to keep.'}) + '</p>');
+
+      h += '</div>'
+        + '<div style="display:flex;gap:10px;margin-top:22px;flex-wrap:wrap">'
+        + '<button class="btn btn-ghost btn-sm" data-act="export" data-kind="19" data-id="' + r.id + '">' + T({zh:'导出这条（19 列）',en:'Export this lead (19 col)'}) + '</button>'
+        + '<button class="btn btn-ghost btn-sm" data-act="export" data-kind="ext" data-id="' + r.id + '">' + T({zh:'导出这条（扩展）',en:'Export this lead (extended)'}) + '</button>'
+        + '<a class="btn btn-ghost btn-sm" href="#/batches?batch=' + LS.batchOf(r.id) + '">' + T({zh:'回批次列表',en:'Back to batches'}) + '</a></div>';
+      return shell('batches', '', '', '', h);
+    }
+  });
+
+  function confLabel(c){
+    return { high:T({zh:'高',en:'High'}), medium:T({zh:'中',en:'Medium'}),
+             low:T({zh:'低',en:'Low'}), none:T({zh:'无',en:'None'}) }[c] || '—';
+  }
+  function kv(k, v){ return '<dt>' + k + '</dt><dd>' + (v == null || v === '' ? '—' : v) + '</dd>'; }
+  function layer(n, title, stt, body){
+    return '<section class="layer"><h2><span class="n">0' + n + '</span>' + title + ST(stt) + '</h2>'
+      + '<div class="bd2">' + body + '</div></section>';
+  }
+  function evi(title, items){
+    if (!items || !items.length) return '';
+    if(items[0].kind==='original')return '<details class="original-notes"><summary>'+title+'</summary><pre>'+items.map(function(x){return ESC(T(x));}).join('\n\n')+'</pre></details>';
+    var h = '<div class="evi"><h4>' + title + '</h4><ul>';
+    items.forEach(function(x){
+      var ic = x.kind==='fact' ? 'check' : x.kind==='guess' ? 'help' : 'x';
+      var lb = x.kind==='original' ? T({zh:'原始记录',en:'Raw input'}) : x.kind==='fact' ? T({zh:'事实',en:'Fact'}) : x.kind==='guess' ? T({zh:'推测',en:'Inference'}) : T({zh:'未知',en:'Unknown'});
+      h += '<li>' + I(ic,13) + '<span><span class="mark">' + lb + '</span> ' + ESC(T(x))
+        + (x.why ? ' <span class="mut" style="font-size:12px">(' + ESC(T(x.why)) + ')</span>' : '')
+        + (x.link ? ' ' + APP.safeLink(x.link, T({zh:'来源',en:'source'})) : '') + '</span></li>';
+    });
+    return h + '</ul></div>';
+  }
+  function gapBlock(gaps){
+    if (!gaps || !gaps.length) return '<p class="note">' + T({zh:'暂未列出信息缺口，跟进时仍需确认采购计划。',en:'No gaps listed; confirm purchasing plans during follow-up.'}) + '</p>';
+    var h = '<div class="evi"><h4>' + T({zh:'信息缺口 · 补齐后重判',en:'Missing info · judge after filling'}) + '</h4><ul class="gaplist">';
+    gaps.forEach(function(g){ h += '<li>' + I('help',13) + ESC(T(g)) + '</li>'; });
+    return h + '</ul></div>';
+  }
+  function flagsBlock(r){
+    return '<div class="flagrow">'
+      + flag(T({zh:'优先级',en:'Priority'}), T(LS.PRIORITY[r.flags.priority]))
+      + flag(T({zh:'信息状态',en:'Info state'}), T(LS.INFOSTATE[r.flags.info]))
+      + flag(T({zh:'风险提示',en:'Risk'}), T(LS.RISK[r.flags.risk]))
+      + '</div><p class="note">' + T(LS.OVERLAP) + '</p>';
+  }
+  function flag(k, v){ return '<div class="fl">' + k + '<b>' + v + '</b></div>'; }
+  function ocrBlock(ocr){
+    var h = '<div class="evi"><h4>' + T({zh:'名片 OCR · 先核对再进背调',en:'Card OCR · verify before screening'}) + '</h4>';
+    h += '<div class="okrow"><label><input type="checkbox" data-ocr="confirmed"> '
+      + T({zh:'我已核对以下字段',en:'I have verified the fields below'}) + '</label>'
+      + '<span class="st"><i></i>' + (ocr.state==='confirmed' ? T({zh:'已核对',en:'Verified'}) : T({zh:'待核对',en:'Unverified'})) + '</span></div>';
+    ocr.fields.forEach(function(f){
+      h += '<div class="okrow"><label><input type="checkbox" ' + (f.ok?'checked':'') + '> <b>' + ESC(f.k) + '</b></label>'
+        + '<span>' + ESC(f.v) + '</span>'
+        + (f.ok ? '' : '<span class="bad">' + ESC(T(f.why)) + '</span>');
+    });
+    h += '<p class="note">' + ESC(T(ocr.note)) + '</p></div>';
+    return h;
+  }
+  function relatedBlock(ids){
+    var h = '<div class="evi"><h4>' + T({zh:'跨来源关联 · 原始记录各自保留',en:'Cross-source links · raw records kept separate'}) + '</h4><ul>';
+    ids.forEach(function(id){
+      var r2 = LS.findLead(id);
+      h += '<li>' + I('link',13) + '<a href="#/lead?id=' + id + '" style="color:var(--ink);font-weight:600">' + id + '</a> · '
+        + T(LS.SOURCES[r2.source].label) + ' · ' + ESC(T(r2.ext().form)) + '</li>';
+    });
+    return h + '</ul></div>';
+  }
+  function extKv(r, e){
+    var out = '';
+    if (e.campaign) out += kv(T({zh:'广告系列',en:'Campaign'}), ESC(e.campaign));
+    if (e.adset)    out += kv(T({zh:'广告组',en:'Ad set'}), ESC(e.adset));
+    if (e.ad)       out += kv(T({zh:'广告',en:'Ad'}), ESC(e.ad));
+    if (e.platform) out += kv(T({zh:'平台',en:'Platform'}), ESC(T(e.platform)));
+    if (e.productPage) out += kv(T({zh:'产品页',en:'Product page'}), ESC(e.productPage));
+    if (e.page)     out += kv(T({zh:'落地页',en:'Landing page'}), ESC(T(e.page)));
+    if (e.expoName) out += kv(T({zh:'展会',en:'Expo'}), ESC(T(e.expoName)));
+    if (e.cardImage) out += kv(T({zh:'名片原图',en:'Card photo'}), ESC(e.cardImage));
+    if (e.emailSubject) out += kv(T({zh:'邮件主题',en:'Subject'}), ESC(T(e.emailSubject)));
+    return out;
+  }
+
+  /* ================= 广告组分析 ================= */
+  var ATTR = { rows: null, groups: null, src: '' };
+  APP.page('attrib', {
+    render: function(){
+      var h = stateline();
+      if (MODE === 'empty') {
+        h += APP.state('empty', {
+          title: T({zh:'没有带广告字段的数据',en:'No data with ad fields'}),
+          body: T({zh:'导入带 campaign / adset 列的表格后，这里按组给表单完整度和背调准备度。',
+                   en:'Import a table with campaign / adset columns and this page shows per-group completeness and screening readiness.'}),
+          action: '<button class="btn btn-primary btn-sm" data-act="attr-sample">' + T({zh:'用示例数据看一版',en:'Show with sample data'}) + '</button>'
+        });
+        return shell('attrib', T({zh:'广告组分析',en:'Ad groups'}), '', '', h);
+      }
+      if (!ATTR.groups) attrSample();
+
+      var R = ATTR.rows, G = ATTR.groups, total = R.length;
+      var ready = R.filter(function(r){return r.grade==='ready';}).length;
+      h += '<div class="stateline"><span class="st"><i></i>'
+        + (ATTR.src==='sample' ? T({zh:'示例数据 · 本地计算',en:'Sample data · computed locally'}) : T({zh:'已导入文件 · 本地计算',en:'Imported file · computed locally'}))
+        + '</span><span class="st"><i></i>' + T({zh:'不做模型调用',en:'no model calls'}) + '</span></div>';
+
+      h += '<div class="kpis">'
+        + kpi(T({zh:'线索总数',en:'Leads'}), total, T({zh:'带广告字段',en:'with ad fields'}))
+        + kpi(T({zh:'可直接背调',en:'Ready to screen'}), ready, LS.pct(ready/total) + '%')
+        + kpi(T({zh:'未填公司名',en:'Company blank'}), R.filter(function(r){return !r.has_company;}).length, T({zh:'可补充的识别信息',en:'An identification clue to clarify'}))
+        + kpi(T({zh:'重复提交',en:'Duplicates'}), R.filter(function(r){return r.dup;}).length, T({zh:'同邮箱或同电话',en:'same email or phone'}))
+        + '</div>';
+
+      h += '<div class="grid-8-4"><div><div class="card" style="padding:22px">'
+        + '<div class="chead"><h2>' + T({zh:'按广告组',en:'By ad set'}) + '</h2>'
+        + '<span class="sub">' + T({zh:'按可直接背调比例排序',en:'sorted by ready share'}) + '</span></div>'
+        + '<div class="tblwrap"><table class="tbl" style="min-width:720px"><thead><tr>'
+        + [T({zh:'广告组',en:'Ad set'}), T({zh:'线索',en:'Leads'}), T({zh:'可直接背调',en:'Ready'}),
+           T({zh:'缺公司名',en:'Company blank'}), T({zh:'重复',en:'Dup'}), T({zh:'比例',en:'Share'})]
+          .map(function(x){ return '<th>' + x + '</th>'; }).join('')
+        + '</tr></thead><tbody>';
+        G.forEach(function(g){
+          h += '<tr><td class="nowrap"><b>' + ESC(g.adset) + '</b></td>'
+            + '<td class="nowrap">' + g.leads + '</td>'
+            + '<td class="nowrap">' + g.ready + '</td>'
+            + '<td class="nowrap">' + g.no_company + '</td>'
+            + '<td class="nowrap">' + g.dup + '</td>'
+            + '<td class="nowrap"><b>' + LS.pct(g.ready_rate) + '%</b> <span class="mut" style="font-size:12px">'
+            + T(LS.VERDICT_TEXT[g.verdict]) + '</span></td></tr>';
+        });
+        h += '</tbody></table></div>'
+        + '<p class="note">' + T({zh:'每组线索少于 5 条不下结论。这里只描述信息完整度与背调准备度，'
+          + '不给加预算、减预算或停投放的指令——那些判断需要结合背调结果，而背调还没接入。',
+          en:'Groups under 5 samples get no conclusion. This only describes completeness and screening readiness — '
+          + 'no budget up, down or pause advice. That needs screening results, which are not connected yet.'}) + '</p></div>'
+        + '<div class="card" style="padding:22px;margin-top:16px">'
+        + '<div class="chead"><h2>' + T({zh:'导入自己的表',en:'Import your own file'}) + '</h2></div>'
+        + '<div class="drop" id="attr-drop" tabindex="0" role="button" aria-label="' + ESC(T({zh:'选择或拖入 CSV',en:'Choose or drop a CSV'})) + '">'
+        + '<b>' + T({zh:'选择或拖入 CSV',en:'Choose or drop a CSV'}) + '</b>'
+        + '<p>' + T({zh:'列名自动匹配：姓名 / 邮箱 / 电话 / 公司 / 广告组。文件只在本地解析。',
+          en:'Column names match automatically: name / email / phone / company / ad set. Files parse locally only.'}) + '</p>'
+        + '<input type="file" id="attr-file" accept=".csv,text/csv" style="display:none">'
+        + '<div style="margin-top:12px"><button class="btn btn-ghost btn-sm" data-act="attr-pick">' + T({zh:'选文件',en:'Choose file'}) + '</button>'
+        + ' <button class="btn btn-ghost btn-sm" data-act="attr-sample">' + T({zh:'用示例数据',en:'Use sample data'}) + '</button></div>'
+        + '</div><div id="attr-msg" class="note" style="margin-top:12px"></div></div>'
+        + '</div>'
+        + '<div><div class="card" style="padding:22px">'
+        + '<div class="chead"><h2>' + T({zh:'读到的几件事',en:'What the numbers say'}) + '</h2></div>'
+        + findingsHTML(LS.findings(R, G))
+        + '</div>'
+        + '<div class="card" style="padding:22px;margin-top:16px">'
+        + '<div class="chead"><h2>' + T({zh:'其他来源',en:'Other sources'}) + '</h2></div>'
+        + '<p style="font-size:13.5px;color:var(--ink-2);line-height:1.7">'
+        + T({zh:'不带广告字段的数据（国际站、独立站、展会、邮件）不进组分析。下方显示工作台内所有批次的来源构成，独立于本页分析文件。',
+          en:'Data without ad fields (Alibaba, site, expo, email) stays out of group analysis. The source mix below covers all workspace batches, separately from this analysis file.'}) + '</p>'
+        + srcBars(LS.byBatch())
+        + '<p class="note">' + T({zh:'来源构成和组分析是两回事：前者看线索从哪来，后者看表单字段够不够。两者不混用。',
+          en:'Source mix and group analysis are different: where leads come from, versus whether form fields are enough. They do not mix.'}) + '</p>'
+        + '</div></div></div>';
+      return shell('attrib', T({zh:'广告组分析',en:'Ad groups'}),
+        T({zh:'只看表单字段的完整度与背调准备度',en:'Form-field completeness and screening readiness only'}), '', h);
+    },
+    mount: function(){ bindAttrib(); }
+  });
+
+  function attrSample(){
+    var cols = Object.keys(LS.AD_ROWS[0] || {});
+    ATTR.rows = LS.classify(LS.AD_ROWS, LS.mapColumns(cols));
+    ATTR.groups = LS.aggregate(ATTR.rows);
+    ATTR.src = 'sample';
+  }
+  function findingsHTML(fs){
+    return '<div style="display:flex;flex-direction:column;gap:12px;margin-top:12px">'
+      + fs.map(function(f){
+        var s = T(LS.FIND_TPL[f.k]);
+        Object.keys(f.p).forEach(function(k){ s = s.split('{' + k + '}').join(f.p[k]); });
+        return '<p style="font-size:13.5px;line-height:1.75;color:var(--ink-2);margin:0">' + ESC(s) + '</p>';
+      }).join('') + '</div>';
+  }
+  function bindAttrib(){
+    var drop = document.getElementById('attr-drop'), file = document.getElementById('attr-file');
+    if (!drop || !file) return;
+    drop.addEventListener('click', function(e){ if (e.target.closest('button')) return; file.click(); });
+    drop.addEventListener('keydown', function(e){ if(e.target!==drop)return;if (e.key==='Enter'||e.key===' ') { e.preventDefault(); file.click(); } });
+    drop.addEventListener('dragover', function(e){ e.preventDefault(); });
+    drop.addEventListener('drop', function(e){ e.preventDefault(); if (e.dataTransfer.files[0]) readFile(e.dataTransfer.files[0]); });
+    file.addEventListener('change', function(){ if (file.files[0]) readFile(file.files[0]); });
+  }
+  function readFile(f){
+    if(!/\.csv$/i.test(f.name)||f.size>10*1024*1024){APP.toast(T({zh:'请选择不超过 10 MB 的 CSV 文件。',en:'Choose a CSV file up to 10 MB.'}));return;}
+    var rd = new FileReader();
+    rd.onerror=function(){APP.toast(T({zh:'读取失败，请重新选择文件。',en:'Could not read the file. Please select it again.'}));};
+    rd.onload = function(){
+      try {
+        var p = LS.parseTable(rd.result);
+        if (!p.rows.length) throw new Error(T({zh:'没解析出数据行',en:'No data rows found'}));
+        if (!p.colmap.adset && !p.colmap.campaign)
+          throw new Error(T({zh:'没找到广告组或广告系列列，这个文件不适用组分析',
+            en:'No ad set or campaign column; group analysis does not apply'}));
+        ATTR.rows = LS.classify(p.rows, p.colmap);
+        ATTR.groups = LS.aggregate(ATTR.rows);
+        ATTR.src = 'file';
+        APP.rerenderNow();
+      } catch (err) {
+        var m = document.getElementById('attr-msg');
+        if (m) m.textContent = T({zh:'解析失败：',en:'Parse failed: '}) + err.message;
+        APP.toast(T({zh:'文件没解析成功，看下面的提示',en:'File did not parse; see the note below'}));
+      }
+    };
+    rd.readAsText(f, 'utf-8');
+  }
+
+  /* ================= 方法帮助 ================= */
+  APP.page('help',{render:function(){return shell('learn',T({zh:'Meta 教程',en:'Meta workflow'}),'','', '<div class="dash-panel"><h2>'+T({zh:'按我的工作流，从投放做到交接。',en:'Follow my workflow, from the ad to the hand-off.'})+'</h2><a class="btn btn-primary" href="./index.html#/learn">'+T({zh:'打开教程',en:'Open the tutorial'})+'</a></div>');},mount:function(){location.replace('./index.html#/learn');}});
+
+  /* ================= 设置 ================= */
+  APP.page('settings', {
+    render: function(){
+      var h = '<div class="card" style="padding:22px;max-width:760px">'
+        + setrow(T({zh:'主题',en:'Theme'}),
+          T({zh:'选择适合你的阅读背景。',en:'Choose your reading background.'}),
+          '<span class="seg">'
+          + '<button type="button" data-act="settheme" data-v="light" class="' + (APP.theme()==='light'?'on':'') + '">' + T({zh:'浅色',en:'Light'}) + '</button>'
+          + '<button type="button" data-act="settheme" data-v="dark" class="' + (APP.theme()==='dark'?'on':'') + '">' + T({zh:'深色',en:'Dark'}) + '</button></span>')
+        + setrow(T({zh:'语言',en:'Language'}),
+          T({zh:'选择界面语言。',en:'Choose your interface language.'}),
+          '<span class="seg">'
+          + '<button type="button" data-act="setlang" data-v="zh" class="' + (LS.lang()==='zh'?'on':'') + '">中文</button>'
+          + '<button type="button" data-act="setlang" data-v="en" class="' + (LS.lang()==='en'?'on':'') + '">English</button></span>')
+        + setrow(T({zh:'保留你的数据',en:'Keep your records'}),T({zh:'导入记录保存在当前标签页会话中。关闭前，请在看板或线索页导出需要保留的内容。',en:'Imported records stay in this tab’s session. Export anything you need to keep before closing it.'}),'<a class="btn btn-ghost" href="#/overview">'+T({zh:'去看板导出',en:'Export from dashboard'})+'</a>')
+        + setrow(T({zh:'背调模型',en:'Buyer research'}),
+          T({zh:'未接入。接入前判断在 AI Studio 手动跑，结果通过 CSV 导入工作台',
+            en:'Not connected. Until then, screening runs in AI Studio and import the results into the workspace as CSV.'}),
+          '<a class="text-link" href="./index.html#/learn">'+T({zh:'学习背调步骤',en:'Learn the research step'})+'</a>')
+        + setrow(T({zh:'交接到你们自己的在线文档',en:'Hand-off to your online documents'}),
+          T({zh:'导出 CSV 后手动导入你们常用的在线表格，或将摘要复制到在线文档；当前不自动同步',en:'Export a CSV for your online spreadsheet, or copy a summary into your shared document. No automatic sync.'}), ST('manual'))
+        + '</div>';
+      return shell('settings', T({zh:'设置',en:'Settings'}),
+        T({zh:'主题与语言保存在本机；录入数据在当前标签页暂存',en:'Preferences stay on this device; entered records are staged in this tab'}), '', h);
+    }
+  });
+  function setrow(l, d, r){
+    return '<div class="setrow"><div><div class="lbl">' + l + '</div><div class="d">' + d + '</div></div>'
+      + '<div class="r">' + r + '</div></div>';
+  }
+
+  /* ---------- 页面级动作 ---------- */
+  /* 工作台没有 home / lead 之外的散页：未知路由一律回总览 */
+  APP.page('404', {
+    render: function(){
+      setTimeout(function(){ APP.go('overview'); }, 0);
+      return '<div class="empty" style="margin-top:40px">' + LENS(40)
+        + '<h3>' + T({zh:'工作台里没有这一页',en:'No such page in the workspace'}) + '</h3>'
+        + '<p>' + T({zh:'正在回总览…',en:'Heading back to the overview…'}) + '</p></div>';
+    }
+  });
+
+  window.__onAction = function(a, el, ev){
+    if (a === 'mode') { setMode(el.getAttribute('data-mode')); return; }
+    if (a === 'settheme') { APP.setTheme(el.getAttribute('data-v')); APP.rerenderNow(); return; }
+    if (a === 'setlang') { APP.setLang(el.getAttribute('data-v')); return; }
+    if(a==='asset-view'){ASSET_VIEW=el.getAttribute('data-v');APP.rerenderNow();return;}
+    if(a==='asset-drill'){F[el.getAttribute('data-key')]=el.getAttribute('data-v');APP.rerenderNow();return;}
+    if(a==='dash-filter'){F={verdict:'',source:'',info:'',priority:'',q:''};if(el.getAttribute('data-kind')==='pending')F.verdict='pending';else if(el.getAttribute('data-kind')==='owner')F.owner='unassigned';else if(el.getAttribute('data-kind')==='priority')F.priority='p1';APP.go('batches',{batch:el.getAttribute('data-batch')});return;}
+    if (a === 'batch') { F={verdict:'',source:'',info:'',priority:'',q:''}; APP.go(APP.route().page === 'overview' ? 'overview' : 'batches', {batch: el.value}); return; }
+    if (a === 'filter') { F[el.getAttribute('data-key')] = el.value; APP.rerenderNow(); return; }
+    if (a === 'clearfilter') { F = {verdict:'',source:'',info:'',priority:'',q:''}; APP.rerenderNow(); return; }
+    if (a === 'openlead') { APP.go('lead', {id: el.getAttribute('data-id')}); return; }
+    if (a === 'back') { APP.go('batches',{batch:LS.batchOf(APP.route().q.id)}); return; }
+    if (a === 'confirmimport') { saveRecords(IMPORT_FIELDS.map(function(r){return LS.makeLocal(r,importSource(),Object.keys(r).map(function(k){return k+'：'+r[k];}).join('\n'));}),T({zh:'本地导入',en:'Local import'})); return; }
+    if (a === 'cancelimport') { IMPORT_ROWS=[];IMPORT_FIELDS=[];document.getElementById('import-preview').innerHTML='';return; }
+    if (a === 'pickfile' || a === 'attr-pick') { var f = document.getElementById(a==='pickfile'?'lead-file':'attr-file'); if (f) f.click(); return; }
+    if (a === 'pickpaste') { var t = document.getElementById('paste-in'); if (t) t.focus(); return; }
+    if (a === 'dopaste') { doPaste(); return; }
+    if (a === 'pickcard') { APP.toast(T({zh:'OCR 待接入，请先用单条录入',en:'OCR not connected; use single entry for now'})); return; }
+    if (a === 'picksingle') { document.getElementById('single-entry').scrollIntoView({block:'start',behavior:'smooth'});document.querySelector('#single-form input').focus(); return; }
+    if (a === 'attr-sample') { attrSample(); APP.rerenderNow(); return; }
+    if (a === 'export') {
+      var kind = el.getAttribute('data-kind'), id = el.getAttribute('data-id');
+      var list = id ? [LS.findLead(id)] : LS.filterRows(leads(APP.route().q.batch || LS.BATCHES[0].id), APP.route().page==='batches'?F:{});
+      if (!list.length || !list[0]) { APP.toast(T({zh:'没有可导出的行',en:'Nothing to export'})); return; }
+      var csv = kind==='ext' ? LS.exportExt(list) : kind==='simple' ? LS.exportSimple(list) : LS.export19(list);
+      LS.download('leadscope-' + kind + '-' + Date.now() + '.csv', csv);
+      APP.toast(T({zh:'已生成导出文件，共 ',en:'Export ready, '}) + list.length + T({zh:' 条',en:' leads'}));
+      return;
+    }
+  };
+  document.addEventListener('input', function(e){
+    var a = e.target.getAttribute && e.target.getAttribute('data-act');
+    if (a === 'search') {
+      F.q = e.target.value; APP.rerenderNow();
+      var el = document.querySelector('input[data-act="search"]');
+      if (el) { el.focus(); el.setSelectionRange(el.value.length, el.value.length); }
+    }
+    if (e.target.getAttribute && e.target.getAttribute('data-hand')) {
+      var r = LS.findLead(APP.route().q.id);
+      if (r) {r.hand[e.target.getAttribute('data-hand')] = e.target.value;if(!LS.localSave())APP.toast(T({zh:'无法暂存改动，请导出当前记录。',en:'Changes could not be stored. Export this record.'}));}
+    }
+  });
+  document.addEventListener('keydown', function(e){
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.getAttribute && e.target.getAttribute('data-act') === 'openlead') {
+      e.preventDefault();APP.go('lead', {id: e.target.getAttribute('data-id')});
+    }
+  });
+
+  /* ---------- 启动 ---------- */
+  APP.setTheme(APP.theme());
+  LS.setLang(APP.lang());
+  document.body.setAttribute('data-lang', APP.lang());
+  APP.rerenderNow();
+})();
+</script>
+</body>
+</html>

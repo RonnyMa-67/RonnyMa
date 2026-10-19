@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "今日跟进",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "customer-card": "/components/customer-card/customer-card"
+  }
+}

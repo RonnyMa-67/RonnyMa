@@ -1,0 +1,29 @@
+{
+  "pages": [
+    "pages/today/today",
+    "pages/customers/customers",
+    "pages/customer-detail/customer-detail",
+    "pages/team/team"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#1F2A37",
+    "navigationBarTitleText": "外贸 CRM",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F5F6F8"
+  },
+  "tabBar": {
+    "color": "#8A94A6",
+    "selectedColor": "#1F2A37",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      { "pagePath": "pages/today/today", "text": "今日" },
+      { "pagePath": "pages/customers/customers", "text": "客户" },
+      { "pagePath": "pages/team/team", "text": "团队" }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "requiredPrivateInfos": []
+}

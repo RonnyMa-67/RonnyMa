@@ -1,0 +1,51 @@
+.page {
+  padding-bottom: 160rpx;
+}
+
+.hero {
+  display: flex;
+  margin: 24rpx;
+  padding: 28rpx 0;
+  background: #1F2A37;
+  border-radius: 16rpx;
+  color: #FFFFFF;
+}
+
+.hero-item {
+  flex: 1;
+  text-align: center;
+}
+
+.hero-num {
+  display: block;
+  font-size: 48rpx;
+  font-weight: 500;
+}
+
+.hero-num.danger {
+  color: #F08A8A;
+}
+
+.hero-label {
+  display: block;
+  font-size: 24rpx;
+  color: #B9C2D0;
+}
+
+.danger-text {
+  color: #B03030;
+}
+
+.fab {
+  position: absolute;
+  right: 40rpx;
+  bottom: 60rpx;
+  width: 96rpx;
+  height: 96rpx;
+  line-height: 92rpx;
+  text-align: center;
+  border-radius: 48rpx;
+  background: #1F2A37;
+  color: #FFFFFF;
+  font-size: 48rpx;
+}

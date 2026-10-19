@@ -1,0 +1,55 @@
+<view class="page">
+  <view wx:if="{{!joined}}">
+    <view class="section">
+      <view class="section-title">还没有团队</view>
+      <view class="muted">创建团队后会生成 6 位邀请码，发给同事即可加入</view>
+      <input class="input" placeholder="填写你的名字" value="{{inputName}}" bindinput="onNameInput" />
+      <view class="btn" bindtap="createTeam">创建团队</view>
+    </view>
+
+    <view class="section">
+      <view class="section-title">用邀请码加入</view>
+      <input class="input" placeholder="6 位邀请码" value="{{inputCode}}" bindinput="onCodeInput" />
+      <view class="btn btn-ghost" bindtap="joinTeam">加入团队</view>
+    </view>
+  </view>
+
+  <view wx:else>
+    <view class="section">
+      <view class="section-title">{{teamName || '我的团队'}}</view>
+      <view class="muted">我是 {{profile.name}}（{{roleText}}）</view>
+      <view class="code-row">
+        <text class="code">{{inviteCode}}</text>
+        <view class="btn btn-ghost btn-inline" bindtap="copyCode">复制邀请码</view>
+      </view>
+    </view>
+
+    <view class="section" wx:if="{{stats}}">
+      <view class="section-title">团队数据</view>
+      <view class="metrics">
+        <view class="metric"><text class="num">{{stats.total}}</text><text class="lbl">客户总数</text></view>
+        <view class="metric"><text class="num">{{stats.won}}</text><text class="lbl">已成交</text></view>
+        <view class="metric"><text class="num">{{stats.byLevel.A || 0}}</text><text class="lbl">A 级线索</text></view>
+      </view>
+      <view class="member-stat" wx:for="{{stats.byMember}}" wx:key="name">
+        <text>{{item.name}}</text>
+        <text class="muted">{{item.count}} 家</text>
+      </view>
+    </view>
+
+    <view class="section">
+      <view class="section-title">成员（{{members.length}}）</view>
+      <view
+        class="member"
+        wx:for="{{members}}"
+        wx:key="openid"
+        data-index="{{index}}"
+        bindtap="changeRole"
+      >
+        <text class="member-name">{{item.name}}</text>
+        <text class="tag">{{item.roleText}}</text>
+      </view>
+      <view class="muted tip" wx:if="{{isManager}}">点击成员可调整角色（仅负责人可操作）</view>
+    </view>
+  </view>
+</view>

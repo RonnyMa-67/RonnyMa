@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "客户库",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "customer-card": "/components/customer-card/customer-card"
+  }
+}

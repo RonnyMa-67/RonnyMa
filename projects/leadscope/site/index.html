@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<!-- ==================================================================
+     LeadScope 公开层 · 黑白 + 酸橙绿
+     四页：首页 / 方法 / 方案 / 关于。hash 路由，支持直达与刷新。
+     所有文案双语，所有数字从 data.js 派生，不写死统计值。
+     ================================================================== -->
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LeadScope — Know who to follow up with</title>
+<meta name="description" content="A practical lead workflow for lean B2B teams. Collect, assess and hand over buyer context in the online documents and spreadsheets your team already uses.">
+<link rel="stylesheet" href="shared.css">
+<style>
+/* ---- 公开层布局 ---- */
+main{max-width:1200px;margin:0 auto;padding:0 24px 90px;position:relative;z-index:1}
+.sec{margin-top:76px}
+.sec-k{display:flex;align-items:center;gap:12px;font-size:12px;font-weight:700;letter-spacing:.09em;color:var(--ink-3);margin-bottom:20px}
+.sec-k::after{content:"";flex:1;height:1px;background:var(--border)}
+.sec h2.big{font-family:var(--f-disp);font-weight:700;letter-spacing:-.02em;font-size:clamp(24px,2.6vw,32px);margin-bottom:10px}
+.sec .lead{font-size:15.5px;color:var(--ink-2);max-width:62ch;line-height:1.8}
+
+/* 首屏 */
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;padding:64px 0 8px;align-items:center}
+.hero h1{font-family:var(--f-disp);font-weight:700;letter-spacing:-.025em;font-size:clamp(32px,4vw,52px);line-height:1.08}
+.hero .sub{margin-top:18px;font-size:16.5px;line-height:1.8;color:var(--ink-2);max-width:52ch}
+.hero .cta{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero .kicker{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:.06em;
+  color:var(--ink-2);margin-bottom:20px}
+
+/* 结果示例面板（数据来自 data.js，同源） */
+.result-panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-card);
+  box-shadow:var(--sh-2);padding:26px;position:relative}
+.rp-head{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.rp-head b{font-family:var(--f-disp);font-size:15px}
+.rp-head .st{margin-left:auto}
+.rp-name{font-family:var(--f-disp);font-weight:700;font-size:19px;letter-spacing:-.01em;margin-bottom:16px}
+.rp-name span{font-size:12px;color:var(--ink-3);font-weight:600;margin-left:6px}
+.rp-grid{display:grid;grid-template-columns:78px 1fr;gap:9px 12px;font-size:13.5px;margin-bottom:16px}
+.rp-grid dt{color:var(--ink-3)}
+.rp-grid dd{font-weight:500}
+.rp-verdict{display:flex;align-items:center;gap:10px;border-top:1px solid var(--border);padding-top:14px;flex-wrap:wrap}
+.rp-verdict .v{font-weight:700;font-size:14px}
+.rp-verdict .nx{font-size:13px;color:var(--ink-2)}
+.rp-evi{margin-top:12px;font-size:12.5px;color:var(--ink-3);line-height:1.7}
+.rp-evi b{color:var(--ink-2);font-weight:600}
+
+/* 前后对照 */
+.cmp{display:grid;grid-template-columns:1fr 44px 1fr;align-items:stretch;gap:0;margin-top:24px}
+.cmp-col{border:1px solid var(--border);border-radius:var(--r-card);background:var(--surface);padding:22px}
+.cmp-col .lb{font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--ink-3);margin-bottom:14px;display:block}
+.cmp-col ul{list-style:none;display:flex;flex-direction:column;gap:9px;font-size:13.5px;color:var(--ink-2);line-height:1.6}
+.cmp-col ul b{color:var(--ink);font-weight:600}
+.cmp-lens{display:flex;align-items:center;justify-content:center;color:var(--ink-3)}
+
+/* 三件事 / 边界 / 两列 */
+.feats,.sources,.attr2,.bound{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+.box{border:1px solid var(--border);border-radius:var(--r-card);background:var(--surface);padding:22px}
+.box h3{font-family:var(--f-disp);font-weight:700;font-size:16px;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.box p{font-size:13.5px;color:var(--ink-2);line-height:1.75}
+.box ul{list-style:none;margin-top:12px;display:flex;flex-direction:column;gap:9px}
+.box li{display:flex;gap:9px;font-size:13.5px;color:var(--ink-2);line-height:1.65;align-items:flex-start}
+.box li svg{flex:none;margin-top:3px}
+.box .num{font-family:var(--f-disp);font-weight:700;font-size:26px;font-variant-numeric:tabular-nums;line-height:1;margin-bottom:6px}
+.box .num small{font-size:12px;font-weight:600;color:var(--ink-3);margin-left:4px}
+
+/* 流程 */
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:24px}
+.fstep{position:relative;border:1px solid var(--border);background:var(--surface);padding:20px 18px}
+.fstep:first-child{border-radius:var(--r-card) 0 0 var(--r-card)}
+.fstep:last-child{border-radius:0 var(--r-card) var(--r-card) 0}
+.fstep:not(:last-child){border-right:none}
+.fstep .n{font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--ink-3)}
+.fstep h4{font-family:var(--f-disp);font-weight:700;font-size:15px;margin:8px 0 6px}
+.fstep p{font-size:13px;color:var(--ink-2);line-height:1.65}
+.verify{margin-top:16px;border-left:3px solid var(--accent);background:var(--surface);
+  border-radius:0 var(--r-card) var(--r-card) 0;padding:16px 20px}
+.verify h4{font-family:var(--f-disp);font-size:14.5px;margin-bottom:6px}
+.verify p{font-size:13.5px;color:var(--ink-2);line-height:1.7}
+
+/* 工作流 */
+.wflow{display:grid;grid-template-columns:repeat(5,1fr);gap:0;align-items:stretch;margin-top:24px}
+.wstep{position:relative;border:1px solid var(--border);background:var(--surface);padding:18px 16px}
+.wstep:first-child{border-radius:var(--r-card) 0 0 var(--r-card)}
+.wstep:last-child{border-radius:0 var(--r-card) var(--r-card) 0}
+.wstep:not(:last-child){border-right:none}
+.wstep h4{font-family:var(--f-disp);font-weight:700;font-size:14.5px;margin-bottom:7px}
+.wstep p{font-size:12.5px;color:var(--ink-2);line-height:1.6;margin-bottom:10px}
+.wstep .st{font-size:10.5px;padding:3px 8px}
+
+/* 来源表 */
+.chtable{width:100%;border-collapse:collapse;margin-top:20px;font-size:13.5px}
+.chtable th{font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--ink-3);text-align:left;
+  padding:10px 12px;border-bottom:1px solid var(--line-2)}
+.chtable td{padding:13px 12px;border-bottom:1px solid var(--border);color:var(--ink-2);vertical-align:top}
+.chtable td:first-child{color:var(--ink);font-weight:600;white-space:nowrap}
+.chtable tr:last-child td{border-bottom:none}
+.chwrap{border:1px solid var(--border);border-radius:var(--r-card);background:var(--surface);padding:6px 14px 2px;overflow-x:auto}
+
+/* 绿色大块（每页一处） */
+.act{margin-top:26px;background:var(--accent);border-radius:var(--r-card);padding:28px;border:1px solid rgba(0,0,0,.08)}
+.act h3{font-family:var(--f-disp);font-weight:700;font-size:clamp(19px,2vw,24px);letter-spacing:-.015em;line-height:1.25}
+.act p{font-size:14px;line-height:1.7;margin-top:10px;color:rgba(0,0,0,.78);max-width:60ch}
+.act .row{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap}
+.act .btn{background:var(--ink);color:#fff}
+
+/* 方法页长文 */
+.doc{max-width:76ch}
+.doc h3{font-family:var(--f-disp);font-weight:700;font-size:18px;margin:30px 0 10px}
+.doc p{font-size:14.5px;line-height:1.85;color:var(--ink-2);margin-bottom:12px}
+.doc ul{list-style:none;display:flex;flex-direction:column;gap:9px;margin:10px 0 18px}
+.doc li{font-size:14px;color:var(--ink-2);line-height:1.75;display:flex;gap:10px}
+.doc li svg{flex:none;margin-top:4px}
+.doc table{width:100%;border-collapse:collapse;font-size:13.5px;margin:14px 0 20px}
+.doc th{text-align:left;font-size:12px;color:var(--ink-3);padding:9px 10px;border-bottom:1px solid var(--line-2);font-weight:700}
+.doc td{padding:11px 10px;border-bottom:1px solid var(--border);color:var(--ink-2);vertical-align:top}
+.doc td:first-child{color:var(--ink);font-weight:600;white-space:nowrap}
+.docwrap{border:1px solid var(--border);border-radius:var(--r-card);background:var(--surface);padding:8px 16px;overflow-x:auto}
+
+/* 收尾 */
+.cta-end{margin-top:80px;border-top:1px solid var(--border);padding-top:44px;text-align:center}
+.cta-end h2{font-family:var(--f-disp);font-weight:700;font-size:clamp(24px,3vw,34px);letter-spacing:-.02em}
+.cta-end p{color:var(--ink-2);margin:12px auto 22px;max-width:48ch;font-size:15px}
+footer{border-top:1px solid var(--border);padding:26px 0 90px;font-size:12.5px;color:var(--ink-3);
+  display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
+
+/* 移动端 */
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;gap:30px;padding:34px 0 6px}
+  .cmp{grid-template-columns:1fr}
+  .cmp-lens{transform:rotate(90deg);padding:2px 0;color:var(--ink-3)}
+  .feats,.sources,.attr2,.bound,.two{grid-template-columns:1fr}
+  .flow,.wflow{grid-template-columns:1fr;gap:12px}
+  .fstep,.wstep{border-radius:var(--r-card)!important;border-right:1px solid var(--border)!important}
+  .fstep::after,.wstep::after{display:none}
+  .sec{margin-top:56px}
+  main{padding:0 16px 78px}
+  body{padding-bottom:56px}
+}
+</style>
+<link rel="stylesheet" href="design.css">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+<div id="app"></div>
+<div id="view"></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>
+(function(){
+  var LS = window.LS, APP = window.APP, T = LS.T;
+  var I = APP.icon, ESC = APP.esc, ST = APP.st, LENS = APP.lensMark;
+
+  /* ---------- 导航壳 ---------- */
+  function shell(active, html){
+    return APP.topnav(active,'pub') + '<main>' + html + '</main>' + APP.tabbar('pub');
+  }
+  function footer(){
+    return '<footer><span>LeadScope · ' + T({zh:'让下一次跟进更有把握',en:'Make the next conversation count'}) + '</span>'
+      + '<span>' + T({zh:'多来源整理 · 有依据的判断 · 可交接的下一步',en:'Multi-source input · evidence · actionable hand-off'}) + '</span><a href="#/about">' + T({zh:'关于这个项目',en:'About this project'}) + '</a></footer>';
+  }
+  function secK(t){ return '<div class="sec-k">' + t + '</div>'; }
+
+  /* ---------- 结果示例面板（数据同源） ---------- */
+  function resultPanel(){
+    var r = LS.findLead('L-2401');
+    var ev = r.ana.evidence.map(function(x){
+      var k = x.kind==='fact' ? T({zh:'事实',en:'Fact'}) : x.kind==='guess' ? T({zh:'推测',en:'Inference'}) : T({zh:'未知',en:'Unknown'});
+      return '<span><b>' + k + '</b> ' + T(x) + '</span>';
+    }).join(' · ');
+    return '<div class="result-panel" aria-label="' + T({zh:'分析结果示例',en:'Sample result'}) + '">'
+      + '<div class="rp-head"><b>' + T({zh:'分析结果示例',en:'Sample result'}) + '</b>'
+      + '<span class="st"><i></i>' + T({zh:'示例数据',en:'Sample data'}) + '</span></div>'
+      + '<div class="rp-name">' + T(r.raw.form) + '<span>' + T(r.raw.country) + '</span></div>'
+      + '<dl class="rp-grid">'
+      + '<dt>' + T(LS.COLS19[6]) + '</dt><dd>' + T(r.ent.name) + '</dd>'
+      + '<dt>' + T({zh:'业务角色',en:'Role'}) + '</dt><dd>' + r.ana.roleCode + ' · ' + T(r.ana.biztype) + '</dd>'
+      + '<dt>' + T({zh:'品类匹配',en:'Category match'}) + '</dt><dd>' + T({zh:'饮品设备 · 强匹配',en:'Beverage equipment · strong'}) + '</dd>'
+      + '<dt>' + T(LS.COLS19[13]) + '</dt><dd>' + T(r.ana.scale) + '</dd>'
+      + '</dl>'
+      + '<div class="rp-verdict"><span class="v">' + T(LS.VERDICT[r.ana.verdict]) + '</span>'
+      + '<span class="nx">' + T({zh:'下一步：',en:'Next: '}) + T(r.ana.strategy) + '</span></div>'
+      + '<div class="rp-evi">' + ev + '</div></div>';
+  }
+
+  /* ================= 首页 ================= */
+  function copy2(zh,en){ return T({zh:zh,en:en}); }
+  APP.page('home', { render:function(){
+    var c=copy2, h='';
+    h+='<section class="hero editorial-hero"><div class="hero-copy"><span class="kicker">'+LENS(20)+c('专为小而精的 B2B 团队设计','Built for lean B2B teams')+'</span>'
+      +'<h1>'+c('线索来了。<br>先看懂，<br><span>再聊生意。</span>','Know the buyer.<br>Ask better.<br><span>Follow up.</span>')+'</h1>'
+      +'<p class="sub">'+c('把多平台线索整理成有依据、有下一步的交接。给小而精的团队，多留一点聊生意的时间。','Bring your leads, buyer context and next step together. Less time chasing details. More time talking to buyers.')+'</p>'
+      +'<div class="cta"><a class="btn btn-primary" href="workspace.html#/overview">'+c('打开示例工作台','Explore the workspace')+'</a><a class="text-link" href="workspace.html#/lead?id=L-2401">'+c('看一条完整判断','See a full assessment')+'</a></div>'
+      +'<p class="hero-note">'+c('先用示例体验，无需注册。自动背调尚未接入。','Try the sample without signing up. Automated research is not connected yet.')+'</p><a class="hero-author text-link" href="#/about">'+c('Ronny 制作 · 曾在阿里国际站总部做大客户运营','Built by Ronny · Former key-account operations at Alibaba.com HQ')+'</a></div>'
+      +'<div class="hero-product"><div class="product-toolbar"><span>'+LENS(18)+' LeadScope</span><span>'+c('判断工作台 / 示例','Screening desk / sample')+'</span></div>'
+      +'<div class="product-focus"><span class="eyebrow">'+c('从一条询盘，到一个行动','FROM INQUIRY TO ACTION')+'</span><h2>'+c('值得跟进的，<br>不止一个公司名。','A company name<br>is only the start.')+'</h2><div class="focus-tags"><span>'+c('主营','Business')+'</span><span>'+c('角色','Role')+'</span><span>'+c('匹配','Fit')+'</span><span>'+c('下一步','Next step')+'</span></div><span class="focus-ring" aria-hidden="true"></span></div>'
+      +resultPanel()+'<div class="product-bottom"><span>'+c('原始信息保留','Raw input preserved')+'</span><span>'+c('依据可追溯','Evidence linked')+'</span><span>'+c('19 列交接','19-column hand-off')+'</span></div></div></section>';
+    h+='<div class="source-strip"><span>'+c('线索来自哪里，都从这里理清','ONE DESK. EVERY SOURCE.')+'</span><b>Meta</b><b>'+c('B2B 平台','Marketplaces')+'</b><b>'+c('独立站','Website')+'</b><b>'+c('展会名片','Expo cards')+'</b><b>'+c('邮件 / 手工','Email / manual')+'</b></div>';
+    h+='<section class="sec feature-story"><div class="section-intro"><span class="eyebrow">01 / '+c('从信息到行动','FROM DETAILS TO ACTION')+'</span><h2>'+c('看懂客户。<br>接着往下聊。','Know who they are. <br>Know what to ask.')+'</h2><p>'+c('原始需求、判断依据、下一步，一起交接。','The request, the reasoning and the next step. In one hand-off.')+'</p><a class="text-link" href="workspace.html#/lead?id=L-2401">'+c('看完整示例','See a full example')+'</a></div><div class="feature-bento">'
+      +'<article class="bento-card bento-wide"><div class="big-symbol">'+I('lens',52)+'</div><h3>'+c('客户说的 ↔ 实际做的','Their request ↔ Their business')+'</h3><div class="contrast-fields"><div><small>'+c('表单','FORM')+'</small><b>'+c('餐饮集团','Restaurant group')+'</b></div><div><small>'+c('主营','BUSINESS')+'</small><b>'+c('饮品门店连锁','Beverage-store chain')+'</b></div></div></article>'
+      +'<article class="bento-card"><div class="big-symbol">'+I('grid',52)+'</div><h3>'+c('四个问题，依次看','Four questions, in order')+'</h3><div class="visual-tags"><span>'+c('主营','Business')+'</span><span>'+c('角色','Role')+'</span><span>'+c('匹配','Fit')+'</span><span>'+c('量级','Scale')+'</span></div></article>'
+      +'<article class="bento-card bento-ink"><div class="big-symbol">'+I('export',52)+'</div><h3>'+c('交到你们自己的表里','Into your own team’s sheet')+'</h3><div class="visual-tags"><span>CSV</span><span>'+c('在线表格','Online sheet')+'</span><span>'+c('在线文档','Shared doc')+'</span></div></article></div></section>';
+    h+='<section class="sec lean-workflow"><div class="workflow-heading"><span class="eyebrow">'+c('我的工作流，你们的日常','MY WORKFLOW. YOUR TEAM’S EVERYDAY.')+'</span><h2>'+c('三步，接住下一批线索。','Three steps. One clear hand-off.')+'</h2></div><div class="workflow-tiles"><article><div class="workflow-art art-collect"><div class="inbox-chips"><span>Meta</span><span>Website</span><span>Trade show</span></div><div class="art-arrow">↓</div><div class="art-destination">'+I('table',40)+'</div></div><h3>01 / '+c('收集','Collect')+'</h3><p>'+c('多平台 → 一个批次','Many sources → one batch')+'</p></article><article><div class="workflow-art art-assess"><div class="assessment-orbit">'+LENS(76)+'</div><div class="art-checks"><span>'+I('check',20)+c('需求','Request')+'</span><span>'+I('check',20)+c('匹配','Fit')+'</span><span>'+I('help',20)+c('待确认','To verify')+'</span></div></div><h3>02 / '+c('判断','Assess')+'</h3><p>'+c('看依据，列出缺口','Read evidence. Flag gaps.')+'</p></article><article><div class="workflow-art art-handover"><div class="handover-sheet">'+I('table',54)+'<span>CSV</span></div><span class="art-arrow">→</span><div class="handover-doc">'+I('paste',54)+'</div></div><h3>03 / '+c('交接','Hand over')+'</h3><p>'+c('你们自己的在线文档 / 表格','Your online doc or spreadsheet')+'</p></article></div><small>'+c('目前手动导入、补入背调结果与导出；不会自动同步第三方文档。','Import, research entry and export are manual. No automatic document sync.')+'</small></section>';
+    h+='<section class="sec founder-mini"><div class="founder-mark"><span>R.</span><small>RONNY / LEADSCOPE</small></div><div><span class="eyebrow">'+c('从我的工作流里长出来','BUILT FROM MY OWN WORKFLOW')+'</span><h2>'+c('我是 Ronny。','Hi, I’m Ronny.')+'</h2><div class="career-path"><span>'+c('阿里国际站总部<br>大客户运营','Alibaba.com HQ<br>Key-account operations')+'</span><b>→</b><span>'+c('用户运营一线','Customer-side operations')+'</span></div><p>'+c('给人手不多、希望把事情做细的团队。','For lean teams who want to do the work well.')+'</p><a class="text-link" href="#/about">'+c('读我的经历','Read my story')+'</a></div></section>';
+    h+='<section class="sec"><div class="section-header"><div><span class="eyebrow">02 / '+c('一条线索的交接','ONE LEAD, READY TO HAND OVER')+'</span><h2>'+c('接手的人，一眼知道下一步。','Your teammate sees where to start.')+'</h2></div><a class="text-link" href="workspace.html#/lead?id=L-2401">'+c('展开依据','Read the evidence')+'</a></div><div class="lead-visual"><div class="lead-visual-intro">'+I('card',58)+'<h3>Permata Beverage</h3><span>Malaysia · '+c('虚构示例','Fictional example')+'</span></div><div class="lead-visual-items"><div>'+I('paste',36)+'<small>'+c('客户需求','REQUEST')+'</small><b>'+c('门店饮品设备','Store equipment')+'</b></div><div>'+I('check',36)+'<small>'+c('业务匹配','FIT')+'</small><b>'+c('饮品连锁','Beverage chain')+'</b></div><div>'+I('help',36)+'<small>'+c('需要确认','VERIFY')+'</small><b>'+c('数量与采购权限','Quantity & authority')+'</b></div><div>'+I('link',36)+'<small>'+c('下一句话','NEXT QUESTION')+'</small><b>'+c('新开店，还是换设备？','New location or replacement?')+'</b></div></div></div></section>';
+    h+='<section class="sec channel-section"><div class="section-header"><div><span class="eyebrow">03 / '+c('多来源，一个流程','MANY SOURCES. ONE FLOW.')+'</span><h2>'+c('入口各不相同，判断保持一致。','Different entry points. Consistent assessment.')+'</h2></div><a class="text-link" href="workspace.html#/batches?tab=import">'+c('打开导入中心','Open import centre')+'</a></div>'+sourceCards()+'</section>';
+    h+='<section class="sec source-review"><div><span class="eyebrow">04 / '+c('把来源也看清','UNDERSTAND THE SOURCE')+'</span><h2>'+c('不只挑线索，<br>也回看它们从哪来。','Review the leads. <br>And where they came from.')+'</h2><p>'+c('先看表单信息够不够，再看客户适不适合。','Check whether the details are complete, then whether the buyer fits.')+'</p><a class="btn btn-ghost" href="workspace.html#/attrib">'+c('试用广告组分析','Try ad-group analysis')+'</a></div><div class="review-diagram"><div class="review-title">'+c('两件事，分开衡量','TWO DIFFERENT QUESTIONS')+'</div><div><span>01</span><h3>'+c('信息够不够开始背调？','Enough information to start?')+'</h3><p>'+c('当前：表单完整度 / 背调准备度','Today: completeness / screening readiness')+'</p></div><div><span>02</span><h3>'+c('客户值不值得投入？','Worth pursuing?')+'</h3><p>'+c('待接入：业务匹配 / 采购量级 / 跟进反馈','Not connected: business fit / scale / follow-up')+'</p></div></div></section>';
+    h+='<section class="sec learn-card"><div><span class="eyebrow">'+c('从获客开始','FROM THE FIRST AD TO THE FIRST REPLY')+'</span><h2>'+c('第一次用 Meta 找 B2B 客户？','New to B2B leads on Meta?')+'</h2><p>'+c('六步流程，附英文广告与首次回复例子。','Six practical steps. An ad and a first reply you can adapt.')+'</p><a class="btn btn-primary" href="#/learn">'+c('学习 Meta 工作流','Learn the Meta workflow')+'</a></div><div class="learn-preview"><span>'+I('globe',38)+' '+c('说清给谁','NAME THE BUYER')+'</span><span>'+I('card',38)+' '+c('给一个联系理由','GIVE THEM A REASON')+'</span><span>'+I('link',38)+' '+c('带着上下文跟进','FOLLOW UP WITH CONTEXT')+'</span></div></section>';
+    h+='<section class="closing"><span class="eyebrow">'+c('为下一批线索，留一个清晰的起点','A CLEAR START FOR YOUR NEXT BATCH')+'</span><h2>'+c('把精力，留给值得跟的人。','Spend your time on the right leads.')+'</h2><p>'+c('先体验示例的完整流程：看批次、读依据、确认下一步，再导出交接。','See what your sales team gets: the original request, the context behind it and a useful first question.')+'</p><a class="btn btn-primary" href="workspace.html#/overview">'+c('进入示例工作台','Explore the workspace')+'</a><a class="text-link" href="#/learn">'+c('学习我的 Meta 工作流','Learn my Meta workflow')+'</a></section>'+footer();
+    return shell('home',h);
+  }});
+
+  function sourceCards(){
+    var c=copy2,items=[['card','Meta',c('广告表单','Ad forms'),'CSV'],['globe',c('B2B 平台','Marketplaces'),c('采购询盘','Buyer inquiries'),'CSV / manual'],['link',c('网站','Website'),c('网站询盘','Website inquiries'),'CSV / paste'],['photo',c('名片','Business cards'),c('展会联系人','Trade-show contacts'),c('手工录入','Manual entry')],['pen',c('邮件与其他','Email & more'),c('零散线索','Individual leads'),c('粘贴 / 手工','Paste / manual')]];
+    return '<div class="channel-grid">'+items.map(function(x,i){return '<a class="channel-card" href="workspace.html#/batches?tab=import&source=' + ['meta','alibaba','site','expo','email'][i] + '"><div class="channel-pictogram">'+I(x[0],62)+'</div><h3>'+x[1]+'</h3><p>'+x[2]+'</p><span class="channel-input">'+x[3]+'</span></a>';}).join('')+'</div><p class="note" style="margin-top:16px">'+c('手动导入；平台自动连接与名片识别尚未接入。','Manual import. Platform connections and card scanning are not connected yet.')+'</p>';
+  }
+
+  function channelTable(){
+    var h = '<div class="chwrap"><table class="chtable"><thead><tr>'
+      + '<th>' + T({zh:'来源',en:'Source'}) + '</th><th>' + T({zh:'输入方式',en:'Input'}) + '</th>'
+      + '<th>' + T({zh:'保留的原始信息',en:'Raw info kept'}) + '</th><th>' + T({zh:'状态',en:'Status'}) + '</th>'
+      + '<th>' + T({zh:'说明',en:'Note'}) + '</th></tr></thead><tbody>';
+    LS.CHANNELS.forEach(function(c){
+      var raw = {
+        meta:    T({zh:'campaign / adset / ad、表单原填字段',en:'campaign / adset / ad, raw form fields'}),
+        alibaba: T({zh:'平台、询价内容、产品页',en:'platform, inquiry text, product page'}),
+        site:    T({zh:'落地页、询盘原文',en:'landing page, inquiry text'}),
+        expo:    T({zh:'展会名称与日期、名片原图、备注',en:'expo name and date, card photo, notes'}),
+        email:   T({zh:'邮件主题、往来摘录',en:'email subject, thread excerpts'})
+      }[c.src];
+      h += '<tr><td>' + T(LS.SOURCES[c.src].label) + '<span style="color:var(--ink-3);font-weight:400"> · ' + T(LS.SOURCES[c.src].sub) + '</span></td>'
+        + '<td>' + T(LS.HOWTO[c.how]) + '</td><td>' + raw + '</td>'
+        + '<td>' + ST(c.st) + '</td><td>' + T(c.note) + '</td></tr>';
+    });
+    return h + '</tbody></table></div>'
+      + '<p style="margin-top:12px;font-size:12.5px;color:var(--ink-3)">'
+      + T({zh:'缺少公司名或官网也允许导入，会标记待补，不做全局必填拦截。原始记录各自保留；跨来源自动关联待接入。',
+        en:'Leads without a company name or website still import; they get a needs-info tag, no global required-field block. '
+        + 'Each source keeps its original record. Automatic cross-source linking is not connected.'}) + '</p>';
+  }
+  function verdictAxis(){
+    var items = [
+      ['strong', T({zh:'优先接待',en:'Priority'}), T({zh:'主营对得上、量级够，直接排人。',en:'Business matches, volume is there — assign someone now.'})],
+      ['worth', T({zh:'正常排期',en:'Normal'}), T({zh:'匹配但有待确认的点，按正常节奏跟。',en:'Matches with open questions; follow at normal pace.'})],
+      ['pending', T({zh:'先补信息',en:'Get info first'}), T({zh:'列明缺什么、怎么补，补完再判。',en:'Lists what is missing and how to get it; judge after that.'})],
+      ['hold', T({zh:'暂不投入',en:'Hold'}), T({zh:'查不到主体不等于有问题，只是现在不值得排人。',en:'No entity found is not a red flag — just not worth your time now.'})]
+    ];
+    var h = '<div class="two">';
+    items.forEach(function(it){
+      h += '<div class="box"><h3>' + T(LS.VERDICT[it[0]]) + '</h3>'
+        + '<p><b style="color:var(--ink)">' + it[1] + '</b> · ' + it[2] + '</p></div>';
+    });
+    h += '</div>'
+      + '<div class="verify" style="margin-top:16px"><h4>' + T({zh:'三个维度分开',en:'Three separate dimensions'}) + '</h4>'
+      + '<p>' + T({zh:'合作优先级、信息状态、风险提示是三个独立字段，各有各的用途。是否重叠、重叠时听谁的，'
+        + '在工作台详情和帮助页里有同一段说明。',
+        en:'Priority, info state and risk are three separate fields with separate jobs. '
+        + 'How they overlap, and which wins, is explained the same way in the lead detail and the help page.'}) + '</p></div>'
+      + '<p style="margin-top:12px;font-size:12.5px;color:var(--ink-3)">'
+      + T({zh:'首页给的是摘要，完整判断逻辑在方法页。',en:'This is the summary; the full method is on the Method page.'})
+      + ' <a href="#/learn" style="color:var(--ink);font-weight:600">' + T({zh:'看方法',en:'Method'}) + '</a></p>';
+    return h;
+  }
+  function boundBox(title, ic, color, items){
+    var h = '<div class="box"><h3>' + title + '</h3><ul>';
+    items.forEach(function(x){ h += '<li>' + I(ic,13).replace('currentColor', color) + x + '</li>'; });
+    return h + '</ul></div>';
+  }
+  function wstep(t2, p, stt){
+    return '<div class="wstep"><h4>' + t2 + '</h4><p>' + p + '</p>' + ST(stt) + '</div>';
+  }
+
+  /* Legacy method links open the same Meta workflow tutorial. */
+  APP.page('method',{render:function(){return renderTutorial();},mount:mountTutorial});
+
+  function colsTable(){
+    var h = '<div class="docwrap"><table><thead><tr><th>#</th><th>' + T({zh:'列',en:'Column'}) + '</th><th>' + T({zh:'属于',en:'Part'}) + '</th></tr></thead><tbody>';
+    LS.COLS19.forEach(function(c, i){
+      var part = i < 6 ? T({zh:'原始',en:'Raw'}) : (i <= 11 ? T({zh:'原始',en:'Raw'}) : (i <= 15 ? T({zh:'判断',en:'Judgment'}) : T({zh:'交接',en:'Hand-off'})));
+      if (i === 6 || i === 7 || i === 8) part = T({zh:'判断',en:'Judgment'});
+      h += '<tr><td>' + (i + 1) + '</td><td>' + T(c) + '</td><td>' + part + '</td></tr>';
+    });
+    return h + '</tbody></table></div>';
+  }
+
+  /* ================= 方案页 ================= */
+  APP.page('price', {render:function(){
+    var c=copy2,h='<div class="head" style="margin-top:54px"><span class="eyebrow">'+c('使用方案','WAYS TO USE LEADSCOPE')+'</span><h1>'+c('先把一批线索处理好。','Start with one batch, done well.')+'</h1><p>'+c('当前版本用于体验流程。团队协作与付费服务是后续方向，尚未开放购买。','Explore the workflow today. Team collaboration and paid services are future options; purchases are not open.')+'</p></div>';
+    h+='<div class="plan-grid"><article class="plan-card"><span class="eyebrow">01 / '+c('当前版本','TODAY')+'</span><h2>'+c('线索整理工作台','Lead workspace')+'</h2><p>'+c('整理自己的多来源线索，查看判断结构，把可交接的结果导出。','Organise multi-source leads, review the assessment structure and export a hand-off.')+'</p><ul><li>'+c('CSV、字段粘贴与手工录入','CSV, field paste and manual entry')+'</li><li>'+c('批次筛选、四层详情与交接字段','Batch filters, four-layer detail and hand-off fields')+'</li><li>'+c('19 列、扩展版与简版导出','19-column, extended and simple exports')+'</li></ul><a class="btn btn-primary" href="workspace.html#/overview">'+c('体验当前版本','Explore the current version')+'</a><small>'+c('自动背调与 OCR 待接入','Automated screening and OCR not connected')+'</small></article>'
+    +'<article class="plan-card"><span class="eyebrow">02 / '+c('规划方向','PLANNED')+'</span><h2>'+c('小而精团队协作','Lean-team collaboration')+'</h2><p>'+c('统一产品线与判断口径，让不同业务员接到一致的客户判断。','Align product lines and assessment criteria so every salesperson receives a consistent hand-off.')+'</p><ul><li>'+c('团队共享批次与结果','Shared batches and results')+'</li><li>'+c('产品线配置与判断版本记录','Product-line settings and assessment versions')+'</li><li>'+c('结合跟进反馈回看渠道质量','Channel review with follow-up feedback')+'</li></ul><span class="st">'+c('尚未开放','Not open')+'</span><small>'+c('账号、云端数据与权限需要后续建设','Accounts, cloud data and permissions require further work')+'</small></article>'
+    +'<article class="plan-card"><span class="eyebrow">03 / '+c('待验证方向','TO VALIDATE')+'</span><h2>'+c('批次整理与判断服务','Batch assessment service')+'</h2><p>'+c('面向暂时不需要软件的小团队，按明确产品线与批次范围交付结果。','For teams that need a result before they need software: defined product lines and batch scope.')+'</p><ul><li>'+c('先确认产品线与判断标准','Agree on product lines and criteria')+'</li><li>'+c('人工复核关键事实和信息缺口','Review key facts and information gaps')+'</li><li>'+c('按批次交付报告与交接表','Deliver a batch report and hand-off sheet')+'</li></ul><span class="st">'+c('服务范围与定价待验证','Scope and pricing to validate')+'</span><small>'+c('当前不接受付款或服务订单','No payments or service orders accepted today')+'</small></article></div>'
+    +'<div class="verify"><p>'+c('无论由一个人整理还是由团队接手，交接时都能带上原始需求、公司背景、判断依据和下一步，再放进你们日常使用的在线文档或表格。','Whether one person prepares the batch or a teammate takes over, keep the request, buyer context, reasoning and next step together in the online documents or spreadsheets your team uses.')+'</p></div>'+footer();return shell('price',h);
+  }});
+
+  function founderBlock(full){
+    var c=copy2;
+    return '<section class="sec founder-section"><div class="founder-mark" aria-hidden="true"><span>R.</span><small>RONNY<br>LEADSCOPE</small></div><div class="founder-copy"><span class="eyebrow">'+c('做这个的人','A NOTE FROM THE FOUNDER')+'</span><h2>'+c('我是 Ronny。<br>我的工作，一直围着客户转。','Hi, I’m Ronny.<br>I’ve worked on both sides of B2B growth.')+'</h2><p>'+c('我最开始在阿里巴巴国际站总部做大客户运营，后来回到用户运营端，更贴近客户日常的获客和经营。','I started in key-account operations at Alibaba.com headquarters, the B2B marketplace. I later moved closer to the customer side, working on the day-to-day questions behind acquisition and business operations.')+'</p><p>'+c('平台上看的是流量、询盘和机会。走到客户一线，还要回答更具体的问题：这个人是谁？需求对不对？业务员下一句该问什么？','On the platform side, you see traffic, inquiries and opportunities. Closer to the customer, the questions get more specific: Who is this buyer? Does the request fit? What should sales ask next?')+'</p><p>'+c('LeadScope 是从我自己的工作流里长出来的：收集多平台线索、做客户背调，再把结果交给跟进的人。我把这套流程整理出来，给同样人手不多、希望把事情做细的团队使用。','LeadScope grew out of my own workflow: collect leads across channels, research the buyers, and pass the findings to the person following up. I’m shaping that process for other lean teams who want to do the work well with the people they have.')+'</p>'+(full?'':'<a class="text-link" href="#/about">'+c('读我的经历与想法','Read my story')+'</a>')+'</div></section>';
+  }
+  APP.page('about',{render:function(){
+    var c=copy2,h=founderBlock(true);
+    h+='<section class="sec"><div class="section-header"><div><span class="eyebrow">'+c('这段经历带来的视角','THE PERSPECTIVE BEHIND THE PRODUCT')+'</span><h2>'+c('把获客和后面的生意连起来。','Connect the campaign to the conversation.')+'</h2></div></div><div class="feats">'
+      +'<article class="box"><h3>'+c('平台侧','The platform view')+'</h3><p>'+c('在阿里国际站总部做大客户运营，让我从平台侧理解企业的获客和经营需求。','Key-account operations at Alibaba.com headquarters gave me a platform-side view of how businesses approach customer acquisition and operations.')+'</p></article>'
+      +'<article class="box"><h3>'+c('用户侧','The customer view')+'</h3><p>'+c('回到用户运营端，关注点变得更具体：拿到询盘以后，怎么识别、怎么判断、怎么让业务员接得住。','Moving into customer-side operations brought the work closer to the daily details: understanding an inquiry, assessing it and giving sales enough context to act.')+'</p></article>'
+      +'<article class="box"><h3>'+c('我现在做的事','What I’m building now')+'</h3><p>'+c('把 Meta、网站、B2B 平台和名片来的线索放进同一套流程，也把获客与跟进中的方法写出来，方便你照着做。','LeadScope brings Meta forms, website inquiries, marketplace leads and business cards into one workflow. I also share practical guides to the acquisition and follow-up around it.')+'</p></article></div></section>';
+    h+='<section class="sec doc"><h3>'+c('为什么还要讲 Meta 推广','Why the Meta guides belong here')+'</h3><p>'+c('如果广告给错人看、表单没问对问题，后面再认真筛选也很吃力。所以我会把入口和后续一起讲：给谁看、为什么留下信息、收到之后怎么联系。','Lead quality starts before a spreadsheet exists. The buyer you aim for, the offer they see and the questions in your form all shape the conversation that follows. The guides cover that full path.')+'</p><a class="text-link" href="#/learn">'+c('学习完整工作流','Learn the full workflow')+'</a><h3>'+c('你现在能体验什么','What you can try today')+'</h3><p>'+c('你可以浏览虚构示例，也可以在浏览器里导入 CSV、粘贴字段或手工录入，再筛选和导出。自动公司背调、名片识别和团队云端协作还没有接入。','Browse fictional examples or import a CSV, paste fields and enter a lead manually. Filter and export in your browser. Automated company research, card scanning and shared cloud accounts are not connected yet.')+'</p><h3>'+c('关于数据','A note on your data')+'</h3><p>'+c('当前文件在浏览器里解析，不上传服务器。手工录入与导入的记录保存在当前标签页会话中，关闭前请导出需要保留的内容。公开示例不含真实客户资料。','Files are parsed in your browser without a server upload. Imported and manually entered records stay in this tab’s session; export anything you need to keep before closing it. Public examples contain no real customer data.')+'</p></section><section class="closing"><h2>'+c('先看一条线索，再决定适不适合你。','Take a look at one lead.')+'</h2><p>'+c('看看这份上下文，能不能让你的下一次联系更顺。','See whether the context would help your team start a better conversation.')+'</p><a class="btn btn-primary" href="workspace.html#/lead?id=L-2401">'+c('打开完整示例','Open the full example')+'</a></section>'+footer();return shell('about',h.replace('<h2>','<h1>').replace('</h2>','</h1>'));
+  }});
+
+  function tutorialSteps(){
+    var c=copy2;
+    return [
+      {icon:'globe',title:c('确定买家与报价理由','Define the buyer and offer'),short:c('买家与需求','Buyer & offer'),intro:c('一条广告，先回答一个明确的采购问题。','One ad should answer one clear buying question.'),actions:[c('选定市场、产品和买家角色，例如英国咖啡连锁采购。','Choose the market, product and buyer role, such as café-chain buyers in the UK.'),c('给一个能兑现的联系理由：目录、选型建议或报价。','Offer something you can deliver: a catalogue, help choosing a model, or a quote.'),c('准备真实产品素材，核实参数、认证和交期，再写广告。','Use real product assets. Check specifications, certifications and lead times before writing the ad.')],output:c('一张简报：市场 / 买家 / 产品 / 联系理由。','A brief: market / buyer / product / reason to inquire.'),example:c('例：英国咖啡门店运营者 → 商用饮品设备 → 获取适合门店的产品资料。','Example: UK café operators → commercial beverage equipment → request relevant product details.')},
+      {icon:'card',title:c('投放与表单一起设计','Build the ad and the form'),short:c('广告与表单','Ad & form'),intro:c('广告负责吸引合适的人，表单负责留下够用的上下文。','The ad attracts a buyer. The form gives you enough context to start.'),actions:[c('准备 Meta 主页、广告账户权限与隐私政策。按当前 Ads Manager 界面选择线索收集与即时表单选项。','Prepare your Meta Page, ad-account access and privacy policy. Select the lead-generation and instant-form options available in your current Ads Manager.'),c('表单先问姓名、商务邮箱、国家、公司或官网、产品需求，再加一个有用的问题。','Ask for name, business email, country, company or website, and the product request. Add one useful qualifying question.'),c('发布前检查预览和链接，跑一条测试线索，确认谁负责接收和回复。','Check previews and links. Test one lead and confirm who will receive and reply to it.')],output:c('能收到测试线索的广告与表单。','An ad and form that deliver a test lead.'),example:c('资格问题示例：设备用于几家门店？是更换设备还是新开店？','Qualifying question: How many locations need equipment? Is this a replacement or a new location?')},
+      {icon:'table',title:c('导出并保留来源','Export with the source intact'),short:c('导出线索','Export leads'),intro:c('先留住客户原话，再开始做判断。','Keep what the buyer said before adding your assessment.'),actions:[c('从 Meta 可用的线索管理入口下载记录，按投放周期分批保留原始文件。','Download records from the lead-management tools available in Meta. Keep the original file for each campaign period.'),c('保留广告系列、广告组、广告与表单标识；缺失的来源字段标为未知，不猜填。','Keep campaign, ad-set, ad and form identifiers. Mark missing source fields as unknown.'),c('将 CSV 导入 LeadScope，核对字段映射、国家与需求，暂缺公司名的线索也可以接住。','Import the CSV into LeadScope. Check the mapping, country and request. Keep leads even when a company name is missing.')],output:c('一个保留原始信息的线索批次。','A batch with its original fields preserved.'),example:c('Meta → CSV → LeadScope。当前手动导入，没有自动平台同步。','Meta → CSV → LeadScope. Import is manual; there is no automatic platform sync.')},
+      {icon:'lens',title:c('背调之后再决定怎么跟','Research before choosing the next step'),short:c('客户背调','Buyer research'),intro:c('这是我工作流里连接运营与销售的一步。','This is where my workflow connects acquisition to sales.'),actions:[c('把产品线和原始线索带到你的 Google AI Studio 背调程序，或按相同顺序人工核实。','Take your product line and raw leads into your Google AI Studio research workflow, or review them manually in the same order.'),c('按主营 → 业务角色 → 品类匹配 → 采购量级判断，保留链接与依据。','Review business → buyer role → product fit → purchasing scale. Keep the source links and supporting evidence.'),c('分清事实、推测和未知。查不到公司不等于差客户；信息不足先列补充问题，再给跟进建议。','Separate facts, inferences and unknowns. A hard-to-find company is not automatically a poor lead. List the missing questions before recommending a next step.')],output:c('客户背景 / 判断依据 / 缺口 / 下一步。','Buyer context / evidence / gaps / next step.'),example:c('虚构示例：饮品连锁有使用场景，但门店数、采购权限和计划数量仍需确认。','Fictional example: a beverage chain has a relevant use case; store count, purchasing authority and planned quantities still need confirmation.')},
+      {icon:'export',title:c('交到你们自己的在线文档','Hand over in your own online documents'),short:c('在线交接','Team hand-off'),intro:c('接手的人要知道客户问了什么，以及下一句问什么。','The next person needs the request and a useful first question.'),actions:[c('复核关键事实，给每条需要跟进的线索确定负责人。','Review the key facts and assign an owner to each lead that needs follow-up.'),c('导出 CSV，手动导入你们常用的在线表格；文字摘要可复制到共享文档。','Export a CSV for your online spreadsheet. Copy the written summary into a shared document if needed.'),c('把原始需求、证据链接、信息缺口、下一步和负责人放在同一条记录里。','Keep the request, evidence links, gaps, next action and owner in the same record.')],output:c('团队能接手的记录，而不是一张联系人名单。','A record your teammate can act on, rather than just a contact list.'),example:c('完整交接用 19 列或扩展版；快速分配用简版。第三方文档不会自动同步。','Use the 19-column or extended export for a full hand-off; use the simple export for quick assignment. Third-party documents are not automatically synced.')},
+      {icon:'link',title:c('跟进反馈回到下一轮投放','Feed replies back into the next campaign'),short:c('回复与复盘','Reply & review'),intro:c('表单数量只是开头，后面的对话才会告诉你哪些线索有价值。','Form submissions are the start. The conversation shows what they are worth.'),actions:[c('第一条回复引用客户实际需求，只问一个能推进讨论的问题。','Refer to the buyer’s actual request and ask one question that moves the conversation forward.'),c('在线表格记录是否联系上、需求是否匹配、是否报价，以及下一次动作。','Record whether the buyer was reached, whether the request fits, whether a quote was sent, and the next action.'),c('按广告组一起看花费、线索、可联系人数、匹配人数与报价数。一次改一个关键变量，写下原因。','Review spend, leads, reachable contacts, relevant requests and quotes by ad set. Change one key variable at a time and record why.')],output:c('一条有依据的调整：改素材、改表单问题或调整市场。','An evidence-based change to the creative, form question or market.'),example:c('CPL = 花费 ÷ 线索数。匹配率 = 匹配线索 ÷ 已评估线索。未评估的不要算成不匹配。','CPL = spend ÷ leads. Fit rate = relevant leads ÷ assessed leads. Do not count unassessed leads as poor fits.')}
+    ];
+  }
+  function researchPrompt(){return copy2('请按我提供的产品线评估以下 B2B 线索。保留客户原始字段，不改写自报信息。按主营业务、业务角色、品类匹配、采购量级的顺序判断。只把可核实的信息写为事实，并附来源链接；推测单独标注，无法核实写未知。查不到主体不等于客户质量差。输出：公司背景、角色、匹配依据、采购量级及依据、待确认问题、建议优先级、下一步问题。只建议我实际提供的产品。若无法检索公开来源，请明确说明，不编造背调结果。','Assess these B2B leads against the product line I provide. Preserve the original customer fields. Review main business, buyer role, product fit and purchasing scale in that order. Label verified facts with source links, distinguish inferences, and mark unverified items as unknown. A company that is hard to find is not automatically a poor lead. Output company context, buyer role, fit evidence, purchasing scale and its basis, missing questions, suggested priority and a useful next question. Recommend only products I actually offer. If you cannot retrieve public sources, say so and do not invent research findings.');}
+  function renderTutorial(){
+    var c=copy2,steps=tutorialSteps();
+    var h='<section class="tutorial-hero"><div><span class="eyebrow">'+c('RONNY 的 META 工作流','RONNY’S META WORKFLOW')+'</span><h1>'+c('从广告到交接，<br>跟着一套流程做。','From the first ad<br>to a clear hand-off.')+'</h1><p>'+c('给小而精的 B2B 团队。照着每一步做，带着一份产物进入下一步。','For lean B2B teams. Follow each step and carry its output into the next.')+'</p><a class="btn btn-primary" href="#step-1" data-course-jump="step-1">'+c('从第一步开始','Start with step one')+'</a></div><div class="tutorial-map" aria-label="'+c('Meta 工作流六步','Six-step Meta workflow')+'">'+steps.map(function(x,i){return '<a href="#step-'+(i+1)+'" data-course-jump="step-'+(i+1)+'"><small>0'+(i+1)+'</small>'+I(x.icon,42)+'<b>'+x.short+'</b></a>';}).join('')+'</div></section>';
+    h+='<div class="course-layout"><aside class="course-nav"><span class="eyebrow">'+c('按顺序做','FOLLOW THE FLOW')+'</span>'+steps.map(function(x,i){return '<a href="#step-'+(i+1)+'" data-course-jump="step-'+(i+1)+'"><span>0'+(i+1)+'</span>'+x.short+'</a>';}).join('')+'<a class="course-tool" href="workspace.html#/batches?tab=import">'+I('table',20)+c('打开配套工作台','Open the workspace')+'</a></aside><div class="course-chapters">';
+    steps.forEach(function(x,i){h+='<details class="course-chapter" id="step-'+(i+1)+'"'+(i===0?' open':'')+'><summary><span class="chapter-icon">'+I(x.icon,34)+'</span><span><small>0'+(i+1)+'</small><b>'+x.title+'</b><em>'+x.intro+'</em></span><span class="chapter-toggle" aria-hidden="true">+</span></summary><div class="chapter-body"><h3>'+c('照着做','DO THIS')+'</h3><ol>'+x.actions.map(function(a){return '<li>'+a+'</li>';}).join('')+'</ol><div class="chapter-output">'+I('check',24)+'<div><small>'+c('这一步的产物','TAKE THIS TO THE NEXT STEP')+'</small><p>'+x.output+'</p></div></div><p class="chapter-example">'+x.example+'</p>';
+      if(i===1)h+='<div class="lesson-example"><small>'+c('可改写的英文广告','ENGLISH AD TO ADAPT')+'</small><h3>Reviewing beverage equipment for your café?</h3><p>Tell us what you serve and how many locations you run. We’ll help you compare the options in our range and send the product details you need.</p><b>Request product details</b><small>'+c('只在你确实提供选型帮助时使用，按真实产品和目标市场修改。','Use only if you provide that help. Adapt to your actual product and market.')+'</small></div>';
+      if(i===3)h+='<div class="prompt-kit"><h3>'+c('背调指令起点','A starting brief for research')+'</h3><p>'+c('这段用于说明判断顺序。使用时补上你的产品线和线索，并复核来源。它不代替真实检索或人工复核。','Add your product line and leads to this brief. Review the sources. It does not replace source retrieval or human review.')+'</p><details><summary>'+c('查看指令','View the brief')+'</summary><pre>'+ESC(researchPrompt())+'</pre></details><button class="btn btn-ghost" data-act="copy" data-copy="'+ESC(researchPrompt())+'">'+I('paste',18)+c('复制指令','Copy the brief')+'</button></div>';
+      if(i===4)h+='<div class="handoff-mini">'+['Request','Evidence','Gaps','Next step','Owner'].map(function(k){var z={Request:'需求',Evidence:'依据',Gaps:'缺口','Next step':'下一步',Owner:'负责人'};return '<span>'+c(z[k],k)+'</span>';}).join('')+'</div>';
+      if(i===5)h+='<div class="lesson-example"><small>'+c('首次回复示例','FIRST REPLY EXAMPLE')+'</small><p>Hi Alex, thanks for getting in touch. You mentioned beverage equipment for your cafés. Are you replacing an existing unit or setting up a new location?</p><p>If you can share your typical daily usage, I can narrow down the options and send the relevant specifications.</p></div>';
+      h+='</div></details>';
+    });
+    h+='</div></div><section class="sec reading-shelf"><div><span class="eyebrow">'+c('延伸阅读','FURTHER READING')+'</span><h2>'+c('先读官方说明，再回到你的流程。','Read the guidance.<br>Apply it to your workflow.')+'</h2><p>'+c('Meta 的产品选项会变化。官方指南用于理解留资方式，实际设置以当前账户界面为准。','Meta’s product options change. Use the official guide for context and your current account interface for available settings.')+'</p></div><a class="reading-resource" href="https://about.fb.com/ltam/wp-content/uploads/sites/14/2023/11/LeadGenerationGuide.pdf" target="_blank" rel="noopener">'+I('paste',48)+'<span>Meta</span><h3>Lead Generation Guide</h3><small>Official PDF · 2023</small><b>'+c('打开官方指南 ↗','Open official guide ↗')+'</b></a></section><section class="closing"><h2>'+c('学完一段，就处理一条。','Learn a step. Try it on one lead.')+'</h2><p>'+c('先用虚构示例看交接结构，再导入你自己的 CSV。','Explore the fictional example, then import your own CSV.')+'</p><a class="btn btn-primary" href="workspace.html#/lead?id=L-2401">'+c('看配套示例','See the worked example')+'</a></section>'+footer();return shell('learn',h);
+  }
+  function mountTutorial(){document.querySelectorAll('[data-course-jump]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var el=document.getElementById(a.getAttribute('data-course-jump'));if(el){el.open=true;el.scrollIntoView({behavior:'smooth',block:'start'});}});});}
+  APP.page('learn',{render:renderTutorial,mount:mountTutorial});
+
+  /* ================= 404 ================= */
+  APP.page('404', {
+    render: function(){
+      return shell('', '<div class="empty" style="margin:70px auto;max-width:520px">' + APP.lensMark(40)
+        + '<h3>' + T({zh:'没有这一页',en:'No such page'}) + '</h3>'
+        + '<p>' + T({zh:'链接可能打错了。',en:'The link may be mistyped.'}) + '</p>'
+        + '<a class="btn btn-primary" href="#/home">' + T({zh:'回首页',en:'Back home'}) + '</a></div>');
+    }
+  });
+
+  /* ---------- 启动 ---------- */
+  document.getElementById('app').innerHTML = '';
+  APP.setTheme(APP.theme());
+  LS.setLang(APP.lang());
+  document.body.setAttribute('data-lang', APP.lang());
+  document.documentElement.lang = APP.lang()==='en'?'en':'zh-CN';
+  APP.rerenderNow();
+})();
+</script>
+</body>
+</html>

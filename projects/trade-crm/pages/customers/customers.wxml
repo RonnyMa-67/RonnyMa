@@ -1,0 +1,39 @@
+<view class="page">
+  <view class="search">
+    <input
+      class="search-input"
+      placeholder="搜索公司、联系人、国家"
+      placeholder-class="placeholder"
+      value="{{keyword}}"
+      bindconfirm="onSearch"
+      bindblur="onSearch"
+    />
+  </view>
+
+  <scroll-view class="stages" scroll-x>
+    <view
+      class="stage {{stageIndex === index ? 'active' : ''}}"
+      wx:for="{{stages}}"
+      wx:key="*this"
+      data-index="{{index}}"
+      bindtap="onStage"
+    >{{index === 0 ? '全部' : item}}</view>
+  </scroll-view>
+
+  <view class="section">
+    <customer-card
+      wx:for="{{list}}"
+      wx:key="_id"
+      item="{{item}}"
+      data-id="{{item._id}}"
+      bind:tapcard="goDetail"
+      bind:markdone="onMarkFromList"
+    />
+    <view class="empty" wx:if="{{!loading && !list.length}}">
+      <view>还没有客户</view>
+      <view class="muted">点右下角新增，或从阿里后台批量导入</view>
+    </view>
+  </view>
+
+  <view class="fab" bindtap="goNew">＋</view>
+</view>

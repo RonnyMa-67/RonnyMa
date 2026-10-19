@@ -1,0 +1,3 @@
+Phosphor Icons — https://github.com/phosphor-icons/core
+Official duotone SVG assets; MIT license.
+Paths are embedded in app.js for offline rendering.

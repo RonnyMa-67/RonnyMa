@@ -1,0 +1,53 @@
+.page {
+  padding-bottom: 160rpx;
+}
+
+.search {
+  margin: 24rpx;
+}
+
+.search-input {
+  height: 80rpx;
+  padding: 0 24rpx;
+  background: #FFFFFF;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+}
+
+.placeholder {
+  color: #A8B1C0;
+}
+
+.stages {
+  white-space: nowrap;
+  padding: 0 24rpx 12rpx;
+}
+
+.stage {
+  display: inline-block;
+  margin-right: 16rpx;
+  padding: 10rpx 28rpx;
+  border-radius: 28rpx;
+  background: #FFFFFF;
+  color: #6B7688;
+  font-size: 26rpx;
+}
+
+.stage.active {
+  background: #1F2A37;
+  color: #FFFFFF;
+}
+
+.fab {
+  position: absolute;
+  right: 40rpx;
+  bottom: 60rpx;
+  width: 96rpx;
+  height: 96rpx;
+  line-height: 92rpx;
+  text-align: center;
+  border-radius: 48rpx;
+  background: #1F2A37;
+  color: #FFFFFF;
+  font-size: 48rpx;
+}
