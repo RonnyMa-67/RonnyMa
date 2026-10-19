@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="320" viewBox="0 0 600 320" role="img" aria-labelledby="title desc">
+        <title id="title">Ronny — Builder &amp; Explorer</title>
+        <desc id="desc">A quiet blue typographic banner with overlapping forms representing business, AI, and digital products.</desc>
+        <rect width="600" height="320" rx="20" fill="#EDF3FA"/>
+        <path d="M48 52h48" stroke="#315F99" stroke-width="4"/>
+        <text x="44" y="181" fill="#192F4D" font-family="Georgia, 'Times New Roman', serif" font-size="112" letter-spacing="-5">Ronny</text>
+        <text x="49" y="237" fill="#506786" font-family="Arial, Helvetica, sans-serif" font-size="28">Builder &amp; Explorer</text>
+        
+        </svg>
