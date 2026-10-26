@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.env
+.env.*
+*.xlsx
+*.xls
+*.db
+*.sqlite*
+private/
+data/
+exports/
+!examples/*.csv
+!examples/*.json
