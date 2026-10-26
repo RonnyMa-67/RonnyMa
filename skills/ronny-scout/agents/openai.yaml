@@ -1,0 +1,4 @@
+interface:
+  display_name: "Ronny Scout"
+  short_description: "Research B2B leads with traceable sources and clean spreadsheets"
+  default_prompt: "Review these business leads, verify companies and public contact channels, preserve original buying intent, and prepare an evidence-backed research spreadsheet."
