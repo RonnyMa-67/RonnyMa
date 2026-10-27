@@ -1,9 +1,10 @@
 # Ronny 的外贸运营工具
 
-这里收录三个围绕 B2B 客户开发、线索整理与销售跟进制作的个人工具。Ronny 负责提出业务需求、梳理字段及判断规则，并借助 AI 辅助开发和迭代。公开版本整理日期：2026-10-19。
+这里收录四个围绕 B2B 客户开发、线索整理与销售跟进制作的个人工具。Ronny 负责提出业务需求、梳理字段及判断规则，并借助 AI 辅助开发和迭代。公开作品索引更新：2026-10-27。
 
 | 工具 | 业务问题 | 主要源码 | 当前形态 |
 |---|---|---|---|
+| [Ronny Scout](ronny-scout/) | 多语言客户背调、采购意向保留、线索评级与 A–J 研究表 | [原生 Skill](../skills/ronny-scout/)、交互演示与导出工具 | [在线演示](https://ronnyma-67.github.io/RonnyMa/projects/ronny-scout/) · [无 API 安装](../skills/ronny-scout/references/no-api-quickstart.md) |
 | [Ronny Intelligence](ronny-intelligence/) | 多来源线索需要统一整理，并补充客户业务资料 | `components/LeadInput.tsx`、`services/metaLeadParser.ts`、`services/leadPrompt.ts`、`services/leadRules.ts`、`components/CRMView.tsx` | 可构建的前端原型，AI 调用及云数据库需要另行配置 |
 | [LeadScope](leadscope/) | 线索分散，负责人、跟进状态与导出字段不统一 | `site/local-data.js`、`site/data.js`、`site/workspace.html` | 在浏览器处理 CSV 和手工录入，自动背调未接入 |
 | [外贸 CRM 小程序](trade-crm/) | 客户资料停留在表格，难以安排每日跟进与团队分工 | `cloudfunctions/crm/index.js`、`pages/`、`tools/xlsx_to_json.py` | 微信云开发原型，需要配置环境并部署验收 |
