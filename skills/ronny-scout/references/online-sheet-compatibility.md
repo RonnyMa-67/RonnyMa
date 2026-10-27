@@ -1,8 +1,16 @@
-# Spreadsheet / CRM compatibility
+# Safe master-sheet integration
 
-1. Back up an existing workbook before editing. Inspect precise sheet names, header order, comments, hyperlinks, formulas, validation ranges, assignment and CRM status cells.
-2. Map research outputs by *field name* and stable lead ID. Never paste a duplicate header into an existing data region. Do not overwrite user notes, assigned owners, statuses, charts or formulas. Reopen the edited workbook and compare preserved structures.
-3. A normal XLSX cell supports one hyperlink target. Several blue-looking URLs in a cell do not become independently clickable. For independent WA/email/website/social links, use one link per cell, or a proven destination-native rich link editor. Validate every resulting target.
-4. Excel comments are distinct from native online spreadsheet comments. Plain paste/import does not guarantee comment transfer. Preserve notes in structured source data or Excel comments and report destination-native comments as unverified until readback.
-5. Keep a compact visible company summary with field-specific evidence in comments. Never expand rows to hundreds of points to display entire evidence blobs; preserve original formatting, readable wrapping and reasonable row heights.
-6. Verify actual results inside the destination before claiming any successful API sync, comment creation, or multi-link behavior. Avoid billable integrations without authorization.
+## Accepted structure
+
+A–J are fixed research columns (see `output-contract.md`), K and onward are operational / follow-up fields. In a multi-tab CRM, preserve **every sheet beyond the research sheet**, even if the example in one project uses four tabs.
+
+1. Inspect original workbook headers before any append. Require the exact expected A–J semantic mapping, with explicit user-approved header aliases only. A misaligned 8/9-column file must not be pasted into A–J.
+2. Back up first. Detect existing leads by persisted original ID (prefer B comments / original ID mapping). Never modify existing business records when a lead ID already exists; report duplicates instead of making another entry.
+3. Append only the A–J research cells in new rows. Preserve K onward for business staff to fill. Do not erase or recreate dropdown validations, charts, other sheets, formulas, cell comments, conditional formatting, row color or data bars. Do not insert rows into a formula-driven dashboard, and never replace a workbook with a single-sheet reconstruction.
+4. Keep **all phone/email/WhatsApp** under F, **all website/social** under G. Country C is a country name only. Do not invent new V–AC link columns. Standard Excel cell supports one hyperlink target. URLs written together are not automatically independently clickable.
+5. D, E, H, J wrap with consistent line breaks; avoid overlong row height. Carry forward row styling and assignee markers. Event-intent text may be highlighted, not labeled “appointment confirmed.” Preserve source evidence and original data in structured field notes/comments rather than the primary cell text.
+6. After save, reopen and check exact headers, all four (or more) tabs, dashboard chart counts, validation rules, previous rows, comments and links. Only then describe Excel artifact as updated. Never claim it is already written into DingTalk / Google Sheets online.
+
+## Cloud limits
+
+Excel comments are **not** cloud-native comments, and XLSX single-cell URLs are **not** multi-click rich text. Pasting/importing cannot guarantee either. Native online editing requires actual authenticated access and read-back verification. Do not bypass permissions or require paid sync integration.
