@@ -1,11 +1,19 @@
 ---
 name: ronny-scout
-description: Research and qualify multilingual B2B sales leads from Meta/CRM CSV, XLSX, pasted tables and event forms. Find real company websites, social profiles and related people; write rich, constructive company backgrounds, grounded business opportunity analysis and actionable next steps; export a precisely aligned A–J research table or safely append to a formatted multi-sheet CRM without changing downstream sales fields. Use for bulk lead intelligence, company due diligence, trade show lead qualification and spreadsheet updates.
+description: Research and qualify multilingual B2B sales leads from Meta/CRM CSV, XLSX, pasted tables and event forms. Find real company websites, social profiles and related people; write rich, constructive company backgrounds, grounded business opportunity analysis and actionable next steps; export a precisely aligned A–J research table or safely append to a formatted multi-sheet CRM without changing downstream sales fields. Use for bulk lead intelligence, company due diligence, trade show lead qualification and spreadsheet updates. Designed for direct installation into AI assistants with native browsing/file tools; no API keys or paid external integrations are required.
 ---
 
 # Ronny Scout
 
 Produce **commercially useful**, source-aware B2B lead intelligence and correctly aligned spreadsheets. This skill is public and vendor-neutral; never embed private client data or a specific employer's product catalog.
+
+## Zero-API native mode
+
+- **Start immediately after installation:** Load the user's CSV/XLSX/Markdown leads or pasted records and follow this skill. Do not ask for API keys, subscriptions, custom integrations, database configuration or deployment. An AI's own browsing, document and spreadsheet tools may be used when available.
+- **Use built-in AI capabilities first:** Analyze and research directly, then generate the A–J table. Treat scripts in this package as optional aids rather than dependencies. Python and `openpyxl` are optional for programmatic XLSX output and validation; they do **not** make AI research calls.
+- **If browsing is unavailable:** Complete source-preserving structuring, practical interpretation and qualified draft based on supplied evidence, but explicitly identify claims that could not be externally checked. Do not pretend to have researched current websites or social accounts.
+- **If spreadsheet export is unavailable:** Provide the exact A–J rows as a copyable table or CSV instead of pretending a downloadable workbook was made. Native online-sheet comments still need destination verification.
+- **Installation, copy-paste prompt and capability matrix:** Read `references/no-api-quickstart.md`.
 
 ## Workflow
 
@@ -27,7 +35,7 @@ Produce **commercially useful**, source-aware B2B lead intelligence and correctl
 - Existing CRM may also include a supplier-specific fit column outside A–J. **Leave such columns untouched unless the user supplies mapping and explicitly asks to populate it**. Never hard-code a vendor name or product range.
 - Never publish real lead IDs, contacts, email addresses, API secrets, proprietary templates or customer spreadsheets to GitHub. Public examples remain fictional and free-tool-compatible.
 
-## Utilities
+## Utilities (optional — no third-party API required)
 
 ```bash
 python scripts/parse_leads.py --input examples/sample_leads.csv --output /tmp/leads.json
