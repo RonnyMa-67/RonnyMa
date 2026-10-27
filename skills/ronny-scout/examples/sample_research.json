@@ -2,46 +2,64 @@
   {
     "lead_id": "SYN-0001",
     "customer_name": "Example Buyer",
-    "job_title": "Buyer",
-    "country": "Sample Country",
+    "job_title": "Purchasing",
+    "country": "示例国家",
     "company_name": "North Quay Cafe",
-    "business_type": "Cafe",
-    "company_profile": "Cafe with cold beverages",
-    "business_background": "Sample fictional business",
-    "original_purchase_intent": "Interested in commercial dispenser",
+    "business_type": "咖啡门店",
+    "company_profile": "咖啡、冷饮及简餐零售",
+    "business_background": "为周边商业区顾客提供现场制作饮品。",
+    "company_scale": "",
+    "original_purchase_intent": "商用饮料设备；预计先了解资料；1–5台；优先线上沟通",
     "phone": "+1 202 555 0102",
     "whatsapp": "",
     "email": "buyer@example.invalid",
-    "website": "https://example.com",
-    "social_links": {},
-    "cooperation_potential": "Possible venue use",
+    "website": "https://example.com/",
+    "social_links": {
+      "Facebook": "https://www.facebook.com/example"
+    },
+    "cooperation_potential": "门店经营冷饮，具备商用饮品设备应用场景。",
     "priority_level": "P2",
-    "development_suggestion": "Clarify serving volume before suggesting a model.",
-    "supplier_fit": "Beverage equipment potential",
+    "development_suggestion": "先了解冷饮菜单与高峰客流，再对应推荐设备规格及容量。",
+    "supplier_fit": "商用饮品设备的零售终端应用场景。",
     "onsite_meeting_interest": false,
-    "sources": [],
-    "field_notes": {}
+    "sources": [
+      {
+        "url": "https://example.com/",
+        "claim": "SYNTHETIC EXAMPLE ONLY"
+      }
+    ],
+    "field_notes": {
+      "company_profile": "示例数据，仅测试格式。"
+    },
+    "assignee": "Owner A",
+    "assignee_color": "yellow"
   },
   {
     "lead_id": "SYN-0002",
     "customer_name": "Example Partner",
-    "country": "Sample Country",
+    "job_title": "Owner",
+    "country": "示例国家",
     "company_name": "Harbor Supply",
-    "business_type": "Distributor",
-    "company_profile": "Fictional equipment supplier",
-    "business_background": "Example for testing",
-    "original_purchase_intent": "Discuss trade show",
+    "business_type": "设备经销方向",
+    "company_profile": "为本地商户提供设备选型及采购服务",
+    "business_background": "客户提交了渠道采购意向；企业规模未作判断。",
+    "company_scale": "",
+    "original_purchase_intent": "冷饮设备，预计10台；希望在展会现场沟通（尚未预约）",
     "phone": "+1 202 555 0127",
     "whatsapp": "+1 202 555 0127",
     "email": "partner@example.invalid",
     "website": "",
     "social_links": {},
-    "cooperation_potential": "Distributor conversation",
+    "cooperation_potential": "有潜在设备分销场景，需确认渠道及项目规模。",
     "priority_level": "P2",
-    "development_suggestion": "Confirm local customer base and initial sourcing volume.",
-    "supplier_fit": "Wholesale channel fit",
+    "development_suggestion": "先了解当地客户群和设备品类，再确认展会到访安排。",
+    "supplier_fit": "可作为设备分销合作线索进一步沟通。",
     "onsite_meeting_interest": true,
     "sources": [],
-    "field_notes": {}
+    "field_notes": {
+      "company_profile": "企业身份仍需关联证据，不将自填信息认定为真实经营规模。"
+    },
+    "assignee": "Owner B",
+    "assignee_color": "pink"
   }
 ]
