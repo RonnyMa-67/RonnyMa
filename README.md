@@ -22,7 +22,9 @@ Here, I'm exploring how those ideas can become useful tools for everyday work.
 
 <a href="projects/ronny-scout/"><img src="projects/ronny-scout/showcase.svg" alt="Ronny Scout product dashboard with fictional leads and company intelligence" width="100%"></a>
 
-**[Product showcase](projects/ronny-scout/)** · **[Source & Skill](skills/ronny-scout/)** · **[Brand & attribution](projects/ronny-scout/BRAND_POLICY.md)**
+**[Product showcase](projects/ronny-scout/)** · **[Source & Skill](skills/ronny-scout/)** · **[Brand & attribution](projects/ronny-scout/BRAND_POLICY.md)** · **[Support setup](https://github.com/sponsors)**
+
+<sub>Live interaction is included in the HTML demo; public Pages hosting requires a one-time repository settings activation. GitHub Sponsors onboarding is pending account approval.</sub>
 
 `B2B Lead Research` `Multilingual` `Company Intelligence` `Interactive Demo` `Excel & CRM QA`
 
