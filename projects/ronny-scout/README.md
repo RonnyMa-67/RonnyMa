@@ -6,7 +6,7 @@ Ronny Scout is a practical open-source workflow for multilingual B2B lead intell
 
 ![Ronny Scout — interactive B2B lead intelligence preview](./showcase.svg)
 
-### [Explore the interactive demo](./index.html) · [Install native Skill · No API](../../skills/ronny-scout/references/no-api-quickstart.md) · [Source & Skill](../../skills/ronny-scout/) · [Creator profile](../../README.md)
+### [Explore the interactive demo](https://ronnyma-67.github.io/RonnyMa/projects/ronny-scout/) · [Install native Skill · No API](../../skills/ronny-scout/references/no-api-quickstart.md) · [Source & Skill](../../skills/ronny-scout/) · [Creator profile](../../README.md)
 
 **Try it in your own AI:** import the [Ronny Scout Skill folder](../../skills/ronny-scout/) (or its packaged `skill.zip`) into a Skills-compatible assistant and attach your leads. No external developer API key, server or paid integration is needed. Native web browsing is needed to check up-to-date company sites; native spreadsheet tools or optional free Python utilities create XLSX exports.
 
@@ -33,14 +33,14 @@ The **open-source implementation** and **interactive showcase** are visible for 
 
 Open [index.html](./index.html) in a browser or serve it with any simple local static server; no API keys, backend, payment method or production customer data are needed.
 
-GitHub Pages: Once Pages is enabled on this public repository using the \`main\` branch / root, the demo URL should be:
+GitHub Pages is enabled. Publishing uses on this public repository using the \`main\` branch / root, the demo URL should be:
 
 \`https://ronnyma-67.github.io/RonnyMa/projects/ronny-scout/\`
 
-This address is a deployment target, **not a claim that Pages has already been activated**. The first automated deployment cannot create a Pages site without the repository setting.
+The interactive demo is published at the URL above.
 
 ## Support the project
 
-Open-source work is sustained by people who find it useful. [GitHub Sponsors](https://github.com/sponsors) enrollment is being configured and the repository has a sponsor declaration in `.github/FUNDING.yml`; **donations are not available until the creator's Sponsor profile is approved and payout details are completed**.
+Open-source work is sustained by people who find it useful. [GitHub Sponsors](https://github.com/sponsors/RonnyMa-67) enrollment is being configured and the repository has a sponsor declaration in `.github/FUNDING.yml`; **donations are not available until the creator's Sponsor profile is approved and payout details are completed**.
 
 Copyright © 2026 Ronny Scout contributors. No real customer information or proprietary account details are distributed in the showcase.

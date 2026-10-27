@@ -2,6 +2,8 @@
 
 **Installation uses an AI assistant's native Skill support. You do not need to buy API credits, connect a cloud database, deploy a server, or enter an API key.**
 
+**[Download native Skill ZIP](https://github.com/RonnyMa-67/RonnyMa/raw/refs/heads/main/skills/ronny-scout/skill.zip)** · [View SKILL.md](../SKILL.md)
+
 ## A. ChatGPT or any Skill-compatible AI / 支持 Skills 的 AI
 
 1. Download the folder `skills/ronny-scout/` from this repository and preserve its internal structure. You can also download the entire repository as ZIP and extract `skills/ronny-scout/`.
