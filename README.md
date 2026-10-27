@@ -31,7 +31,9 @@ From raw form submissions to structured company profiles, preserved buying signa
 
 **[Live interactive demo](https://ronnyma-67.github.io/RonnyMa/projects/ronny-scout/)** · **[Download Skill ZIP](https://github.com/RonnyMa-67/RonnyMa/raw/refs/heads/main/skills/ronny-scout/skill.zip)** · **[Documentation & source](https://github.com/RonnyMa-67/RonnyMa/tree/main/skills/ronny-scout)**
 
-The live demo includes eight fictional leads with search, priority filters, company briefs and CSV export. Live company research runs in a capable AI assistant after installation.
+The offline demo includes **10 fictional B2B customers** across three tabs: lead import, A–J customer details, and a market dashboard. Paste text or import CSV / TSV, search and filter records, open customer drawers, check data quality, and export the filtered ten-column CSV. The blue-green scout shield is Ronny Scout's own identity.
+
+Imported leads remain **unverified**; no live research or external API calls run in the demo. Data stays in page memory and is cleared on refresh. Live company research runs in a capable AI assistant after installing the native Skill, without a separate developer API key.
 
 ## Selected projects
 
@@ -59,3 +61,4 @@ Interested in **B2B operations, lead intelligence, AI workflows and practical di
 [Open a project inquiry](https://github.com/RonnyMa-67/RonnyMa/issues/new) · [View my work](https://github.com/RonnyMa-67/RonnyMa)
 
 <sub>Built by Ronny with AI-assisted development. GitHub Sponsors application submitted; sponsorship payments are not yet enabled.</sub>
+
