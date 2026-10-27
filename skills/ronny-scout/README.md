@@ -10,7 +10,22 @@ Reusable, privacy-conscious ChatGPT Skill for multilingual B2B lead qualificatio
 - Creates one-sheet research exports and validates formatting, comments and hyperlinks.
 - Documents what Excel-to-online-sheet import **cannot** guarantee (native comments and independently clickable links within one cell).
 
-## Quick start
+## Install in AI — No API key required / 直接安装使用
+
+**Ronny Scout is a native AI Skill, not a paid API service.** Import this folder into a Skills-compatible AI, then provide your lead data and ask the AI to run Ronny Scout. No server, developer key, OAuth setup, metered model API or credit card is required by the Skill itself.
+
+1. Use the GitHub **Code → Download ZIP** option, extract the repository, and find `skills/ronny-scout/`.
+2. Keep `SKILL.md`, `agents/`, `references/`, `scripts/` and the other bundled contents together. If your AI accepts a Skill ZIP, compress **only** the `ronny-scout` folder, rather than uploading the whole GitHub profile repository.
+3. Install/upload in the AI's Skills interface; or attach `SKILL.md` as instructions in any AI that lacks a Skill installer.
+4. Attach your CSV/XLSX or paste your Meta/CRM leads and say:
+
+> **Use Ronny Scout to research these leads. Find company websites, business profiles and social channels. Write a rich, positively framed commercial analysis and export the accepted A–J table. No paid API or setup.**
+
+**Live research requires that the AI host itself offers web search/browsing.** Producing an XLSX file requires native file/spreadsheet tools or the included optional free Python utilities. The Skill does not bypass an AI provider's plan/usage limits and does not offer cloud-native DingTalk sync.
+
+[Read the full no-API installation guide](references/no-api-quickstart.md) · [Original Skill instructions](SKILL.md)
+
+## Optional local scripts (free)
 
 ```bash
 python -m pip install -r requirements.txt
