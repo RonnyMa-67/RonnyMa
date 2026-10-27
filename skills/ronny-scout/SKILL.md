@@ -1,36 +1,40 @@
 ---
 name: ronny-scout
-description: Research and qualify B2B sales leads from CRM exports, lead-form CSV/XLSX, pasted tables, and multilingual notes. Verify company identity and public websites/social channels, preserve purchase intent and contact provenance, write concise company profiles and practical next steps, and export an auditable, well-formatted spreadsheet. Use for batch business due diligence, lead prioritization, distributor prospecting, trade-show lead research, and safe preparation for CRM/online-sheet import.
+description: Research and qualify multilingual B2B sales leads from Meta/CRM CSV, XLSX, pasted tables and event forms. Find real company websites, social profiles and related people; write rich, constructive company backgrounds, grounded business opportunity analysis and actionable next steps; export a precisely aligned A–J research table or safely append to a formatted multi-sheet CRM without changing downstream sales fields. Use for bulk lead intelligence, company due diligence, trade show lead qualification and spreadsheet updates.
 ---
 
 # Ronny Scout
 
-Deliver usable, evidence-aware lead research. Prefer a correct, readable row over a long narrative. Never imply that an imported file, spreadsheet comment, or link has already been written into a third-party online sheet.
+Produce **commercially useful**, source-aware B2B lead intelligence and correctly aligned spreadsheets. This skill is public and vendor-neutral; never embed private client data or a specific employer's product catalog.
 
 ## Workflow
 
-1. **Ingest and preserve**: Read the original spreadsheet, CSV/TSV, Markdown table, or pasted multilingual lead-form data. Use `scripts/parse_leads.py` where it helps. Preserve source row ID, full raw text, contact data, original product choices, quantity, lead time, meeting preference, date, and source. Do not translate or normalize by overwriting the original. Deduplicate on reliable IDs; if absent, flag possible duplicates rather than silently merging.
-2. **Research**: Search reputable public sources using available search/browser tools. Start with the exact business name, then domain, locality, and names in the original script (including Arabic when provided). Search company website, recognized company profile, Facebook, Instagram, LinkedIn, public directories and business contact channels. Verify whether each result belongs to the *same entity* and whether the lead person is linked to it. Read `references/research-standard.md`.
-3. **Separate evidence**: Mark company facts as confirmed, plausible/linked, candidate only, or not verified. Do not infer employee count from a similar business or equate a social username with a verified company account. Treat social profiles as leads to investigate, not proof of ownership. Preserve source URL and the claim it supports. Use only public business contact information; do not gather unrelated private profiles.
-4. **Profile and evaluate**: Write `Company / type`, `Main business`, `Business background`, and `Scale` as separate lines within one cell. Only mention scale when supported. Write a distinct cooperation fit, a calibrated P1/P2/P3/unverified priority, and one specific next step informed by the original buying signal. Avoid repetitive disclaimers, flattering filler, invented products or defaulting to P1. Follow `references/writing-and-ranking.md`.
-5. **Export**: For a new report, use the **default nine visible columns** in `references/output-contract.md`; run `scripts/export_xlsx.py`. For an existing customer-management master, first inspect the exact header schema, cell notes, validation dropdowns, formulas and links. Map by names, **never paste a new header in the middle**. Only append if safe; do not overwrite sales follow-up or user comments. See `references/online-sheet-compatibility.md`.
-6. **Validate**: Run `scripts/validate_export.py` on the exported workbook; visually inspect width, wrapping and row heights. Confirm each populated record retains original demand, country, links and sources. Make claims about online-sheet comments/hyperlinks only after verifying *inside that destination*.
+1. **Preserve source** — Parse XLSX/CSV/Markdown/Meta form data (use `scripts/parse_leads.py`). Retain source lead ID, raw choices, exact product interests, quantities, time window, original country, meeting preference and contact channels separately. Never turn `1–5 units, <3 months` into “1–5 monthly” or translate an online-information request into a booth appointment. Deduplicate only by reliable ID.
+2. **Investigate proactively** — Search exact organization and contact name, local-language variants, business domain, phone/contact signals, public company registries and owned social links. Explore credible same-name business and professional connections, company operating footprint, vertical and distribution opportunities. Go beyond the form; use first-party websites, social pages and public professional records where possible. Check `references/research-standard.md`.
+3. **Synthesize positively** — Write **identity → 主营 → 背景 → 规模/渠道** as separate readable lines in one company cell. Make use of research findings and reasoned commercial interpretation without turning every line into disclaimers. Distinguish a candidate association *once where materially important*, in a note or compact qualifier, not a defensive essay. Avoid inventing corporate registration, branches, volumes, staff size, exclusivity or existing equipment deployments. See `references/writing-and-ranking.md`.
+4. **Assess buying opportunity** — Preserve original intent in E; use H for business-fit, actual product/application value, scale or channel direction and partnership path. Use I for calibrated P1/P2/P3/待核实, J for one specific forward action. Avoid formulaic sales promises, generic VIP invitations, invented discounts, and dumping `multiple_categories_/_need_selection_advice` into narrative.
+5. **Export the fixed A–J format** — The accepted **10-column visible research schema** is: `A 分配业务员 | B 客户信息 | C 国家 | D 公司介绍（主营·背景·规模） | E 原始采购需求 | F 联系方式 / WhatsApp | G 官网与社媒 | H 匹配与合作潜力 | I 背调评级 | J 开发切入点`. **Do not export 8/9 columns or move contacts into the company field**. Phone/email/WA stay together in F; websites and socials together in G. C contains country names only, never dial-code remarks. See `references/output-contract.md`.
+6. **Existing master safe-mode** — Inspect exact template headers and preserve downstream K–U (owner feedback/dropdowns/formulas/comments), other tabs, dashboard charts, styles and colors. If template differs from A–J, stop rather than blindly paste. Append by mapped fields and stable lead IDs, not positional guessing. No extra V–AC contact-link columns unless the user explicitly requests an alternative schema. Do not overwrite existing rows or sheet structures; read `references/online-sheet-compatibility.md`.
+7. **Validate and deliver** — Run `scripts/validate_export.py`, check row heights, comments, links, preserved original demand, header positions and client count. For template append run `scripts/append_to_template.py --help` and its checks. Treat Excel comments and one-link-per-cell constraints honestly; never claim destination-native online comments were created without readback.
 
-## Non-negotiable details
+## Style and integrity rules
 
-- Company background is structured: `Identity`, `Main business`, `Background`, optional `Scale`; never dump machine-coded survey options (e.g. `multiple_categories_/_need_selection_advice`) into prose. Never attach unrelated names or social pages to a lead.
-- Preserve **request for on-site meeting** versus **confirmed appointment**, **online meeting** versus **declined event**. No fabricated meeting time.
-- Store phone, WhatsApp, email, website and social URLs separately in the research data. Generate `wa.me/<digits>` only from an eligible number; WhatsApp availability is unverified unless supported. Do not duplicate country codes or phone digits.
-- One ordinary XLSX cell typically has one hyperlink target. Multiple blue URL strings in the same cell **do not** become separately clickable. Default nine-column mode displays readable URLs and has at most one primary hyperlink in the contact cell. For truly independent links use `--link-mode independent`, which creates additional columns, or a verified destination-native integration.
-- Excel comments are **not** destination-native comments. Copy/paste may strip both comments and rich-link runs; never claim compatibility without readback. Keep notes in cell comments and a structured source field, not in main text.
-- Do not force a fixed row height too short to display content or expand notes into 500-point rows. A concise main cell plus a detailed comment is the default.
-- Do not ship personal names, phones, emails, form IDs, client spreadsheets, tokens or proprietary catalogs in a public repository. Repository examples must be synthetic. Never require a paid API or a payment method. Use available free/manual research pathways when needed.
+- **Information density before caveats:** use useful people/company background, regional market position, procurement context and realistic channel/usage opportunities. A clear business hypothesis is useful when *grounded*; do not present it as verified corporate fact.
+- Company profile is segmented and concise enough to scan; do not write placeholder strings such as “company unverified” as the entire profile. Leave scale blank when absent or discuss plausible project size in H rather than manufacturing numbers in D.
+- Do not infer nationality from telephone prefix. Country C reflects user-supplied country or grounded geographic identity; ambiguous conflicts go in a comment, not appended to C.
+- One F cell holds phone, WhatsApp attempt link (when appropriate), email; one G cell holds URLs for website and socials. In standard XLSX each cell can carry **one clickable hyperlink**; other URLs remain copyable. Do not falsely label all URL strings independently clickable or create Facebook Messenger URLs from lead IDs.
+- Preserve business-owner colors and mark exhibition visit intention where template expects it, without claiming a confirmed appointment.
+- Existing CRM may also include a supplier-specific fit column outside A–J. **Leave such columns untouched unless the user supplies mapping and explicitly asks to populate it**. Never hard-code a vendor name or product range.
+- Never publish real lead IDs, contacts, email addresses, API secrets, proprietary templates or customer spreadsheets to GitHub. Public examples remain fictional and free-tool-compatible.
 
-## Included utilities
+## Utilities
 
-- `python scripts/parse_leads.py --input examples/sample_leads.csv --output /tmp/leads.json`
-- `python scripts/export_xlsx.py --input examples/sample_research.json --output /tmp/research.xlsx --lang zh`
-- `python scripts/validate_export.py --input /tmp/research.xlsx --lang zh`
-- `python -m unittest discover -s tests -v`
+```bash
+python scripts/parse_leads.py --input examples/sample_leads.csv --output /tmp/leads.json
+python scripts/export_xlsx.py --input examples/sample_research.json --output /tmp/research.xlsx
+python scripts/validate_export.py --input /tmp/research.xlsx
+python scripts/append_to_template.py --template master.xlsx --input researched.json --output updated.xlsx
+python -m unittest discover -s tests -v
+```
 
-Use `python scripts/export_xlsx.py --help` for `--link-mode independent` and English headers. Utilities format **already researched** JSON; they do not fabricate web research or silently call an API. See `references/output-contract.md` for the JSON object and required fields.
+Tools format **already researched** JSON; they do not conduct web research automatically. The accepted template and all source fields are defined in `references/output-contract.md`.
