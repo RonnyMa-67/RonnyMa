@@ -16,12 +16,25 @@ Here, I'm exploring how those ideas can become useful tools for everyday work.
 `B2B Digital Marketing` `Alibaba.com` `Meta Lead Gen`
 `Workflow Automation` `CRM & Lead Intelligence` `UI/UX`
 
+## Featured project · Ronny Scout
+
+**An open-source B2B lead intelligence workspace** that turns raw lead forms into useful company profiles, opportunity signals and clear sales next steps. Includes a working interactive demonstration with 8 completely fictional customers.
+
+<a href="projects/ronny-scout/"><img src="projects/ronny-scout/showcase.svg" alt="Ronny Scout product dashboard with fictional leads and company intelligence" width="100%"></a>
+
+**[Product showcase](projects/ronny-scout/)** · **[Source & Skill](skills/ronny-scout/)** · **[Brand & attribution](projects/ronny-scout/BRAND_POLICY.md)**
+
+`B2B Lead Research` `Multilingual` `Company Intelligence` `Interactive Demo` `Excel & CRM QA`
+
+---
+
 ## Project source / 个人工具源码
 
 These are public, sanitized snapshots of tools I developed with AI assistance around B2B operations workflows. Each project includes its scope, setup instructions and current limitations.
 
 | Project | What it demonstrates | Status |
 |---|---|---|
+| [Ronny Scout](projects/ronny-scout/) | 公开客户背调工作流与8条虚构线索交互展示，包含企业画像、采购意向与质量检查 | Open source · Interactive product showcase |
 | [Ronny Intelligence](projects/ronny-intelligence/) | 客户资料导入、AI 辅助企业研究、CRM 视图、看板与表格导出 | React / TypeScript prototype; API access requires personal configuration |
 | [LeadScope](projects/leadscope/) | 多来源 CSV 线索整理、客户分层、负责人及跟进管理、CSV 导出 | Local browser demo; automated research is not connected |
 | [Trade CRM](projects/trade-crm/) | 微信小程序客户库、跟进待办、团队角色与 Excel 数据转换 | WeChat Cloud Development prototype; deployment required |
