@@ -17,6 +17,8 @@ python -m pip install -r requirements.txt
 python scripts/parse_leads.py --input examples/sample_leads.csv --output /tmp/leads.json
 python scripts/export_xlsx.py --input examples/sample_research.json --output /tmp/research.xlsx --lang zh
 python scripts/validate_export.py --input /tmp/research.xlsx --lang zh
+# Optional: append safely to a compatible existing master (never overwrite the original)
+python scripts/append_to_template.py --template master.xlsx --input examples/sample_research.json --output master_updated.xlsx
 python -m unittest discover -s tests -v
 ```
 
@@ -24,7 +26,7 @@ Upload the `skill.zip` bundle to a compatible Skills-enabled environment, or use
 
 ## Schema
 
-Default output has one sheet and nine columns. Independent link mode adds explicit channel columns. See [output contract](references/output-contract.md) and [online-sheet limitations](references/online-sheet-compatibility.md).
+Default output has one sheet and ten columns. All contact links stay grouped in F and all website/social URLs stay grouped in G; extra link columns are not added. See [output contract](references/output-contract.md) and [online-sheet limitations](references/online-sheet-compatibility.md).
 
 ## Privacy
 
@@ -36,7 +38,7 @@ MIT; see [LICENSE](LICENSE).
 
 ## Publish to GitHub
 
-This public copy lives under `skills/ronny-scout/`. To use it as a standalone repository, copy this directory into a new repository named `ronny-scout`. Or publish from a terminal:
+This package can be hosted in an independent `ronny-scout` repository or under a subfolder of an existing public repository. To create your own independent repository from a terminal:
 
 ```bash
 cd ronny-scout
@@ -44,10 +46,15 @@ python scripts/privacy_audit.py
 python -m unittest discover -s tests -v
 git init
 git add .
-git commit -m "Initial reusable lead research skill"
+git commit -m "Release Ronny Scout with fixed A-J layout"
 git branch -M main
 git remote add origin https://github.com/YOUR_USERNAME/ronny-scout.git
 git push -u origin main
 ```
 
 Replace `YOUR_USERNAME` with your GitHub handle. The remote GitHub repository must exist before the push. Do not add any real customer-data files to Git, including in issue descriptions or screenshots.
+
+
+## v1.1 — Accepted layout
+
+Default export now matches the fixed 10-column A–J research grid. Owner in A, person in B, country only in C, structured background in D, original intent in E, grouped contacts in F, website/social in G, commercial fit in H, rating in I, and next step in J. Existing master sheets preserve downstream sales feedback K onward, other tabs and charts. No extra link columns are added by default. Run the tests before importing to a CRM.
