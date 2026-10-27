@@ -35,10 +35,10 @@ GitHub Pages: Once Pages is enabled on this public repository using the \`main\`
 
 \`https://ronnyma-67.github.io/RonnyMa/projects/ronny-scout/\`
 
-This address is a deployment target, **not a claim that Pages is already enabled**.
+This address is a deployment target, **not a claim that Pages has already been activated**. The first automated deployment cannot create a Pages site without the repository setting.
 
 ## Support the project
 
-Open-source work is sustained by people who find it useful. [GitHub Sponsors](https://github.com/sponsors) enrollment is being configured; **donations are not available until the creator's Sponsor profile is approved and payout details are completed**.
+Open-source work is sustained by people who find it useful. [GitHub Sponsors](https://github.com/sponsors) enrollment is being configured and the repository has a sponsor declaration in `.github/FUNDING.yml`; **donations are not available until the creator's Sponsor profile is approved and payout details are completed**.
 
 Copyright © 2026 Ronny Scout contributors. No real customer information or proprietary account details are distributed in the showcase.
