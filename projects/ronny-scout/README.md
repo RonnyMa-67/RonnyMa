@@ -33,14 +33,10 @@ The **open-source implementation** and **interactive showcase** are visible for 
 
 Open [index.html](./index.html) in a browser or serve it with any simple local static server; no API keys, backend, payment method or production customer data are needed.
 
-GitHub Pages is enabled. Publishing uses on this public repository using the \`main\` branch / root, the demo URL should be:
-
-\`https://ronnyma-67.github.io/RonnyMa/projects/ronny-scout/\`
-
-The interactive demo is published at the URL above.
+GitHub Pages is enabled on the `main` branch / root. [Open the live demo](https://ronnyma-67.github.io/RonnyMa/projects/ronny-scout/).
 
 ## Support the project
 
-Open-source work is sustained by people who find it useful. [GitHub Sponsors](https://github.com/sponsors/RonnyMa-67) enrollment is being configured and the repository has a sponsor declaration in `.github/FUNDING.yml`; **donations are not available until the creator's Sponsor profile is approved and payout details are completed**.
+Open-source work is sustained by people who find it useful. [GitHub Sponsors](https://github.com/sponsors/RonnyMa-67) application has been submitted and is pending GitHub review and the repository has a sponsor declaration in `.github/FUNDING.yml`; **donations are not available until the creator's Sponsor profile is approved and payout details are completed**.
 
 Copyright © 2026 Ronny Scout contributors. No real customer information or proprietary account details are distributed in the showcase.
