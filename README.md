@@ -22,7 +22,7 @@ Here, I'm exploring how those ideas can become useful tools for everyday work.
 
 <a href="projects/ronny-scout/"><img src="projects/ronny-scout/showcase.svg" alt="Ronny Scout product dashboard with fictional leads and company intelligence" width="100%"></a>
 
-**[Product showcase](projects/ronny-scout/)** · **[Source & Skill](skills/ronny-scout/)** · **[Brand & attribution](projects/ronny-scout/BRAND_POLICY.md)** · **[Support setup](https://github.com/sponsors)**
+**[Product showcase](projects/ronny-scout/)** · **[Install in AI (No API)](skills/ronny-scout/references/no-api-quickstart.md)** · **[Source & Skill](skills/ronny-scout/)** · **[Brand & attribution](projects/ronny-scout/BRAND_POLICY.md)** · **[Support setup](https://github.com/sponsors)**
 
 <sub>Live interaction is included in the HTML demo; public Pages hosting requires a one-time repository settings activation. GitHub Sponsors onboarding is pending account approval.</sub>
 
