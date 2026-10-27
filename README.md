@@ -1,87 +1,61 @@
 <picture>
-  <source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="assets/hero-dark-mobile.svg">
-  <source media="(max-width: 600px)" srcset="assets/hero-light-mobile.svg">
-  <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.svg">
-  <img src="assets/hero-light.svg" alt="Ronny — Builder & Explorer" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/RonnyMa-67/RonnyMa/main/assets/hero-dark.svg">
+  <img src="https://raw.githubusercontent.com/RonnyMa-67/RonnyMa/main/assets/hero-light.svg" alt="Ronny — B2B Operations & AI Workflows" width="100%">
 </picture>
 
-# Business Operations × AI × Digital Products
+# Ronny · B2B Operations & AI Workflow Builder
 
-Hey, I'm Ronny. I work in international B2B operations, and I like building things that make work easier.
+**I turn B2B sales and marketing workflows into practical tools.**  
+把外贸运营中的线索、研究与跟进流程，做成可执行、可复用的工作系统。
 
-My background spans digital marketing, merchant operations, and commercial equipment exports. Working with repetitive tasks, disconnected tools, and messy data got me interested in AI, automation, and product design.
+My experience spans Alibaba.com merchant operations, B2B digital marketing and commercial equipment exports. I combine business requirements, structured research and AI-assisted development to build tools for lead qualification and sales operations.
 
-Here, I'm exploring how those ideas can become useful tools for everyday work.
+[Explore Ronny Scout →](https://ronnyma-67.github.io/RonnyMa/projects/ronny-scout/) · [Install the native Skill](https://github.com/RonnyMa-67/RonnyMa/blob/main/skills/ronny-scout/references/no-api-quickstart.md) · [Project portfolio](https://github.com/RonnyMa-67/RonnyMa)
 
-`B2B Digital Marketing` `Alibaba.com` `Meta Lead Gen`
-`Workflow Automation` `CRM & Lead Intelligence` `UI/UX`
+## Focus
 
-## Featured project · Ronny Scout
+| Area | What I bring |
+| --- | --- |
+| **B2B digital operations** | Alibaba.com operations, Meta lead-generation workflows and export business context |
+| **Lead intelligence** | Multilingual company research, source-aware qualification and practical sales next steps |
+| **Workflow & data design** | Lead-form mapping, CSV / Excel preparation, CRM fields and quality checks |
+| **AI-assisted product building** | Business requirements, workflow logic and interface prototypes developed with AI assistance |
 
-**An open-source B2B lead intelligence workspace** that turns raw lead forms into useful company profiles, opportunity signals and clear sales next steps. Includes a working interactive demonstration with 8 completely fictional customers.
+## Featured work · Ronny Scout
 
-<a href="https://ronnyma-67.github.io/RonnyMa/projects/ronny-scout/"><img src="projects/ronny-scout/showcase.svg" alt="Ronny Scout product dashboard with fictional leads and company intelligence" width="100%"></a>
+**An open-source workflow for researching and qualifying B2B leads.**
 
-**[Live interactive demo](https://ronnyma-67.github.io/RonnyMa/projects/ronny-scout/)** · **[Install in AI (No API)](skills/ronny-scout/references/no-api-quickstart.md)** · **[Source & Skill](skills/ronny-scout/)** · **[Brand & attribution](projects/ronny-scout/BRAND_POLICY.md)** · **[Sponsor Ronny](https://github.com/sponsors/RonnyMa-67)**
+From raw form submissions to structured company profiles, preserved buying signals and a consistent A–J research table. Available as a native AI Skill using the assistant's own browsing and file tools, with no separate developer API key.
 
-<sub>GitHub Pages hosting is enabled. The demo uses fictional data only. GitHub Sponsors donations remain pending enrollment and payout approval.</sub>
+[![Ronny Scout workspace preview](https://raw.githubusercontent.com/RonnyMa-67/RonnyMa/main/projects/ronny-scout/showcase.svg)](https://ronnyma-67.github.io/RonnyMa/projects/ronny-scout/)
 
-`B2B Lead Research` `Multilingual` `Company Intelligence` `Interactive Demo` `Excel & CRM QA`
+**[Live interactive demo](https://ronnyma-67.github.io/RonnyMa/projects/ronny-scout/)** · **[Download Skill ZIP](https://github.com/RonnyMa-67/RonnyMa/raw/refs/heads/main/skills/ronny-scout/skill.zip)** · **[Documentation & source](https://github.com/RonnyMa-67/RonnyMa/tree/main/skills/ronny-scout)**
 
----
+The live demo includes eight fictional leads with search, priority filters, company briefs and CSV export. Live company research runs in a capable AI assistant after installation.
 
-## Project source / 个人工具源码
+## Selected projects
 
-These are public, sanitized snapshots of tools I developed with AI assistance around B2B operations workflows. Each project includes its scope, setup instructions and current limitations.
+| Project | Business application | Delivery |
+| --- | --- | --- |
+| [Ronny Scout](https://github.com/RonnyMa-67/RonnyMa/tree/main/projects/ronny-scout) | Company research and lead qualification | Native Skill + live interactive demo |
+| [Ronny Intelligence](https://github.com/RonnyMa-67/RonnyMa/tree/main/projects/ronny-intelligence) | Lead ingestion, research and CRM views | React / TypeScript prototype |
+| [LeadScope](https://github.com/RonnyMa-67/RonnyMa/tree/main/projects/leadscope) | Lead organization, ownership and follow-up | Local browser workspace |
+| [Trade CRM](https://github.com/RonnyMa-67/RonnyMa/tree/main/projects/trade-crm) | Customer records and team follow-up | WeChat Cloud Development prototype |
 
-| Project | What it demonstrates | Status |
-|---|---|---|
-| [Ronny Scout](projects/ronny-scout/) | 公开客户背调工作流与8条虚构线索交互展示，包含企业画像、采购意向与质量检查 | Open source · Interactive product showcase |
-| [Ronny Intelligence](projects/ronny-intelligence/) | 客户资料导入、AI 辅助企业研究、CRM 视图、看板与表格导出 | React / TypeScript prototype; API access requires personal configuration |
-| [LeadScope](projects/leadscope/) | 多来源 CSV 线索整理、客户分层、负责人及跟进管理、CSV 导出 | Local browser demo; automated research is not connected |
-| [Trade CRM](projects/trade-crm/) | 微信小程序客户库、跟进待办、团队角色与 Excel 数据转换 | WeChat Cloud Development prototype; deployment required |
+[中文作品说明与实现细节 →](https://github.com/RonnyMa-67/RonnyMa/blob/main/projects/README.md)
 
-[中文作品索引与能力说明 →](projects/README.md)
+## Experience & approach
 
-## Explorations
+- **Education:** Zhejiang University of Technology · Bachelor's graduate, Class of 2023.
+- **Alibaba.com · Sep 2022–Oct 2023:** Internship in B2B advertising data and merchant operations.
+- **Commercial kitchen equipment · Oct 2023–Aug 2024:** Alibaba.com operations.
+- **Commercial equipment exports · From Aug 2024:** Export operations, followed by B2B digital marketing and AI-assisted tools.
 
-Experiments and prototypes shaped by real business problems. These are areas I'm exploring, rather than released products.
+I start with the operational problem, define the information and decision rules, then build and test a usable workflow. Public projects show my business thinking and implementation process; all customer examples are synthetic.
 
-<table>
-<tr><td>
-<h3>Lead intelligence</h3>
-<p>Exploring how AI-assisted company research and lead qualification could make B2B follow-up more informed.</p>
-<p><code>Exploration</code> <code>AI workflows</code> <code>B2B research</code></p>
-</td></tr>
-<tr><td>
-<h3>Operations workspace</h3>
-<p>Experimenting with CRM concepts and operational dashboards to bring customer context, tasks, and decisions into a clearer workspace.</p>
-<p><code>Exploration</code> <code>CRM</code> <code>Workflow design</code></p>
-</td></tr>
-<tr><td>
-<h3>Web & interface prototypes</h3>
-<p>Using AI-assisted development to explore B2B websites and internal tools, with a focus on clear information and intuitive interactions.</p>
-<p><code>Exploration</code> <code>Web prototypes</code> <code>UI/UX</code></p>
-</td></tr>
-</table>
+## Collaboration
 
-## How I approach building
+Interested in **B2B operations, lead intelligence, AI workflows and practical digital products**.  
+[Open a project inquiry](https://github.com/RonnyMa-67/RonnyMa/issues/new) · [View my work](https://github.com/RonnyMa-67/RonnyMa)
 
-Start with a real task. Understand the people doing it. Simplify the workflow, then prototype and improve.
-
-My perspective comes from business operations. I'm learning by building, with a particular interest in the space between business needs, useful technology, and thoughtful design.
-
-<details>
-<summary><strong>A bit about my background</strong></summary>
-
-- **Zhejiang University of Technology · Class of 2023** — Bachelor's graduate.
-- **Alibaba.com · Sep 2022–Oct 2023** — Internship in B2B advertising data and merchant operations.
-- **Commercial kitchen equipment · Oct 2023–Aug 2024** — Alibaba.com operations in the commercial kitchen equipment industry.
-- **Commercial equipment exports · From Aug 2024** — Subsequent operations roles in export businesses.
-- **More recently, AIDEWO** — B2B digital marketing and exploration of AI-assisted tools and digital workflows.
-
-</details>
-
----
-
-<sub>A working notebook at the intersection of business, technology, and design.</sub>
+<sub>Built by Ronny with AI-assisted development. GitHub Sponsors application submitted; sponsorship payments are not yet enabled.</sub>
