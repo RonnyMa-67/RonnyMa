@@ -12,6 +12,13 @@ My experience spans Alibaba.com merchant operations, B2B digital marketing and c
 
 [Explore Ronny Scout →](https://ronnyma-67.github.io/RonnyMa/projects/ronny-scout/) · [Install the native Skill](https://github.com/RonnyMa-67/RonnyMa/blob/main/skills/ronny-scout/references/no-api-quickstart.md) · [Project portfolio](https://github.com/RonnyMa-67/RonnyMa)
 
+## Public Skills / 公开技能
+
+- [Ronny Scout](skills/ronny-scout/) — B2B lead research and spreadsheet workflow.
+- [B2B Customer Scout](skills/b2b-customer-scout/) — find and qualify overseas business prospects.
+- [Meta Promotion Ops](skills/meta-promotion-ops/) — plan and operate Meta promotion workflows.
+- [更新记录 / Changelog](skills/CHANGELOG.md)
+
 ## Focus
 
 | Area | What I bring |
