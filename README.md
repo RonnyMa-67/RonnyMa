@@ -14,6 +14,8 @@ My experience spans Alibaba.com merchant operations, B2B digital marketing and c
 
 ## Public Skills / 公开技能
 
+[![公开技能发展时间线](skills/skill-timeline.svg)](skills/CHANGELOG.md)
+
 - [Ronny Scout](skills/ronny-scout/) — B2B lead research and spreadsheet workflow.
 - [B2B Customer Scout](skills/b2b-customer-scout/) — find and qualify overseas business prospects.
 - [Meta Promotion Ops](skills/meta-promotion-ops/) — plan and operate Meta promotion workflows.
