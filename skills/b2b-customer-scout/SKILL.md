@@ -5,6 +5,8 @@ description: Find and qualify overseas B2B customers, distributors, manufacturer
 
 # B2B Customer Scout
 
+[更新记录 / Changelog](../CHANGELOG.md#b2b-customer-scout)
+
 Research potential business customers and return a practical, evidence-backed outreach list. Adapt to the user's industry, country, product and preferred language. Ask targeted questions only when an unanswered detail materially changes which companies qualify; continue independent research while waiting.
 
 ## 1. Define the target
