@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="370" viewBox="0 0 1200 370" role="img" aria-labelledby="title desc">
+<title id="title">从推广到跟进：B2B 运营路径</title><desc id="desc">推广获客、客户研究、线索管理和销售跟进由 AI 工作流支持。</desc>
+<defs><linearGradient id="rainbow"><stop stop-color="#fb6b8d"/><stop offset=".23" stop-color="#ffc36c"/><stop offset=".47" stop-color="#75d3b1"/><stop offset=".72" stop-color="#69b9f5"/><stop offset="1" stop-color="#d08af0"/></linearGradient></defs>
+<rect width="1200" height="370" rx="24" fill="#101a38"/>
+<text x="58" y="78" fill="#f5f6ff" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="31" font-weight="700">从推广到跟进，让线索更有价值</text>
+<text x="60" y="120" fill="#aebcd2" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="20">B2B 运营 · 客户研究 · 销售协同</text>
+<path d="M121 205 H1080" stroke="url(#rainbow)" stroke-width="4" opacity=".8"/>
+<g font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+<circle cx="145" cy="205" r="12" fill="#fa7d9d"/><circle cx="445" cy="205" r="12" fill="#f7cb77"/><circle cx="745" cy="205" r="12" fill="#6fd4bf"/><circle cx="1045" cy="205" r="12" fill="#b69cf1"/>
+<text x="145" y="255" text-anchor="middle" fill="#fff" font-size="25" font-weight="700">推广获客</text><text x="145" y="291" text-anchor="middle" fill="#b5c0d4" font-size="18">触达与询盘承接</text>
+<text x="445" y="255" text-anchor="middle" fill="#fff" font-size="25" font-weight="700">客户研究</text><text x="445" y="291" text-anchor="middle" fill="#b5c0d4" font-size="18">核实信息与需求</text>
+<text x="745" y="255" text-anchor="middle" fill="#fff" font-size="25" font-weight="700">线索管理</text><text x="745" y="291" text-anchor="middle" fill="#b5c0d4" font-size="18">整理资料与分配</text>
+<text x="1045" y="255" text-anchor="middle" fill="#fff" font-size="25" font-weight="700">销售跟进</text><text x="1045" y="291" text-anchor="middle" fill="#b5c0d4" font-size="18">明确下一步行动</text>
+</g></svg>
