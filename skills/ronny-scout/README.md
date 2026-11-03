@@ -2,6 +2,9 @@
 
 Reusable, privacy-conscious ChatGPT Skill for multilingual B2B lead qualification and spreadsheet preparation. **No vendor-specific client information is bundled.**
 
+
+[更新记录 / Changelog](../CHANGELOG.md#ronny-scout)
+
 ## What it does
 
 - Ingests CSV, XLSX or pasted Markdown lead-form tables; preserves original fields.
