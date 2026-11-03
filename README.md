@@ -1,6 +1,6 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/RonnyMa-67/RonnyMa/main/assets/hero-dark.svg">
-  <img src="https://raw.githubusercontent.com/RonnyMa-67/RonnyMa/main/assets/hero-light.svg" alt="Ronny — B2B Operations &amp; Growth: Marketing, Lead Intelligence, AI Workflows" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/RonnyMa-67/RonnyMa/14cb84d4a87bf50f316b3e81e35357ed3f0b26e5/assets/hero-dark.svg">
+  <img src="https://raw.githubusercontent.com/RonnyMa-67/RonnyMa/14cb84d4a87bf50f316b3e81e35357ed3f0b26e5/assets/hero-light.svg" alt="Ronny — B2B Operations &amp; Growth: Marketing, Lead Intelligence, AI Workflows" width="100%">
 </picture>
 
 # Ronny · 外贸运营与 B2B 增长
