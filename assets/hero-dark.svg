@@ -6,4 +6,5 @@
 <text x="66" y="210" fill="#f1f8f6" font-family="Arial,sans-serif" font-size="34" font-weight="700">B2B Operations &amp; Growth</text>
 <text x="66" y="263" fill="#b5d3cd" font-family="Arial,sans-serif" font-size="23">Marketing  /  Lead Intelligence  /  AI Workflows</text>
 <g fill="none" stroke="#244c50" stroke-width="2"><path d="M813 84v187M903 84v187M993 84v187M1083 84v187M783 111h325M783 166h325M783 221h325"/><path d="M814 220l89-56 90 31 90-84" stroke="#72d3c0" stroke-width="4"/><circle cx="814" cy="220" r="6" fill="#72d3c0"/><circle cx="903" cy="164" r="6" fill="#72d3c0"/><circle cx="993" cy="195" r="6" fill="#72d3c0"/><circle cx="1083" cy="111" r="6" fill="#72d3c0"/></g>
+<g><rect x="64" y="300" width="30" height="6" fill="#df6170"/><rect x="94" y="300" width="30" height="6" fill="#e29a58"/><rect x="124" y="300" width="30" height="6" fill="#dec366"/><rect x="154" y="300" width="30" height="6" fill="#66ab87"/><rect x="184" y="300" width="30" height="6" fill="#7099d2"/><rect x="214" y="300" width="30" height="6" fill="#a786c0"/></g>
 </svg>
