@@ -1,5 +1,7 @@
 # 公开 Skills 更新记录 / Public skills changelog
 
+![公开技能发展时间线：Ronny Scout、B2B Customer Scout 和 Meta Promotion Ops](skill-timeline.svg)
+
 本记录根据公开仓库的提交历史补写，日期为北京时间（UTC+8）。这里的日期是提交日期，并不代表每项改动都有独立的正式发布或 GitHub Release。除已有记录明确使用的 v1.1 外，不为历史提交追认版本号。
 
 ## Ronny Scout
