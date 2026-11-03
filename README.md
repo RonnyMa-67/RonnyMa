@@ -17,6 +17,8 @@
 
 ## 我关注的运营环节
 
+![运营路径：推广获客、客户研究、线索管理与销售跟进](https://raw.githubusercontent.com/RonnyMa-67/RonnyMa/main/assets/operations-flow.svg)
+
 | 方向 | 实践内容 |
 | :--- | :--- |
 | **B2B 数字营销** | 阿里国际站运营、Meta 推广思路、表单与询盘承接 |
