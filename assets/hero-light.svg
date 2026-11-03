@@ -1,11 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
-<title id="title">Ronny — B2B Operations &amp; Growth</title><desc id="desc">Bold rainbow pride banner with Ronny's B2B operations and growth positioning.</desc>
-<defs><clipPath id="frame"><rect width="1200" height="360" rx="22"/></clipPath></defs>
-<g clip-path="url(#frame)">
-<rect width="1200" height="360" fill="#f4334f"/>
-<path d="M670 0h530v60H595z" fill="#f68b32"/><path d="M595 60h605v60H520z" fill="#ffdd36"/><path d="M520 120h680v60H445z" fill="#20b36c"/><path d="M445 180h755v60H370z" fill="#1879d5"/><path d="M370 240h830v120H220z" fill="#823fbb"/>
-<path d="M0 0h635L415 360H0z" fill="#171329"/>
-<path d="M620 0h21L420 360h-21z" fill="#fff" opacity=".78"/>
-<g font-family="Arial,Helvetica,sans-serif"><text x="57" y="84" fill="#ffdf4b" font-size="18" font-weight="700" letter-spacing="3">B2B OPERATIONS</text><text x="54" y="164" fill="#fff" font-size="77" font-weight="800">Ronny</text><text x="58" y="213" fill="#fff" font-size="29" font-weight="700">Operations &amp; Growth</text><text x="59" y="255" fill="#e6dff1" font-size="19">Marketing · Lead Intelligence · AI</text></g>
-<g transform="translate(842 150) rotate(-12)"><circle r="98" fill="#171329" opacity=".9"/><circle r="73" fill="none" stroke="#fff" stroke-width="2" opacity=".55"/><path d="M-50 26l32-38 29 16 40-43" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="-50" cy="26" r="6" fill="#ffdd36"/><circle cx="-18" cy="-12" r="6" fill="#f68b32"/><circle cx="11" cy="4" r="6" fill="#f4334f"/><circle cx="51" cy="-39" r="6" fill="#fff"/></g>
+<title id="title">Ronny — B2B Operations &amp; Growth</title><desc id="desc">A deep navy profile banner with layered rainbow arcs representing creativity and operations.</desc>
+<defs><clipPath id="clip"><rect width="1200" height="360" rx="24"/></clipPath><linearGradient id="base" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#13112a"/><stop offset=".55" stop-color="#151c43"/><stop offset="1" stop-color="#081c36"/></linearGradient><linearGradient id="spectrum" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#fd617a"/><stop offset=".18" stop-color="#fa9b57"/><stop offset=".37" stop-color="#f6d25b"/><stop offset=".52" stop-color="#5fd3a2"/><stop offset=".7" stop-color="#46a9ee"/><stop offset=".86" stop-color="#8b79ea"/><stop offset="1" stop-color="#ee81c9"/></linearGradient></defs>
+<g clip-path="url(#clip)"><rect width="1200" height="360" fill="url(#base)"/>
+<g fill="none" stroke-linecap="round"><path d="M575 430 C690 190 890 10 1220 -60" stroke="url(#spectrum)" stroke-width="89" opacity=".16"/><path d="M625 445 C740 205 920 55 1225 -5" stroke="url(#spectrum)" stroke-width="39" opacity=".38"/><path d="M681 440 C785 220 960 94 1232 40" stroke="url(#spectrum)" stroke-width="7" opacity=".9"/><path d="M754 440 C860 250 1010 147 1235 108" stroke="#9ed5fb" stroke-width="2" opacity=".5"/></g>
+<text x="64" y="132" fill="#ffffff" font-family="Arial,Helvetica,sans-serif" font-size="72" font-weight="700">Ronny</text>
+<text x="68" y="190" fill="#f3effa" font-family="Arial,Helvetica,sans-serif" font-size="33" font-weight="700">B2B Operations &amp; Growth</text>
+<text x="69" y="242" fill="#bdc8dd" font-family="Arial,Helvetica,sans-serif" font-size="22">Marketing  /  Lead Intelligence  /  AI Workflows</text>
+<rect x="68" y="275" width="180" height="5" rx="2.5" fill="url(#spectrum)"/>
 </g></svg>
