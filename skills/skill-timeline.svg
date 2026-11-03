@@ -1,19 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="950" viewBox="0 0 1200 950" role="img" aria-labelledby="title desc">
 <title id="title">公开技能发展时间线</title><desc id="desc">Ronny Scout 于 2026 年 10 月 26 日公开，10 月 27 日更新 v1.1 并增加原生安装与演示；B2B Customer Scout 与 Meta Promotion Ops 于 11 月 2 日公开。</desc>
-<rect width="1200" height="950" rx="28" fill="#f4f8f8"/>
+<rect width="1200" height="950" rx="28" fill="#101a38"/>
 <g font-family="'PingFang SC','Microsoft YaHei',sans-serif">
-<text x="68" y="86" font-size="25" font-weight="700" fill="#147d76">RONNY / PUBLIC SKILLS</text>
-<text x="68" y="150" font-size="46" font-weight="700" fill="#183558">公开技能发展时间线</text>
-<text x="68" y="196" font-size="22" fill="#5a747d">从客户研究到推广运营 · 按北京时间整理</text>
-<rect x="58" y="236" width="1084" height="344" rx="22" fill="#fff"/>
-<text x="88" y="290" font-size="30" font-weight="700" fill="#183558">Ronny Scout</text><text x="88" y="326" font-size="19" fill="#6d8187">B2B 客户线索研究与表格工作流</text>
-<line x1="116" y1="376" x2="1058" y2="376" stroke="#a9d7d0" stroke-width="5"/>
-<circle cx="128" cy="376" r="11" fill="#118e80"/><circle cx="448" cy="376" r="11" fill="#118e80"/><circle cx="760" cy="376" r="11" fill="#118e80"/>
-<text x="106" y="423" font-size="22" font-weight="700" fill="#157f76">10.26</text><text x="106" y="458" font-size="24" font-weight="700" fill="#183558">首次公开</text><text x="106" y="491" font-size="18" fill="#5a747d">源码、工具与测试</text>
-<text x="426" y="423" font-size="22" font-weight="700" fill="#157f76">10.27</text><text x="426" y="458" font-size="24" font-weight="700" fill="#183558">v1.1 表格标准</text><text x="426" y="491" font-size="18" fill="#5a747d">固定 A–J 十列</text>
-<text x="738" y="423" font-size="22" font-weight="700" fill="#157f76">10.27</text><text x="738" y="458" font-size="24" font-weight="700" fill="#183558">安装与演示</text><text x="738" y="491" font-size="18" fill="#5a747d">原生 Skill · 在线演示</text>
-<rect x="58" y="604" width="532" height="218" rx="22" fill="#fff"/><rect x="610" y="604" width="532" height="218" rx="22" fill="#fff"/>
-<text x="88" y="653" font-size="20" font-weight="700" fill="#157f76">2026.11.02 · 首次公开</text><text x="88" y="701" font-size="29" font-weight="700" fill="#183558">B2B Customer Scout</text><text x="88" y="746" font-size="21" fill="#5a747d">寻找海外企业客户，核对证据</text><text x="88" y="779" font-size="21" fill="#5a747d">与公开联系渠道。</text>
-<text x="640" y="653" font-size="20" font-weight="700" fill="#157f76">2026.11.02 · 首次公开</text><text x="640" y="701" font-size="29" font-weight="700" fill="#183558">Meta Promotion Ops</text><text x="640" y="746" font-size="21" fill="#5a747d">覆盖推广规划、素材、表单</text><text x="640" y="779" font-size="21" fill="#5a747d">以及执行状态核对。</text>
-<text x="68" y="880" font-size="19" fill="#738a90">依据公开提交历史整理 · 详细记录与来源链接见下方</text>
+<text x="68" y="86" font-size="25" font-weight="700" fill="#d09cef">RONNY / PUBLIC SKILLS</text>
+<text x="68" y="150" font-size="46" font-weight="700" fill="#f5f6ff">公开技能发展时间线</text>
+<text x="68" y="196" font-size="22" fill="#b7c5d9">从客户研究到推广运营 · 按北京时间整理</text>
+<rect x="58" y="236" width="1084" height="344" rx="22" fill="#202d4d"/>
+<text x="88" y="290" font-size="30" font-weight="700" fill="#f5f6ff">Ronny Scout</text><text x="88" y="326" font-size="19" fill="#b7c5d9">B2B 客户线索研究与表格工作流</text>
+<line x1="116" y1="376" x2="1058" y2="376" stroke="#799fce" stroke-width="5"/>
+<circle cx="128" cy="376" r="11" fill="#87cde2"/><circle cx="448" cy="376" r="11" fill="#87cde2"/><circle cx="760" cy="376" r="11" fill="#87cde2"/>
+<text x="106" y="423" font-size="22" font-weight="700" fill="#b7a9f0">10.26</text><text x="106" y="458" font-size="24" font-weight="700" fill="#f5f6ff">首次公开</text><text x="106" y="491" font-size="18" fill="#b7c5d9">源码、工具与测试</text>
+<text x="426" y="423" font-size="22" font-weight="700" fill="#b7a9f0">10.27</text><text x="426" y="458" font-size="24" font-weight="700" fill="#f5f6ff">v1.1 表格标准</text><text x="426" y="491" font-size="18" fill="#b7c5d9">固定 A–J 十列</text>
+<text x="738" y="423" font-size="22" font-weight="700" fill="#b7a9f0">10.27</text><text x="738" y="458" font-size="24" font-weight="700" fill="#f5f6ff">安装与演示</text><text x="738" y="491" font-size="18" fill="#b7c5d9">原生 Skill · 在线演示</text>
+<rect x="58" y="604" width="532" height="218" rx="22" fill="#202d4d"/><rect x="610" y="604" width="532" height="218" rx="22" fill="#202d4d"/>
+<text x="88" y="653" font-size="20" font-weight="700" fill="#b7a9f0">2026.11.02 · 首次公开</text><text x="88" y="701" font-size="29" font-weight="700" fill="#f5f6ff">B2B Customer Scout</text><text x="88" y="746" font-size="21" fill="#b7c5d9">寻找海外企业客户，核对证据</text><text x="88" y="779" font-size="21" fill="#b7c5d9">与公开联系渠道。</text>
+<text x="640" y="653" font-size="20" font-weight="700" fill="#b7a9f0">2026.11.02 · 首次公开</text><text x="640" y="701" font-size="29" font-weight="700" fill="#f5f6ff">Meta Promotion Ops</text><text x="640" y="746" font-size="21" fill="#b7c5d9">覆盖推广规划、素材、表单</text><text x="640" y="779" font-size="21" fill="#b7c5d9">以及执行状态核对。</text>
+<text x="68" y="880" font-size="19" fill="#aebbd2">依据公开提交历史整理 · 详细记录与来源链接见下方</text>
 </g></svg>
