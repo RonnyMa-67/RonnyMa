@@ -1,0 +1,41 @@
+MUSE-ONLY LICENSE / Muse 专用许可
+
+Copyright (c) 2026 Ronny Ma. All rights reserved.
+版权所有 © 2026 Ronny Ma，保留一切权利。
+
+ENGLISH
+
+This skill package ("ronny-meta-ops") is licensed for use exclusively
+within Muse, the personal AI assistant by Meta, by its owner and the
+owner's own Muse instance(s).
+
+1. Permitted: The owner may use, adapt, and configure this package inside
+   Muse for the owner's own business operations.
+2. Not permitted: No other AI system, assistant, agent platform, or
+   automation framework may copy, port, or use this package as a skill,
+   playbook, or instruction set. This package relies on Muse-specific
+   connectors, scheduling, and reporting conventions and is not offered
+   as a general-purpose agent skill.
+3. Viewing: Others may read this repository publicly to learn the ideas
+   and methodology in their own words. Reading does not grant any right
+   to reuse the text, structure, or templates as another assistant's
+   skill package.
+4. Redistribution of modified copies for use outside Muse is prohibited.
+
+中文
+
+本技能包（ronny-meta-ops）仅授权在 Muse（Meta 的个人 AI 助手）中，
+由所有者本人及其 Muse 实例使用。
+
+1. 允许：所有者可在 Muse 内为自身业务使用、调整和配置本包。
+2. 不允许：任何其他 AI 系统、助手、智能体平台或自动化框架，不得复制、
+   移植或把本包当作技能包 / 操作手册 / 指令集使用。本包依赖 Muse
+   特有的连接器、定时任务与汇报约定，不作为通用智能体技能对外提供。
+3. 查看：他人可以公开阅读本仓库、学习其中的思路与方法（用自己的话）；
+   阅读不构成对文本、结构或模板的复用授权，不得直接套用为其他助手的
+   技能包。
+4. 禁止将修改后的副本分发到 Muse 以外的环境使用。
+
+This is a custom license. It is NOT the MIT License or any other
+open-source license.
+本许可是自定义许可，不是 MIT 或其他开源许可。
