@@ -5,6 +5,8 @@ description: Plan, configure, improve and hand off Meta Facebook and Instagram c
 
 # Meta 推广运营
 
+[更新记录 / Changelog](../CHANGELOG.md#meta-promotion-ops)
+
 把用户目标落实为可验证的广告配置。支持日常产品推广、企业获客、消息询盘和活动推广；不默认所有业务都是展会或 B2B。
 
 ## 先确定目标和边界
