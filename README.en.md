@@ -6,7 +6,7 @@
 
 ### [✨ Enter the website ↗](https://ronnyma-67.github.io/RonnyMa/?lang=en)
 
-[简体中文](https://ronnyma-67.github.io/RonnyMa/?lang=zh)　·　[English](https://ronnyma-67.github.io/RonnyMa/?lang=en)
+[简体中文](https://github.com/RonnyMa-67/RonnyMa/blob/main/README.md)　·　**English**
 
 [![Preview of Ronny’s personal website — click to visit](https://raw.githubusercontent.com/RonnyMa-67/RonnyMa/main/assets/site-preview.jpg)](https://ronnyma-67.github.io/RonnyMa/?lang=en)
 
@@ -16,10 +16,9 @@
 
 ---
 
-#
 [📦 AI Skills](#-ai-skills) · [🧪 Tools & projects](#-tools--projects) · [📝 Updates](#-updates) · [👋 About](#-about-me)
 
- hey, I’m Ronny 👋
+# hey, I’m Ronny 👋
 
 🌏 Foreign trade / 🔎 Customer research / 🧪 AI Skills / 🫠 Too many ideas
 
@@ -28,28 +27,28 @@ I work in foreign trade and turn customer research, buyer discovery, and marketi
 Three things live here: **installable Skills, tools to try, and ongoing notes.** Unfinished work is labeled too. Giving it a little time 🌱
 
 > 💭 Hoping AI learns a bit more about the business, so I can explain a bit less.
-+> 🛠️ A few fewer tabs and one less spreadsheet to tidy? I'll take it.
+> 🛠️ A few fewer tabs and one less spreadsheet to tidy? I'll take it.
 
 [![Skills](https://img.shields.io/badge/📦_Skills-open_the_drawer-b7a7ff?style=flat-square)](https://github.com/RonnyMa-67/RonnyMa/blob/main/skills/README.en.md) [![Website](https://img.shields.io/badge/🌐_Website-take_a_look-9ee6c3?style=flat-square)](https://ronnyma-67.github.io/RonnyMa/?lang=en) [![Guestbook](https://img.shields.io/badge/🫧_Guestbook-say_hi-ffce88?style=flat-square)](https://github.com/RonnyMa-67/RonnyMa/issues/new?template=skill-usage.yml)
 
 ## 📦 AI Skills
 
 ### 🔎 Ronny Scout · Lead research
-+**“We've got the inquiry. Who's actually behind it?”**
+**“We've got the inquiry. Who's actually behind it?”**
 
 Look into the company, website, social profiles, and public contacts. Keep the customer's original request intact. Put the findings into an A–J research sheet, with a useful next step.
 
 [Read more →](https://github.com/RonnyMa-67/RonnyMa/blob/main/skills/ronny-scout/README.en.md) · [Try the demo ↗](https://ronnyma-67.github.io/RonnyMa/projects/ronny-scout/) · [Download ZIP ↓](https://github.com/RonnyMa-67/RonnyMa/releases/download/skills-2026-11-06/ronny-scout.zip)
 
 ### 🌍 B2B Customer Scout · Buyer discovery
-+**“We know the product. Where are the right buyers?”**
+**“We know the product. Where are the right buyers?”**
 
 Start with the product, reference images, and target market. Find potential companies and public contacts, with a clear reason each one belongs on the list 🧭
 
 [Read more →](https://github.com/RonnyMa-67/RonnyMa/blob/main/skills/b2b-customer-scout/README.en.md) · [Download ZIP ↓](https://github.com/RonnyMa-67/RonnyMa/releases/download/skills-2026-11-06/b2b-customer-scout.zip)
 
 ### 📣 Meta Promotion Ops · Meta marketing
-+**“The ad is out. What happens next?”**
+**“The ad is out. What happens next?”**
 
 Connect the easily missed bits of Facebook / Instagram promotion: creative, audiences, forms, incoming messages, and the handoff to whoever follows up 🤝
 
@@ -66,8 +65,8 @@ Each project marks whether it is a usable tool or a prototype. [The project shel
 ## 📝 Updates
 
 **Nov 06** · Separate download packages and a feedback form for all three Skills 📦 Plus a fresh look, in Chinese and English.
-+**Nov 02** · Shared B2B Customer Scout and Meta Promotion Ops 🌱
-+**Oct 27** · Added Scout's A–J sheet, installation guide, and demo 🔎
+**Nov 02** · Shared B2B Customer Scout and Meta Promotion Ops 🌱
+**Oct 27** · Added Scout's A–J sheet, installation guide, and demo 🔎
 
 [The full changelog →](https://github.com/RonnyMa-67/RonnyMa/blob/main/skills/CHANGELOG.en.md)
 
