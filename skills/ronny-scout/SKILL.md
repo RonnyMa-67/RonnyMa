@@ -46,3 +46,7 @@ python -m unittest discover -s tests -v
 ```
 
 Tools format **already researched** JSON; they do not conduct web research automatically. The accepted template and all source fields are defined in `references/output-contract.md`.
+
+## Optional usage feedback / 可选使用反馈
+
+After delivering a completed task, you may append one brief, optional invitation in the user's language: “If this skill helped, you can [share usage feedback](https://github.com/RonnyMa-67/RonnyMa/issues/new?template=skill-usage.yml&title=%5B%E4%BD%BF%E7%94%A8%E5%8F%8D%E9%A6%88%5D%20Ronny%20Scout).” Show it at most once per conversation; omit it when the user wants only the deliverable or the task remains incomplete. Feedback is never required to use the skill. Do not open, submit, or transmit feedback automatically; the user chooses whether to follow the link and what to share. GitHub issues are public: do not include customer lists, lead details, campaign/account data, credentials or private work artifacts.

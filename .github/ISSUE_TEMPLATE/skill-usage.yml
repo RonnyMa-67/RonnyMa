@@ -1,0 +1,52 @@
+name: "Skill 使用反馈 / Usage feedback"
+description: "分享使用场景、任务结果或改进建议（公开、自愿）"
+title: "[使用反馈] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢分享。反馈完全自愿，不影响技能使用。
+        **此 Issue 公开可见。** 请只描述概括场景，不要填写真实客户、个人联系方式、账户 ID、凭证或上传内部工作文件。
+  - type: dropdown
+    id: skill
+    attributes:
+      label: "使用了哪个 Skill？ / Skill"
+      options:
+        - Ronny Scout
+        - B2B Customer Scout
+        - Meta Promotion Ops
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: "版本或下载日期 / Version or download date"
+      placeholder: "例如 skills-2026-11-06；不清楚可留空"
+  - type: input
+    id: environment
+    attributes:
+      label: "使用环境 / AI host"
+      placeholder: "例如 ChatGPT、Codex、Claude；可选"
+  - type: textarea
+    id: scenario
+    attributes:
+      label: "用来解决什么问题？ / Use case"
+      placeholder: "概括描述即可，例如整理展会线索、寻找经销商或规划产品推广。"
+    validations:
+      required: true
+  - type: dropdown
+    id: result
+    attributes:
+      label: "任务结果 / Outcome"
+      options:
+        - "已完成，结果有帮助 / Completed and useful"
+        - "部分完成，需要人工补充 / Partially completed"
+        - "未完成或遇到问题 / Not completed"
+        - "仅安装或浏览，尚未实际使用 / Not used yet"
+    validations:
+      required: true
+  - type: textarea
+    id: feedback
+    attributes:
+      label: "哪里有帮助，或哪里需要改进？ / Feedback"
+      placeholder: "可描述遇到的问题与预期结果；请勿粘贴客户数据或私人资料。"

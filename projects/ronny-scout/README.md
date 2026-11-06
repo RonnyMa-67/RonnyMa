@@ -8,7 +8,7 @@ Ronny Scout is a practical open-source workflow for multilingual B2B lead intell
 
 ### [Explore the interactive demo](https://ronnyma-67.github.io/RonnyMa/projects/ronny-scout/) · [Install native Skill · No API](../../skills/ronny-scout/references/no-api-quickstart.md) · [Source & Skill](../../skills/ronny-scout/) · [Creator profile](../../README.md)
 
-**Try it in your own AI:** import the [Ronny Scout Skill folder](../../skills/ronny-scout/) (or its packaged `skill.zip`) into a Skills-compatible assistant and attach your leads. No external developer API key, server or paid integration is needed. Native web browsing is needed to check up-to-date company sites; native spreadsheet tools or optional free Python utilities create XLSX exports.
+**Try it in your own AI:** import the [Ronny Scout Skill folder](../../skills/ronny-scout/) (or the [release ZIP](https://github.com/RonnyMa-67/RonnyMa/releases/download/skills-2026-11-06/ronny-scout.zip)) into a Skills-compatible assistant and attach your leads. No external developer API key, server or paid integration is needed. Native web browsing is needed to check up-to-date company sites; native spreadsheet tools or optional free Python utilities create XLSX exports.
 
 > **Demo notice:** The 10 built-in B2B customers, contact identifiers, business profiles and buying signals are fictional. No real names, phone numbers, email addresses, merchant details, account information or API keys are included. Imported data is processed only in page memory and cleared on refresh. This demo does not perform company research, authentication, cloud sync or external API calls. Imported records always remain **待核实**.
 

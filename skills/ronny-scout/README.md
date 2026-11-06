@@ -17,7 +17,7 @@ Reusable, privacy-conscious ChatGPT Skill for multilingual B2B lead qualificatio
 
 **Ronny Scout is a native AI Skill, not a paid API service.** Import this folder into a Skills-compatible AI, then provide your lead data and ask the AI to run Ronny Scout. No server, developer key, OAuth setup, metered model API or credit card is required by the Skill itself.
 
-1. Use the GitHub **Code → Download ZIP** option, extract the repository, and find `skills/ronny-scout/`.
+1. Download [ronny-scout.zip](https://github.com/RonnyMa-67/RonnyMa/releases/download/skills-2026-11-06/ronny-scout.zip) from GitHub Releases and extract it. Source users can also use **Code → Download ZIP** and find `skills/ronny-scout/`.
 2. Keep `SKILL.md`, `agents/`, `references/`, `scripts/` and the other bundled contents together. If your AI accepts a Skill ZIP, compress **only** the `ronny-scout` folder, rather than uploading the whole GitHub profile repository.
 3. Install/upload in the AI's Skills interface; or attach `SKILL.md` as instructions in any AI that lacks a Skill installer.
 4. Attach your CSV/XLSX or paste your Meta/CRM leads and say:
@@ -40,7 +40,7 @@ python scripts/append_to_template.py --template master.xlsx --input examples/sam
 python -m unittest discover -s tests -v
 ```
 
-Upload the `skill.zip` bundle to a compatible Skills-enabled environment, or use this folder with an agent that follows `SKILL.md`. Research requires an available browsing/search tool; the local scripts do **not** perform external searches and do not require a paid API.
+Upload the [ronny-scout.zip](https://github.com/RonnyMa-67/RonnyMa/releases/download/skills-2026-11-06/ronny-scout.zip) bundle to a compatible Skills-enabled environment, or use this folder with an agent that follows `SKILL.md`. Research requires an available browsing/search tool; the local scripts do **not** perform external searches and do not require a paid API.
 
 ## Schema
 
@@ -76,3 +76,7 @@ Replace `YOUR_USERNAME` with your GitHub handle. The remote GitHub repository mu
 ## v1.1 — Accepted layout
 
 Default export now matches the fixed 10-column A–J research grid. Owner in A, person in B, country only in C, structured background in D, original intent in E, grouped contacts in F, website/social in G, commercial fit in H, rating in I, and next step in J. Existing master sheets preserve downstream sales feedback K onward, other tabs and charts. No extra link columns are added by default. Run the tests before importing to a CRM.
+
+## 使用反馈 / Usage feedback
+
+用过后，欢迎[留下使用反馈](https://github.com/RonnyMa-67/RonnyMa/issues/new?template=skill-usage.yml&title=%5B%E4%BD%BF%E7%94%A8%E5%8F%8D%E9%A6%88%5D%20Ronny%20Scout)：使用场景、是否完成任务、哪里有帮助或需要改进。完全自愿；GitHub Issue 为公开内容，请勿上传真实客户、联系方式或内部资料。发布附件的下载次数仅代表文件获取，不代表实际使用人数。

@@ -34,7 +34,7 @@ Ronny Scout 是我做的 B2B 客户背调 Skill。它帮忙整理原始需求、
 
 [![Ronny Scout 产品演示](https://raw.githubusercontent.com/RonnyMa-67/RonnyMa/main/projects/ronny-scout/showcase.svg)](https://ronnyma-67.github.io/RonnyMa/projects/ronny-scout/)
 
-[在线体验](https://ronnyma-67.github.io/RonnyMa/projects/ronny-scout/) · [Skill 使用与源码](https://github.com/RonnyMa-67/RonnyMa/tree/main/skills/ronny-scout) · [下载 Skill ZIP](https://github.com/RonnyMa-67/RonnyMa/raw/refs/heads/main/skills/ronny-scout/skill.zip)
+[在线体验](https://ronnyma-67.github.io/RonnyMa/projects/ronny-scout/) · [Skill 使用与源码](https://github.com/RonnyMa-67/RonnyMa/tree/main/skills/ronny-scout) · [下载 Skill ZIP](https://github.com/RonnyMa-67/RonnyMa/releases/download/skills-2026-11-06/ronny-scout.zip)
 
 演示使用虚构客户，可浏览线索导入、客户明细和商情看板；演示本身不执行实时背调。实际研究需要安装 Skill，并使用具备浏览能力的 AI 助手；Skill 本身无需单独配置开发者 API Key。
 
@@ -45,6 +45,8 @@ Ronny Scout 是我做的 B2B 客户背调 Skill。它帮忙整理原始需求、
 | [Ronny Scout](https://github.com/RonnyMa-67/RonnyMa/tree/main/skills/ronny-scout) | 整理已有线索，研究客户背景并生成统一研究表 |
 | [B2B Customer Scout](https://github.com/RonnyMa-67/RonnyMa/tree/main/skills/b2b-customer-scout) | 从产品和目标市场出发，寻找并筛选潜在企业客户 |
 | [Meta Promotion Ops](https://github.com/RonnyMa-67/RonnyMa/tree/main/skills/meta-promotion-ops) | 梳理 Meta 推广、素材、表单承接和执行交接 |
+
+[下载三个公开 Skills](https://github.com/RonnyMa-67/RonnyMa/releases/tag/skills-2026-11-06) · [留下使用反馈](https://github.com/RonnyMa-67/RonnyMa/issues/new?template=skill-usage.yml)
 
 [查看图文更新记录与版本历史](https://github.com/RonnyMa-67/RonnyMa/blob/main/skills/CHANGELOG.md)
 

@@ -68,3 +68,7 @@ API 写入检查 write_status、failures 和逐对象结果；部分失败不能
 区分：表单创建、草稿保存、修改提交、审核中、已排期、投放中、受限/失败。一次点击或 success 响应不是投放完成证明。
 交接包含：目标、对象定位、已保存配置、线上实际状态、未发布修改、已知限制、下一步。实时数据未读取就注明“未核实”，不把历史状态写成当前结果。
 简洁报告本轮改动与尚未生效项，不把未完成部分说成全部完成。
+
+## Optional usage feedback / 可选使用反馈
+
+After delivering a completed task, you may append one brief, optional invitation in the user's language: “If this skill helped, you can [share usage feedback](https://github.com/RonnyMa-67/RonnyMa/issues/new?template=skill-usage.yml&title=%5B%E4%BD%BF%E7%94%A8%E5%8F%8D%E9%A6%88%5D%20Meta%20Promotion%20Ops).” Show it at most once per conversation; omit it when the user wants only the deliverable or the task remains incomplete. Feedback is never required to use the skill. Do not open, submit, or transmit feedback automatically; the user chooses whether to follow the link and what to share. GitHub issues are public: do not include customer lists, lead details, campaign/account data, credentials or private work artifacts.

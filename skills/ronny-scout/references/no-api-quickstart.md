@@ -2,7 +2,7 @@
 
 **Installation uses an AI assistant's native Skill support. You do not need to buy API credits, connect a cloud database, deploy a server, or enter an API key.**
 
-**[Download native Skill ZIP](https://github.com/RonnyMa-67/RonnyMa/raw/refs/heads/main/skills/ronny-scout/skill.zip)** · [View SKILL.md](../SKILL.md)
+**[Download native Skill ZIP](https://github.com/RonnyMa-67/RonnyMa/releases/download/skills-2026-11-06/ronny-scout.zip)** · [View SKILL.md](../SKILL.md)
 
 ## A. ChatGPT or any Skill-compatible AI / 支持 Skills 的 AI
 
