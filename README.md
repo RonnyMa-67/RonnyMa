@@ -3,7 +3,13 @@
   <img src="https://raw.githubusercontent.com/RonnyMa-67/RonnyMa/a0fdc7eff2dff430a5f9664ca54a1c3610cdccf9/assets/hero-light.svg" alt="Ronny — B2B Operations &amp; Growth: Marketing, Lead Intelligence, AI Workflows" width="100%">
 </picture>
 
-# 嗨，我是 Ronny 👋
+# Ronny · 外贸运营与 AI 工具
+
+[![Skills 下载](https://img.shields.io/github/downloads/RonnyMa-67/RonnyMa/total?style=flat-square&label=Skill%20downloads&color=635bff)](https://github.com/RonnyMa-67/RonnyMa/releases)
+[![最近更新](https://img.shields.io/github/last-commit/RonnyMa-67/RonnyMa?style=flat-square&label=Last%20update)](https://github.com/RonnyMa-67/RonnyMa/commits/main/)
+[![使用反馈](https://img.shields.io/badge/Feedback-分享使用体验-167d70?style=flat-square)](https://github.com/RonnyMa-67/RonnyMa/issues/new?template=skill-usage.yml)
+
+
 
 **做外贸运营，也喜欢把工作里的麻烦事变成好用的小工具。**
 
@@ -13,9 +19,21 @@
 
 **[查看代表作品](https://github.com/RonnyMa-67/RonnyMa/blob/main/projects/README.md)**　·　**[体验 Ronny Scout](https://ronnyma-67.github.io/RonnyMa/projects/ronny-scout/)**　·　**[查看公开 Skills](https://github.com/RonnyMa-67/RonnyMa/blob/main/skills/CHANGELOG.md)**
 
+## 从这里开始
+
+| 你现在想做什么 | 推荐入口 |
+| :--- | :--- |
+| 先看看工具长什么样 | [体验 Ronny Scout 工作台](https://ronnyma-67.github.io/RonnyMa/projects/ronny-scout/) |
+| 手里有线索，想研究客户 | [Ronny Scout 安装与使用](skills/ronny-scout/README.md) |
+| 有产品，想寻找潜在买家 | [B2B Customer Scout](skills/b2b-customer-scout/SKILL.md) |
+| 想梳理 Facebook / Instagram 推广 | [Meta Promotion Ops](skills/meta-promotion-ops/SKILL.md) |
+| 直接安装技能 | [下载三个独立 ZIP](https://github.com/RonnyMa-67/RonnyMa/releases/tag/skills-2026-11-06) |
+
+[代表作品](#精选作品) · [公开技能](#公开-skills) · [更新记录](#最近更新) · [阅读路线](#阅读路线) · [参与交流](#参与与反馈)
+
 ---
 
-## 我平时在折腾什么
+## 工作方向
 
 ![运营路径：推广获客、客户研究、线索管理与销售跟进](https://raw.githubusercontent.com/RonnyMa-67/RonnyMa/main/assets/operations-flow.svg)
 
@@ -26,7 +44,9 @@
 | **线索与销售协同** | 线索字段整理、客户分配、跟进记录与 CRM 工作流程 |
 | **AI 工作流** | 将业务判断和重复步骤整理为 Skills、表格规范与工具原型 |
 
-## 最近在做：Ronny Scout
+## 精选作品
+
+### Ronny Scout · 客户研究工作台
 
 **从一条线索开始，搞清楚客户，再想好下一步。**
 
@@ -38,7 +58,7 @@ Ronny Scout 是我做的 B2B 客户背调 Skill。它帮忙整理原始需求、
 
 演示使用虚构客户，可浏览线索导入、客户明细和商情看板；演示本身不执行实时背调。实际研究需要安装 Skill，并使用具备浏览能力的 AI 助手；Skill 本身无需单独配置开发者 API Key。
 
-## 我公开分享的 Skills
+## 公开 Skills
 
 | Skill | 解决的问题 |
 | :--- | :--- |
@@ -50,7 +70,7 @@ Ronny Scout 是我做的 B2B 客户背调 Skill。它帮忙整理原始需求、
 
 [查看图文更新记录与版本历史](https://github.com/RonnyMa-67/RonnyMa/blob/main/skills/CHANGELOG.md)
 
-## 还做过这些小工具
+### 更多工具
 
 | 作品 | 用途 | 当前形态 |
 | :--- | :--- | :--- |
@@ -58,7 +78,28 @@ Ronny Scout 是我做的 B2B 客户背调 Skill。它帮忙整理原始需求、
 | [LeadScope](https://github.com/RonnyMa-67/RonnyMa/tree/main/projects/leadscope) | 线索分配、跟进状态与导出 | 浏览器本地工具 |
 | [外贸 CRM 小程序](https://github.com/RonnyMa-67/RonnyMa/tree/main/projects/trade-crm) | 客户记录与团队跟进 | 微信云开发原型 |
 
-## 一点背景
+## 最近更新
+
+| 日期 | 更新 |
+| :--- | :--- |
+| 2026-11-06 | [三个技能独立下载包与使用反馈入口](https://github.com/RonnyMa-67/RonnyMa/releases/tag/skills-2026-11-06) |
+| 2026-11-02 | 公开 B2B Customer Scout 与 Meta Promotion Ops |
+| 2026-10-27 | Ronny Scout 固定 A–J 表格、原生安装指南与在线演示 |
+
+[完整技能更新记录](skills/CHANGELOG.md) · [全部提交](https://github.com/RonnyMa-67/RonnyMa/commits/main/)
+
+## 阅读路线
+
+- **第一次接触 Skills**：先看[安装指南](skills/ronny-scout/references/no-api-quickstart.md)，了解 AI 助手需要哪些能力。
+- **整理已有客户线索**：从 [Ronny Scout](skills/ronny-scout/) 开始，再看[研究表格规范](skills/ronny-scout/references/output-contract.md)。
+- **开发新市场**：用 [B2B Customer Scout](skills/b2b-customer-scout/SKILL.md) 明确目标企业、匹配证据与跟进方向。
+- **推广与承接**：阅读 [Meta Promotion Ops](skills/meta-promotion-ops/SKILL.md)，梳理素材、受众、表单和销售交接。
+- **了解其他作品**：查看[项目目录](projects/README.md)，各项目说明中标有用途和当前形态。
+
+<details>
+<summary><strong>关于我 · 经历与背景</strong></summary>
+
+
 
 - **2022–2023 · 阿里巴巴国际站**：B2B 广告数据与商家运营实习。
 - **2023–2024 · 商用厨房设备**：阿里国际站运营。
@@ -67,7 +108,15 @@ Ronny Scout 是我做的 B2B 客户背调 Skill。它帮忙整理原始需求、
 
 我喜欢先弄明白工作里真正卡住的地方，再借助 AI 把想法做出来、边用边改。公开项目里的客户资料都是虚构或替换后的示例。
 
-## 一起聊聊
+</details>
+
+## 参与与反馈
+
+用过某个技能，欢迎[分享使用体验](https://github.com/RonnyMa-67/RonnyMa/issues/new?template=skill-usage.yml)：用了什么、完成了什么、哪里还不顺手。也欢迎通过 Issue 提出问题，或通过 Pull Request 改进说明、示例和工具。
+
+反馈公开且自愿，请只描述概括场景；不要提交真实客户名单、私人联系方式、账户信息或内部工作文件。
+
+
 
 如果你也在做外贸、B2B 获客，或者喜欢用 AI 捣鼓实用工具，欢迎来交流 👋
 
