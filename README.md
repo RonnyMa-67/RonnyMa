@@ -1,131 +1,129 @@
+<div align="center">
+
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/RonnyMa-67/RonnyMa/a0fdc7eff2dff430a5f9664ca54a1c3610cdccf9/assets/hero-dark.svg">
-  <img src="https://raw.githubusercontent.com/RonnyMa-67/RonnyMa/a0fdc7eff2dff430a5f9664ca54a1c3610cdccf9/assets/hero-light.svg" alt="Ronny — B2B Operations &amp; Growth: Marketing, Lead Intelligence, AI Workflows" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/RonnyMa-67/RonnyMa/main/assets/hero-dark.svg">
+  <img src="https://raw.githubusercontent.com/RonnyMa-67/RonnyMa/main/assets/hero-light.svg" alt="Ronny — 外贸、B2B 与 AI 工作流" width="100%">
 </picture>
 
-# hi，我是 Ronny 👋
+# hey, Ronny here 👋
 
-[![Skills 下载](https://img.shields.io/github/downloads/RonnyMa-67/RonnyMa/total?style=flat-square&label=Skill%20downloads&color=635bff)](https://github.com/RonnyMa-67/RonnyMa/releases)
-[![最近更新](https://img.shields.io/github/last-commit/RonnyMa-67/RonnyMa?style=flat-square&label=Last%20update)](https://github.com/RonnyMa-67/RonnyMa/commits/main/)
-[![使用反馈](https://img.shields.io/badge/Feedback-分享使用体验-167d70?style=flat-square)](https://github.com/RonnyMa-67/RonnyMa/issues/new?template=skill-usage.yml)
+**🌏 做外贸的　/　🔎 研究客户的　/　🧪 也在研究 AI**
 
-🌏 外贸运营 / B2B / AI Skills / 想到什么就试一下
+想法很多，慢慢实现。欢迎来我的互联网小角落坐坐 🛋️
 
-白天研究客户和推广，空下来研究怎么让 AI 帮我干这些活。然后把研究 AI 这件事，也研究成了新的活……嗯 🫠
+[![Skills](https://img.shields.io/badge/📦_Skills-下载试试-7764dd?style=flat-square)](https://github.com/RonnyMa-67/RonnyMa/releases)
+[![Demo](https://img.shields.io/badge/🔎_Scout-在线逛逛-298777?style=flat-square)](https://ronnyma-67.github.io/RonnyMa/projects/ronny-scout/)
+[![Feedback](https://img.shields.io/badge/🫧_Guestbook-冒个泡-e99a62?style=flat-square)](https://github.com/RonnyMa-67/RonnyMa/issues/new?template=skill-usage.yml)
 
-这里放一些我做的 Skills、工具原型，还有暂时没想好怎么归类的东西。先存着，万一哪天就用上了呢 📦
+[Skills](#-我的-skill-小抽屉) · [小项目](#-另外几条支线) · [更新](#-更新便签) · [关于我](#-关于这个人)
 
-做外贸经常是：拿到一个公司名 → 打开官网 → 翻翻社媒 → 再看看联系人 → 等等，这家公司到底跟我的产品搭不搭啊 🔍
-
-推广也差不多。广告配好了，表单呢？消息呢？线索交给谁？好，事情又多起来了（
-
-所以最近在把这些步骤往 Skill 里塞。希望 AI 能多理解一点业务，少让我重复解释一点。
-
-理想状态：资料查明白，表格整理好，我接着往下做。实际效果就边用边改吧 🛠️
-
-下面这些先公开出来了，随便逛逛 👇
-
-**[查看代表作品](https://github.com/RonnyMa-67/RonnyMa/blob/main/projects/README.md)**　·　**[体验 Ronny Scout](https://ronnyma-67.github.io/RonnyMa/projects/ronny-scout/)**　·　**[查看公开 Skills](https://github.com/RonnyMa-67/RonnyMa/blob/main/skills/CHANGELOG.md)**
-
-## 随便逛逛，从这里进 🧭
-
-| 你现在想做什么 | 推荐入口 |
-| :--- | :--- |
-| 体验客户研究工作台 | [体验 Ronny Scout 工作台](https://ronnyma-67.github.io/RonnyMa/projects/ronny-scout/) |
-| 已有询盘，需要判断客户价值 | [Ronny Scout 安装与使用](skills/ronny-scout/README.md) |
-| 明确产品，寻找海外潜在买家 | [B2B Customer Scout](skills/b2b-customer-scout/SKILL.md) |
-| 规划 Facebook / Instagram 推广 | [Meta Promotion Ops](skills/meta-promotion-ops/SKILL.md) |
-| 直接安装技能 | [下载三个独立 ZIP](https://github.com/RonnyMa-67/RonnyMa/releases/tag/skills-2026-11-06) |
-
-[看项目](https://github.com/RonnyMa-67/RonnyMa/tree/main/projects) · [下 Skill](https://github.com/RonnyMa-67/RonnyMa/releases) · [翻更新](skills/CHANGELOG.md) · [冒个泡](https://github.com/RonnyMa-67/RonnyMa/issues/new?template=skill-usage.yml)
+</div>
 
 ---
 
-## 日常活动范围 🌍
+### 🫠 一点碎碎念
 
-![运营路径：推广获客、客户研究、线索管理与销售跟进](https://raw.githubusercontent.com/RonnyMa-67/RonnyMa/main/assets/operations-flow.svg)
+做外贸运营，日常在客户、产品、推广和表格之间反复横跳。
 
-| 方向 | 实践内容 |
-| :--- | :--- |
-| **B2B 数字营销** | 阿里国际站运营、Meta 推广思路、表单与询盘承接 |
-| **客户开发与研究** | 海外企业背景、产品与业务匹配、公开信息核实、跟进切入点 |
-| **线索与销售协同** | 线索字段整理、客户分配、跟进记录与 CRM 工作流程 |
-| **AI 工作流** | 将业务判断和重复步骤整理为 Skills、表格规范与工具原型 |
+最近开始把工作里那些「这段能不能让 AI 来」的步骤整理成 Skills。查公司、找买家、理推广流程……一个个试。做着做着，给自己又开了几个新坑 🕳️
 
-## 最近在养的项目：Ronny Scout 🔎
+这里就拿来放这些东西。能用的先分享，没做完的慢慢养。  
+如果刚好也能帮你少翻几个网页、少整理一次表格，那就很开心了 🤝
 
-这个主要解决：**线索是有了，但客户到底什么情况 🤔**
+> 💭 目前的愿望：AI 多懂一点业务，我少解释两遍。  
+> 🛠️ 目前的状态：边用边改，想到哪里再补哪里。
 
-一份展会名单、Meta 表单，或者 CRM 导出的客户资料，先保留客户原本说了什么，再去查公司、官网、社媒和公开联系人。最后放进一张 A–J 表里：客户做什么、需求是什么、有没有合作的可能、下一步怎么聊。
+### 📦 我的 Skill 小抽屉
 
-我的想法很简单：查完得知道下一步怎么做。表格漂漂亮亮，打开全是「建议进一步沟通」，那还是有点难绷 🫠
+#### 🔎 Ronny Scout
+**有询盘了，然后呢？**
 
-[![Ronny Scout 产品演示](https://raw.githubusercontent.com/RonnyMa-67/RonnyMa/main/projects/ronny-scout/showcase.svg)](https://ronnyma-67.github.io/RonnyMa/projects/ronny-scout/)
+从客户原本说了什么开始，查公司、官网、社媒和公开联系人，再把背景、需求、合作可能性和下一步放进 A–J 研究表。
 
-[在线体验](https://ronnyma-67.github.io/RonnyMa/projects/ronny-scout/) · [Skill 使用与源码](https://github.com/RonnyMa-67/RonnyMa/tree/main/skills/ronny-scout) · [下载 Skill ZIP](https://github.com/RonnyMa-67/RonnyMa/releases/download/skills-2026-11-06/ronny-scout.zip)
+查完得能接着做事。满表「建议进一步沟通」的话，还是会有点沉默 🫠
 
-演示使用虚构客户，可浏览线索导入、客户明细和商情看板；演示本身不执行实时背调。实际研究需要安装 Skill，并使用具备浏览能力的 AI 助手；Skill 本身无需单独配置开发者 API Key。
-
-## 这几个 Skill，先放出来 📦
-
-| Skill | 什么时候可以拿来用 |
-| :--- | :--- |
-| [Ronny Scout](https://github.com/RonnyMa-67/RonnyMa/tree/main/skills/ronny-scout) | 手里有线索，想把客户背景和下一步跟进理清楚 |
-| [B2B Customer Scout](https://github.com/RonnyMa-67/RonnyMa/tree/main/skills/b2b-customer-scout) | 知道自己卖什么，想找找哪些海外企业可能对口 |
-| [Meta Promotion Ops](https://github.com/RonnyMa-67/RonnyMa/tree/main/skills/meta-promotion-ops) | 做 Facebook / Instagram 推广，把素材、广告和询盘承接串起来 |
-
-[下载三个公开 Skills](https://github.com/RonnyMa-67/RonnyMa/releases/tag/skills-2026-11-06) · [留下使用反馈](https://github.com/RonnyMa-67/RonnyMa/issues/new?template=skill-usage.yml)
-
-[查看图文更新记录与版本历史](https://github.com/RonnyMa-67/RonnyMa/blob/main/skills/CHANGELOG.md)
-
-## 还有一些支线任务 🧪
-
-| 作品 | 用途 | 当前形态 |
-| :--- | :--- | :--- |
-| [Ronny Intelligence](https://github.com/RonnyMa-67/RonnyMa/tree/main/projects/ronny-intelligence) | 多来源线索整理与客户资料管理 | 前端原型 |
-| [LeadScope](https://github.com/RonnyMa-67/RonnyMa/tree/main/projects/leadscope) | 线索分配、跟进状态与导出 | 浏览器本地工具 |
-| [外贸 CRM 小程序](https://github.com/RonnyMa-67/RonnyMa/tree/main/projects/trade-crm) | 客户记录与团队跟进 | 微信云开发原型 |
-
-## 今天又动了哪里 📝
-
-| 日期 | 更新 |
-| :--- | :--- |
-| 2026-11-06 | [三个技能独立下载包与使用反馈入口](https://github.com/RonnyMa-67/RonnyMa/releases/tag/skills-2026-11-06) |
-| 2026-11-02 | 公开 B2B Customer Scout 与 Meta Promotion Ops |
-| 2026-10-27 | Ronny Scout 固定 A–J 表格、原生安装指南与在线演示 |
-
-[完整技能更新记录](skills/CHANGELOG.md) · [全部提交](https://github.com/RonnyMa-67/RonnyMa/commits/main/)
-
-## 想自己试试的话 🚀
-
-- **第一次接触 Skills**：先看[安装指南](skills/ronny-scout/references/no-api-quickstart.md)，了解 AI 助手需要哪些能力。
-- **整理已有客户线索**：从 [Ronny Scout](skills/ronny-scout/) 开始，再看[研究表格规范](skills/ronny-scout/references/output-contract.md)。
-- **开发新市场**：用 [B2B Customer Scout](skills/b2b-customer-scout/SKILL.md) 明确目标企业、匹配证据与跟进方向。
-- **推广与承接**：阅读 [Meta Promotion Ops](skills/meta-promotion-ops/SKILL.md)，梳理素材、受众、表单和销售交接。
-- **了解其他作品**：查看[项目目录](projects/README.md)，各项目说明中标有用途和当前形态。
+[🎮 看演示](https://ronnyma-67.github.io/RonnyMa/projects/ronny-scout/)　[📖 怎么用](https://github.com/RonnyMa-67/RonnyMa/tree/main/skills/ronny-scout)　[↓ 下载](https://github.com/RonnyMa-67/RonnyMa/releases/download/skills-2026-11-06/ronny-scout.zip)
 
 <details>
-<summary><strong>关于我，再展开一点 👀</strong></summary>
+<summary>👀 展开看看工作台</summary>
 
-- **2022–2023 · 阿里巴巴国际站**：B2B 广告数据与商家运营实习。
-- **2023–2024 · 商用厨房设备**：阿里国际站运营。
-- **2024 至今 · 商业设备出口**：外贸运营、B2B 数字营销与 AI 辅助工具实践。
-- **教育**：浙江工业大学，2023 届本科毕业。
+[![Ronny Scout：线索导入、客户明细与商情看板](https://raw.githubusercontent.com/RonnyMa-67/RonnyMa/main/projects/ronny-scout/showcase.svg)](https://ronnyma-67.github.io/RonnyMa/projects/ronny-scout/)
 
-工作里碰到的问题，就慢慢往这里整理。公开示例里的客户资料都是虚构或替换过的。
+演示里的客户是虚构的，可以体验导入、明细和看板；实时背调需要在具备浏览能力的 AI 助手中使用 Skill。
 
 </details>
 
-## 用了的话，回来冒个泡 🫧
+#### 🌍 B2B Customer Scout
+**产品有了，去哪里找对口的买家？**
 
-如果你真的拿去用过，欢迎[回来留两句](https://github.com/RonnyMa-67/RonnyMa/issues/new?template=skill-usage.yml)。用在哪了，哪一步有帮助，哪里又卡住了，都可以说。好用想听，不好用也想听 😂
+从产品、图片和目标市场出发，找潜在企业、核实公开联系人，顺便把「为什么值得联系」说清楚。希望客户清单里，每家公司都有出现的理由 🧭
 
-有问题可以提 Issue，有想改的地方也欢迎提 PR。要是你也在做类似的东西，交流一下也挺好。
+[📖 看看说明](https://github.com/RonnyMa-67/RonnyMa/tree/main/skills/b2b-customer-scout)　[↓ 下载](https://github.com/RonnyMa-67/RonnyMa/releases/download/skills-2026-11-06/b2b-customer-scout.zip)
 
-反馈公开且自愿，请只描述概括场景；不要提交真实客户名单、私人联系方式、账户信息或内部工作文件。
+#### 📣 Meta Promotion Ops
+**广告配好了，后面的事也得接住。**
 
-先这样，想到什么再往上加。
+整理 Facebook / Instagram 推广里的目标、素材、受众、表单和消息承接。让「投出去」和「接下来怎么办」连在一起 🪄
 
-希望下次更新是因为做出了新东西，而不是又想换个首页 😶‍🌫️
+[📖 看看说明](https://github.com/RonnyMa-67/RonnyMa/tree/main/skills/meta-promotion-ops)　[↓ 下载](https://github.com/RonnyMa-67/RonnyMa/releases/download/skills-2026-11-06/meta-promotion-ops.zip)
 
-[查看全部作品](https://github.com/RonnyMa-67/RonnyMa) · [发起项目交流](https://github.com/RonnyMa-67/RonnyMa/issues/new)
+<details>
+<summary>📮 第一次接触 Skills？从这里开始</summary>
+
+下载对应 ZIP，解压后保留技能文件夹结构，在支持 Skills 的 AI 助手里安装。Ronny Scout 的[安装指南](https://github.com/RonnyMa-67/RonnyMa/blob/main/skills/ronny-scout/references/no-api-quickstart.md)里有更详细的说明。
+
+Skill 本身不要求单独配置开发者 API Key；实时查资料需要宿主提供浏览工具，文件导出也取决于宿主能力。  
+[全部下载与统计说明](https://github.com/RonnyMa-67/RonnyMa/blob/main/skills/README.md)
+
+</details>
+
+### 🧪 另外几条支线
+
+- **[Ronny Intelligence](https://github.com/RonnyMa-67/RonnyMa/tree/main/projects/ronny-intelligence)** — 多来源线索和客户资料，先搭了个前端原型 🗂️
+- **[LeadScope](https://github.com/RonnyMa-67/RonnyMa/tree/main/projects/leadscope)** — 分线索、记跟进、导出，放在浏览器本地用的 📋
+- **[外贸 CRM 小程序](https://github.com/RonnyMa-67/RonnyMa/tree/main/projects/trade-crm)** — 客户记录与团队跟进，微信云开发原型 🌱
+
+有些还在长，有些还得再想想。[项目目录在这里 ↗](https://github.com/RonnyMa-67/RonnyMa/blob/main/projects/README.md)
+
+### 📝 更新便签
+
+**2026.11.06** · 三个 Skill 都有独立下载包了，也加了使用反馈入口 📦  
+**2026.11.02** · B2B Customer Scout、Meta Promotion Ops 放出来了 🌱  
+**2026.10.27** · Scout 的 A–J 表格、安装指南和演示陆续补齐 🔎
+
+[翻翻完整记录 ↗](https://github.com/RonnyMa-67/RonnyMa/blob/main/skills/CHANGELOG.md)
+
+### 👋 关于这个人
+
+外贸运营，B2B 数字营销。做过阿里国际站运营，也在做商业设备出口和海外客户开发。
+
+对 AI 的兴趣，大概就是：看到一个重复步骤，总想试试能不能省掉。  
+然后又在研究怎么省步骤这件事上，花掉了一些时间 😶‍🌫️
+
+<details>
+<summary>🎒 再展开一点</summary>
+
+- 2022–2023 · 阿里巴巴国际站，B2B 广告数据与商家运营实习
+- 2023–2024 · 商用厨房设备，阿里国际站运营
+- 2024 至今 · 商业设备出口、外贸运营与 B2B 数字营销
+- 浙江工业大学，2023 届本科毕业
+
+公开项目里的客户资料均为虚构或替换后的示例。
+
+</details>
+
+---
+
+<div align="center">
+
+**用过的话，回来冒个泡 🫧**
+
+[哪步好用、哪步卡住，都可以说 →](https://github.com/RonnyMa-67/RonnyMa/issues/new?template=skill-usage.yml)
+
+<sub>反馈公开且自愿，记得把真实客户、私人联系方式和内部资料留在自己手里。</sub>
+
+<br><br>
+
+🌈 做一点，存一点，下次再来。
+
+</div>
