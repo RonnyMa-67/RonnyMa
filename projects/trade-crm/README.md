@@ -1,35 +1,46 @@
-# 外贸 CRM · 微信小程序原型
+<div align="center">
 
-面向海外客户跟进的个人工具原型，由 Ronny 梳理客户字段、团队分工与每日跟进需求，并借助 AI 辅助开发。将表格中的线索接入客户库，记录负责人、跟进阶段与下次联系日期。
+![🌱 Trade CRM](https://raw.githubusercontent.com/RonnyMa-67/RonnyMa/main/assets/corner-projects.svg)
 
-## 代码中包含的功能
+**简体中文 · [English](README.en.md)**
 
-- 今日跟进、客户列表、客户详情与团队管理四类页面。
-- 客户阶段、负责人、下次跟进日期和跟进时间线。
-- 云函数集中处理身份、团队范围与角色权限，写入操作记录。
-- 背调 Excel 转换为云数据库导入 JSON 的 Python 工具。
-- 定时提醒云函数模板。
+</div>
 
-## 运行与配置
+# 🌱 Trade CRM
 
-需要微信开发者工具、自己的小程序 AppID 和微信云开发环境。
+**客户资料进了表，下一次联系也得有着落。**
 
-1. 导入本目录，在 `project.config.json` 填写自己的 AppID，在 `app.js` 填写自己的云环境 ID。
-2. 创建 `teams`、`members`、`customers`、`followups`、`audit_logs` 数据集合；将数据库设为仅管理端可读写，通过云函数访问。
-3. 部署 `cloudfunctions/crm`，在小程序中创建团队，检查角色与团队数据隔离。
-4. 如使用提醒，先配置自己的订阅消息模板，再部署 `dailyReminder`。仓库中的配置是模板。
+微信云开发小程序原型。我梳理客户字段、团队分工和每日跟进需求，借助 AI 辅助开发。将线索接入客户库，记录负责人、阶段和下次联系时间。
 
-表格转换工具使用 Python 3：
+## 🧭 代码里有什么
+
+- 今日跟进、客户列表、详情与团队管理。
+- 客户阶段、负责人、下次跟进日期与时间线。
+- 云函数处理身份、团队范围和角色权限，记录写入操作。
+- Excel 转云数据库 JSON 的工具与定时提醒模板。
+
+## 🛠️ 配置与运行
+
+需要微信开发者工具、自己的小程序 AppID 与云开发环境。
+
+1. 导入本目录，在 `project.config.json` 填 AppID，在 `app.js` 填云环境 ID。
+2. 创建 `teams`、`members`、`customers`、`followups`、`audit_logs`；数据库仅管理端可读写，通过云函数访问。
+3. 部署 `cloudfunctions/crm`，创建团队，验证角色和团队隔离。
+4. 如需提醒，先配置自己的订阅消息模板，再部署 `dailyReminder`。仓库配置只是模板。
 
 ```bash
 python3 -m pip install -r requirements.txt
 python3 tools/xlsx_to_json.py /path/to/your-demo.xlsx --team-id=YOUR_TEAM_ID
 ```
 
-转换结果保存在被忽略的 `data/`。输入字段和格式见 `tools/xlsx_to_json.py` 的 `COLUMNS` 定义。`examples/customer-demo.json` 是完全虚构的结构示例，须替换团队 ID 才能用于自己的测试环境。
+转换结果在被忽略的 `data/`。字段见脚本的 `COLUMNS`。`examples/customer-demo.json` 完全虚构，测试前需替换团队 ID。
 
-## 使用边界
+## 📎 当前状态
 
-这是待部署验收的原型，不包含已运行的微信云环境；公开整理时没有执行微信真机、订阅消息或生产权限测试。角色和团队隔离的实现需在自己的环境继续验证。此快照没有 PI 报价功能，也没有真实成交统计。
+待部署验收，不包含正在运行的微信云环境。未执行微信真机、订阅消息或生产权限测试，团队与角色隔离需在自己的环境验证。没有 PI 报价或真实成交统计，也没有上传客户数据导出。
 
-原目录中的客户数据导出与预览没有上传；公开目录仅含代码和虚构示例。
+---
+
+[🏠 回到首页](https://github.com/RonnyMa-67/RonnyMa) · [📦 Skills 抽屉](https://github.com/RonnyMa-67/RonnyMa/tree/main/skills) · [🧪 项目柜子](https://github.com/RonnyMa-67/RonnyMa/tree/main/projects)
+
+🌈 做一点，存一点，下次再来。

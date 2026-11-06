@@ -1,70 +1,44 @@
-# Ronny Scout
+<div align="center">
 
-**Turn raw business leads into clearer commercial decisions.**
+![🔎 Ronny Scout](https://raw.githubusercontent.com/RonnyMa-67/RonnyMa/main/assets/corner-projects.svg)
 
-Ronny Scout is a practical open-source workflow for multilingual B2B lead intelligence: form ingestion, company research, buying-signal analysis, structured evidence notes, qualification and export-ready spreadsheets.
+**简体中文 · [English](README.en.md)**
 
-![Ronny Scout — interactive B2B lead intelligence preview](./showcase.svg)
+</div>
 
-### [Explore the interactive demo](https://ronnyma-67.github.io/RonnyMa/projects/ronny-scout/) · [Install native Skill · No API](../../skills/ronny-scout/references/no-api-quickstart.md) · [Source & Skill](../../skills/ronny-scout/) · [Creator profile](../../README.md)
+# 🔎 Ronny Scout
 
-**Try it in your own AI:** import the [Ronny Scout Skill folder](../../skills/ronny-scout/) (or the [release ZIP](https://github.com/RonnyMa-67/RonnyMa/releases/download/skills-2026-11-06/ronny-scout.zip)) into a Skills-compatible assistant and attach your leads. No external developer API key, server or paid integration is needed. Native web browsing is needed to check up-to-date company sites; native spreadsheet tools or optional free Python utilities create XLSX exports.
+**把客户研究这件事，先摆到桌面上。**
 
-> **Demo notice:** The 10 built-in B2B customers, contact identifiers, business profiles and buying signals are fictional. No real names, phone numbers, email addresses, merchant details, account information or API keys are included. Imported data is processed only in page memory and cleared on refresh. This demo does not perform company research, authentication, cloud sync or external API calls. Imported records always remain **待核实**.
+这里是 Ronny Scout 的静态演示工作台。可以导入线索、看 A–J 客户明细、筛选记录、查看商情看板和导出 CSV。内置的 10 位客户都是虚构的，演示不会执行实时背调。
 
-## What it demonstrates
+[🎮 打开演示](https://ronnyma-67.github.io/RonnyMa/projects/ronny-scout/) · [📦 安装真正做研究的 Skill](../../skills/ronny-scout/README.md)
 
-| Workflow | Live demo experience |
-| --- | --- |
-| 导入线索 | Paste plain text, CSV or Excel-copied TSV; import UTF-8 `.csv`, `.tsv`, `.txt`; download a template or fill fictional examples |
-| 客户明细 | Fixed A–J columns, search, country/category/priority filters, rating counts, sticky identity columns and a scrollable table |
-| 客户详情 | Right-side drawer with all ten fields, original input and an explicit source / verification notice |
-| 商情看板 | Category, country, priority and business-type distributions across all records; click a category or market to filter customer details |
-| 开发建议 | Static guidance for P1/P2/P3 and unverified leads, clearly separate from actual research |
-| 质量检测 | Ten-column structure, missing country/intent, duplicate customer-country pairs, pending verification and spreadsheet formula prefixes |
-| Export | Filtered records as UTF-8 BOM CSV with exactly ten columns; formula prefixes are escaped for spreadsheet safety |
-| Research standards | See the [source-aware skill](../../skills/ronny-scout/SKILL.md), including formatting checks and evidence integrity |
+## 🧭 可以逛些什么
 
-## Why the distinction matters
+- 导入：粘贴文本、CSV 或 Excel 复制的 TSV；也可以选择 UTF-8 CSV / TSV / TXT。
+- 明细：固定 A–J 十列，搜索、筛选、客户详情和原始输入。
+- 看板：品类、国家、评级与业务类型分布，可点击筛选。
+- 检查与导出：检测缺失、重复和公式前缀；按当前筛选导出十列 CSV。
 
-A source-backed business lead profile is different from a generic marketing summary. The full workflow preserves original customer inputs, distinguishes reliable evidence from candidate associations, produces usable business context and checks template alignment before delivery.
+## 📎 真实能力与边界
 
-The **open-source implementation** and **interactive showcase** are visible for learning and reuse according to their respective licenses. The *Ronny Scout* product name and visual identity must not be used to imply an unauthorized official edition or endorsement; see [brand guidelines](./BRAND_POLICY.md). Public MIT-licensed versions retain their original license grants, including commercial use.
+导入只在当前页面内存处理，刷新即清空。它没有登录、云同步或外部研究调用。导入客户保持待核实；看板与开发建议是演示，不代表真实市场结论。
 
-## Run the demo
+需要 Excel 文件时，先另存为 CSV 或复制单元格粘贴；真实 XLSX 交付可用原生 Skill 的工具。导入需要表头，单次最大 2 MB、合计最多 1,000 条。恢复示例前请先导出想保留的记录。
 
-Download this folder and open [index.html](./index.html) in a modern browser, or serve it with any local static server. Keep `style.css`, `data.js`, `app.js` and `logo.svg` beside it. No runtime dependencies, CDN, API keys or backend are needed. Offline use works from a local copy; GitHub links require a connection.
+## 🛠️ 本地试试
 
-The existing [Pages workflow](../../.github/workflows/ronny-scout-pages.yml) deploys changes to this folder on `main`. [Open the live demo](https://ronnyma-67.github.io/RonnyMa/projects/ronny-scout/).
+下载本目录，保留页面、样式、脚本与图片的相对位置，打开 `index.html` 或用静态服务器运行。无需依赖、API Key 或后端。
 
-### Import and export contract
+```bash
+node checks.cjs
+```
 
-CSV / TSV requires a header row containing `公司` or `客户信息` (English `company` is also accepted). The downloadable template uses `公司,国家,产品,采购需求`. The exact exported A–J headers can also be imported. Plain text without delimiters creates one unverified lead per non-empty line. Quoted commas, escaped quotes and multiline fields are supported; malformed rows are rejected as a batch without partial writes. Limits: 2 MB per file/input, 1,000 total records. Imports append to existing data; restoring examples asks before clearing imported records. Export first if you need to retain them.
+完整导入格式、字段、检查和品牌说明见[英文技术指南](GUIDE.en.md)与[品牌规则](BRAND_POLICY.md)。源码许可与品牌名称的使用范围分别以各文件为准。
 
-| Column | Field |
-| --- | --- |
-| A | 分配业务员 |
-| B | 客户信息 |
-| C | 国家 |
-| D | 公司介绍（主营·背景·规模） |
-| E | 原始采购需求 |
-| F | 联系方式 / WhatsApp |
-| G | 官网与社媒 |
-| H | 匹配与合作潜力 |
-| I | 背调评级 |
-| J | 开发切入点 |
+---
 
-CSV export follows the customer filters, even when another tab is open; its confirmation states the number exported. The dashboard and quality check always cover all records. Percentages are rounded and may not sum to exactly 100%.
+[🏠 回到首页](https://github.com/RonnyMa-67/RonnyMa) · [📦 Skills 抽屉](https://github.com/RonnyMa-67/RonnyMa/tree/main/skills) · [🧪 项目柜子](https://github.com/RonnyMa-67/RonnyMa/tree/main/projects)
 
-Native `.xlsx` import/export is deliberately omitted to keep the static demo dependency-free. Save Excel files as UTF-8 CSV or paste cells as TSV. The existing native Skill retains its spreadsheet tools for actual XLSX workflows. A copied or imported priority is retained in the raw-input drawer but never accepted as a verified rating.
-
-### Checks
-
-Run `node checks.cjs` for import parsing, CSV escaping, A–J schema and quality-check assertions. Browser validation covers tabs, filters, drawer keyboard behavior, file import, export, responsive layout and offline operation.
-
-## Support the project
-
-Open-source work is sustained by people who find it useful. [GitHub Sponsors](https://github.com/sponsors/RonnyMa-67) application has been submitted and is pending GitHub review and the repository has a sponsor declaration in `.github/FUNDING.yml`; **donations are not available until the creator's Sponsor profile is approved and payout details are completed**.
-
-Copyright © 2026 Ronny Scout contributors. No real customer information or proprietary account details are distributed in the showcase.
-
+🌈 做一点，存一点，下次再来。

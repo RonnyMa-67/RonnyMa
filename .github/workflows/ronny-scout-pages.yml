@@ -5,6 +5,10 @@ on:
     branches: [main]
     paths:
       - 'projects/ronny-scout/**'
+      - 'index.html'
+      - 'corner.css'
+      - 'corner.js'
+      - 'assets/**'
       - '.github/workflows/ronny-scout-pages.yml'
   workflow_dispatch:
 

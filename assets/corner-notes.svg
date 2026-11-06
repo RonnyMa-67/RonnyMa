@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="340" viewBox="0 0 1400 340" role="img" aria-labelledby="t d">
+<title id="t">notes &amp; updates.</title><desc id="d">Made something. Changed something. Wrote it down.. A dark personal notebook cover with flowing rainbow lines.</desc>
+<defs><linearGradient id="r"><stop stop-color="#ff879c"/><stop offset=".22" stop-color="#ffce88"/><stop offset=".46" stop-color="#9ee6c3"/><stop offset=".7" stop-color="#8dcfff"/><stop offset="1" stop-color="#c2a3ff"/></linearGradient><clipPath id="c"><rect width="1400" height="340" rx="22"/></clipPath></defs>
+<g clip-path="url(#c)"><rect width="1400" height="340" fill="#151521"/><circle cx="52" cy="42" r="5" fill="#ff879c"/><circle cx="74" cy="42" r="5" fill="#ffce88"/><circle cx="96" cy="42" r="5" fill="#9ee6c3"/>
+<g fill="none" stroke="url(#r)" stroke-linecap="round"><path d="M770 390 C920 380 850 20 1110 35 S1320 280 1510 105" stroke-width="3"/><path d="M790 409 C940 399 870 39 1130 54 S1340 299 1530 124" stroke-width="3" opacity=".75"/><path d="M810 428 C960 418 890 58 1150 73 S1360 318 1550 143" stroke-width="3" opacity=".5"/><path d="M830 447 C980 437 910 77 1170 92 S1380 337 1570 162" stroke-width="3" opacity=".3"/></g>
+<text x="64" y="155" fill="#faf7ff" font-family="Helvetica,Arial,sans-serif" font-size="66" font-weight="700" letter-spacing="-2">notes &amp; updates.</text>
+<text x="68" y="210" fill="#c4bfd4" font-family="Helvetica,Arial,sans-serif" font-size="23">Made something. Changed something. Wrote it down.</text>
+<path d="M68 263H330" stroke="url(#r)" stroke-width="3"/><text x="68" y="303" fill="#b7a7ff" font-family="Helvetica,Arial,sans-serif" font-size="15">RONNY'S LITTLE CORNER / 2026</text></g></svg>

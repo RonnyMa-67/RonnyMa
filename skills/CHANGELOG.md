@@ -1,3 +1,5 @@
+**简体中文** · [English](CHANGELOG.en.md)
+
 # 公开 Skills 更新记录 / Public skills changelog
 
 ![公开技能发展时间线：Ronny Scout、B2B Customer Scout 和 Meta Promotion Ops](skill-timeline.svg)
