@@ -1,10 +1,20 @@
 <div align="center">
 
-![hey, I’m Ronny 👋](https://raw.githubusercontent.com/RonnyMa-67/RonnyMa/main/assets/corner-corner.svg)
+# 🌐 Come over to my little corner
 
-**[简体中文](README.md) · English**
+**The full experience lives here — Skills, side quests, notes, and a bit of me.**
+
+### [✨ Enter the website ↗](https://ronnyma-67.github.io/RonnyMa/?lang=en)
+
+[简体中文](https://ronnyma-67.github.io/RonnyMa/?lang=zh)　·　[English](https://ronnyma-67.github.io/RonnyMa/?lang=en)
+
+[![Preview of Ronny’s personal website — click to visit](https://raw.githubusercontent.com/RonnyMa-67/RonnyMa/main/assets/site-preview.jpg)](https://ronnyma-67.github.io/RonnyMa/?lang=en)
+
+<sub>Click the preview to visit · Desktop and mobile · Chinese / English</sub>
 
 </div>
+
+---
 
 # hey, I’m Ronny 👋
 

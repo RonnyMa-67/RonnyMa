@@ -1,10 +1,20 @@
 <div align="center">
 
-![hi，我是 Ronny 👋](https://raw.githubusercontent.com/RonnyMa-67/RonnyMa/main/assets/corner-corner.svg)
+# 🌐 来我的小站逛逛
 
-**简体中文 · [English](README.en.md)**
+**Skills、小项目、碎碎念，还有我本人，都放在这里。**
+
+### [✨ 打开我的小站 ↗](https://ronnyma-67.github.io/RonnyMa/?lang=zh)
+
+[简体中文](https://ronnyma-67.github.io/RonnyMa/?lang=zh)　·　[English](https://ronnyma-67.github.io/RonnyMa/?lang=en)
+
+[![Ronny 的互联网小角落，点击图片进入](https://raw.githubusercontent.com/RonnyMa-67/RonnyMa/main/assets/site-preview.jpg)](https://ronnyma-67.github.io/RonnyMa/?lang=zh)
+
+<sub>点上面的图就能进 · 手机电脑都能看 · 中英可切换</sub>
 
 </div>
+
+---
 
 # hi，我是 Ronny 👋
 
