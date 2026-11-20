@@ -24,6 +24,8 @@
 
 做外贸运营，也在把客户研究、买家开发和推广流程整理成 AI Skills。
 
+**最近在写** · 阿里国际站工厂店运营笔记，一篇给刚接手店铺的人，一篇给想翻修老店的人。
+
 这里主要放三类东西：**能安装的技能、可体验的工具、持续更新的笔记。** 没做完的也会标清楚，慢慢养 🌱
 
 > 💭 AI 多懂一点业务，我少解释两遍。
@@ -63,6 +65,8 @@
 可用工具与原型分开放，当前状态见各项目说明。[项目柜子在这里 →](https://github.com/RonnyMa-67/RonnyMa/tree/main/projects)
 
 ## 📝 更新记录
+
+**11.17** · 发了两篇阿里国际站 SOP。[新手版](https://github.com/RonnyMa-67/RonnyMa/blob/main/skills/alibaba-sop-beginner/README.md)带你熟悉后台、发品和日常清单，[进阶版](https://github.com/RonnyMa-67/RonnyMa/blob/main/skills/alibaba-sop/README.md)聊老店怎么梳理产品链接、排查流量和控制投放。
 
 **11.06** · 三个 Skill 有独立下载包了，也可以留使用反馈了 📦 这次顺便给小站换了衣服，中英双份。
 **11.02** · B2B Customer Scout、Meta Promotion Ops 放出来了 🌱

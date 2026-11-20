@@ -24,6 +24,8 @@
 
 I work in foreign trade and turn customer research, buyer discovery, and marketing workflows into AI Skills.
 
+**Currently writing** · Alibaba.com operations guides for people running B2B factory stores.
+
 Three things live here: **installable Skills, tools to try, and ongoing notes.** Unfinished work is labeled too. Giving it a little time 🌱
 
 > 💭 Hoping AI learns a bit more about the business, so I can explain a bit less.
@@ -63,6 +65,8 @@ Connect the easily missed bits of Facebook / Instagram promotion: creative, audi
 Each project marks whether it is a usable tool or a prototype. [The project shelf →](https://github.com/RonnyMa-67/RonnyMa/blob/main/projects/README.en.md)
 
 ## 📝 Updates
+
+**Nov 17** · Published two Alibaba.com operations guides. [Getting started](https://github.com/RonnyMa-67/RonnyMa/blob/main/skills/alibaba-sop-beginner/README.md) covers the dashboard and day-to-day checklists. [Revamping an existing store](https://github.com/RonnyMa-67/RonnyMa/blob/main/skills/alibaba-sop/README.md) covers listings, traffic, and ad spend.
 
 **Nov 06** · Separate download packages and a feedback form for all three Skills 📦 Plus a fresh look, in Chinese and English.
 **Nov 02** · Shared B2B Customer Scout and Meta Promotion Ops 🌱
