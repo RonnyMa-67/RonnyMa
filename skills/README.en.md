@@ -34,6 +34,12 @@ Organize Facebook / Instagram objectives, creative, audiences, budgets, forms, m
 
 [📖 Read more](meta-promotion-ops/README.en.md) · [↓ ZIP](https://github.com/RonnyMa-67/RonnyMa/releases/download/skills-2026-11-06/meta-promotion-ops.zip)
 
+### 🖼️ AIDEWO Alibaba.com Main Images
+
+Create six mobile-first square listing images for commercial beverage equipment. Includes a product brief template, design specifications, and the approved GLT4-04 gallery reference.
+
+[View skill source](aidewo-main-images/SKILL.md) · [Product brief template](aidewo-main-images/references/product-brief.md)
+
 ## 🚀 Install
 
 Download the matching ZIP, extract it, and keep its folder structure when installing in a Skills-compatible AI host. A standalone SKILL.md can also be used as instructions where no installer exists. Live research requires host browsing; spreadsheet output requires host file tools or the optional utilities.
