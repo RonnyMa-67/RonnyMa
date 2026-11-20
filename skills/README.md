@@ -34,12 +34,6 @@
 
 [📖 看看介绍](meta-promotion-ops/README.md) · [↓ ZIP](https://github.com/RonnyMa-67/RonnyMa/releases/download/skills-2026-11-06/meta-promotion-ops.zip)
 
-### 🖼️ AIDEWO 国际站主图
-
-为商用饮料设备制作六张手机优先的 1:1 商品主图。附新机型资料模板、设计规范和 GLT4-04 定稿参考。
-
-[查看技能源码](aidewo-main-images/SKILL.md) · [产品资料模板](aidewo-main-images/references/product-brief.md)
-
 ## 🚀 拿来怎么用
 
 下载对应 ZIP，解压后保留文件夹结构，在支持 Skills 的 AI 助手中安装。没有安装入口时，也可以将 SKILL.md 作为说明使用。实时研究需要宿主具备浏览能力，表格导出需要文件工具或可选脚本。
