@@ -6,9 +6,9 @@
 
 These dates use Beijing time (UTC+8). Older entries were reconstructed from public commits; a commit date does not imply a separate release. The existing v1.1 label is retained without inventing historical version numbers.
 
-## Nov 24, 2026 · AIDEWO cross-platform image templates
+## Nov 24, 2026 · AIDEWO cross-platform image-generation skills
 
-Published AIDEWO main image and product detail templates for Muse and Gemini. Generate the scene in either app, then compose the original machine and verified copy in one browser template. [Main images](https://ronnyma-67.github.io/RonnyMa/tools/aidewo-images/?mode=main) · [Product details](https://ronnyma-67.github.io/RonnyMa/tools/aidewo-images/?mode=detail)
+Published AIDEWO image-generation skills for main images and product details. Use the same prompts and original product assets in ChatGPT, Muse, or Gemini to generate finished images. [Main images](https://ronnyma-67.github.io/RonnyMa/tools/aidewo-images/?mode=main) · [Product details](https://ronnyma-67.github.io/RonnyMa/tools/aidewo-images/?mode=detail)
 
 ## 📦 Nov 06, 2026 · Downloads and feedback
 

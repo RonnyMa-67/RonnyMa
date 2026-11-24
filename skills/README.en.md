@@ -12,7 +12,7 @@ Small workflows from the bits of work I keep doing. Pick one for the task in fro
 
 ### AIDEWO Product Artwork
 
-Generate scenes with Muse or Gemini and compose the original product photo, logo, and verified copy in the browser.
+Use the same prompts and original product assets to generate finished images in ChatGPT, Muse, or Gemini.
 
 [Main images guide](aidewo-main-images/README.md) · [Product details guide](aidewo-product-details/README.md)
 

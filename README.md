@@ -66,7 +66,7 @@
 
 ## 📝 更新记录
 
-**11.24** · AIDEWO 主图和详情图模板支持 Muse / Gemini。两个平台生成场景，网页统一合成原机与文案。[主图](https://ronnyma-67.github.io/RonnyMa/tools/aidewo-images/?mode=main) · [详情图](https://ronnyma-67.github.io/RonnyMa/tools/aidewo-images/?mode=detail)
+**11.24** · AIDEWO 主图与详情图通用生图技能上线。同一份指令可粘贴到 ChatGPT、Muse 或 Gemini，结合原机照片和确认规格直接出图。[主图](https://ronnyma-67.github.io/RonnyMa/tools/aidewo-images/?mode=main) · [详情图](https://ronnyma-67.github.io/RonnyMa/tools/aidewo-images/?mode=detail)
 
 **11.17** · 发了两篇阿里国际站 SOP。[新手版](https://github.com/RonnyMa-67/RonnyMa/blob/main/skills/alibaba-sop-beginner/README.md)带你熟悉后台、发品和日常清单，[进阶版](https://github.com/RonnyMa-67/RonnyMa/blob/main/skills/alibaba-sop/README.md)聊老店怎么梳理产品链接、排查流量和控制投放。
 

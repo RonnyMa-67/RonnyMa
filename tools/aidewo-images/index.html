@@ -1,32 +1,35 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AIDEWO 作图模板 · 主图与详情图</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AIDEWO 通用生图技能</title>
 <style>
-*{box-sizing:border-box} body{margin:0;color:#103049;background:#f3f7f9;font:16px/1.55 system-ui,sans-serif} a{color:#125f91} main{max-width:1150px;margin:auto;padding:28px 20px 60px} h1{margin:8px 0;font-size:clamp(28px,5vw,44px)} h2{margin:0 0 8px;font-size:21px} p{margin:6px 0 16px} nav{display:flex;flex-wrap:wrap;gap:16px} .layout{display:grid;grid-template-columns:minmax(300px,1fr) minmax(0,1fr);gap:20px;align-items:start;margin-top:20px} .panel{background:white;border:1px solid #d5e0e7;border-radius:12px;padding:18px} label{display:block;margin:9px 0 3px;font-weight:650} input,select,textarea,button{font:inherit} input:not([type=file]),select,textarea{width:100%;border:1px solid #a8bac7;border-radius:6px;padding:6px 8px;color:inherit;background:white} input[type=file]{max-width:100%} textarea{resize:vertical} button{border:0;border-radius:6px;padding:8px 13px;background:#103049;color:white;cursor:pointer;margin:5px 6px 5px 0} button:disabled{opacity:.5;cursor:default} .columns{display:grid;grid-template-columns:1fr 1fr;gap:10px} canvas{display:block;width:100%;height:auto;background:#fff} .hint{font-size:14px;color:#37566a} details{margin-top:12px} #status{min-height:24px} @media(max-width:800px){.layout{grid-template-columns:minmax(0,1fr)}}
+*{box-sizing:border-box}body{margin:0;color:#102d43;background:#f3f7f9;font:16px/1.65 system-ui,sans-serif}main{max-width:780px;margin:auto;padding:28px 20px 60px}nav{display:flex;flex-wrap:wrap;gap:8px 18px}a{color:#125f91}h1{margin:20px 0 6px;font-size:clamp(27px,5vw,42px)}p{margin:8px 0 16px}.panel{background:#fff;border:1px solid #d5e0e7;border-radius:12px;padding:18px;margin-top:18px}label{display:block;font-weight:650;margin-bottom:7px}textarea{display:block;width:100%;resize:vertical;min-height:300px;padding:12px;border:1px solid #a8bac7;border-radius:6px;font:14px/1.65 system-ui;color:inherit}button{font:inherit;color:#fff;background:#102d43;border:0;border-radius:6px;padding:8px 14px;cursor:pointer}button:disabled{opacity:.5;cursor:default}.actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin-top:12px}a[aria-current=page]{font-weight:750}.status{min-height:1.65em;margin-bottom:0}
 </style>
-<script src="app.js" defer></script>
+<script defer src="skills.js"></script>
 </head>
-<body><main>
-<nav><a href="../../?lang=zh#skills">← 返回技能页</a><a href="?mode=main">国际站主图</a><a href="?mode=detail">产品详情图</a></nav>
-<h1>AIDEWO 产品作图</h1>
-<p>Muse 或 Gemini 生成场景。这里用同一套模板合成真实机器、Logo 和文字，导出单张 PNG。</p>
-<div class="layout">
-<section class="panel" aria-label="设置">
-<h2>选择版式</h2>
-<div class="columns"><div><label for="mode">图组</label><select id="mode"><option value="main">六张主图</option><option value="detail">五张详情图</option></select></div><div><label for="page">当前页</label><select id="page"></select></div></div>
-<label for="subject">原机或部件照片</label><input id="subject" type="file" accept="image/*"><div class="hint">首选透明 PNG。选型对比可以上传按同尺度排好的产品合照。</div>
-<label for="scene">场景背景（可选）</label><input id="scene" type="file" accept="image/*">
-<label for="logo">原始 Logo（可选）</label><input id="logo" type="file" accept="image/*">
-<div class="columns"><div><label for="model">真实型号</label><input id="model" maxlength="26" placeholder="MODEL"></div><div><label for="metric">关键数字</label><input id="metric" maxlength="26" placeholder="2 × 15 L"></div></div>
-<label for="title">英文标题</label><input id="title" maxlength="80">
-<label for="lines">已确认文字（每行一条）</label><textarea id="lines" rows="3" maxlength="290"></textarea>
-<div><button id="example" type="button">载入雪泥机文案示例</button><button id="download" type="button" disabled>下载 PNG</button></div>
-<div id="status" role="status" class="hint"></div>
-<details open><summary>复制场景指令</summary><p class="hint">复制后粘贴到对应平台。只生成背景，回本页上传背景和实拍。</p>
-<button id="muse" type="button">复制 Muse 指令</button><button id="gemini" type="button">复制 Gemini 指令</button>
-<label for="brief">场景描述（可换成自己的品类）</label><input id="brief" maxlength="220"><label for="prompt">场景指令</label><textarea id="prompt" rows="6" readonly></textarea></details>
+<body>
+<main>
+<nav aria-label="技能导航">
+<a href="../../?lang=zh#skills">← 返回技能页</a>
+<a id="nav-main" href="?mode=main">六张主图</a>
+<a id="nav-detail" href="?mode=detail">五张详情图</a>
+</nav>
+<h1 id="heading">AIDEWO 通用生图技能</h1>
+<p>上传原机照片、Logo、确认规格和可选的参考图，把同一份指令粘贴到 ChatGPT、Muse 或 Gemini 的生图对话。按页生成完整成图。</p>
+<section class="panel" aria-label="生图指令">
+<label for="prompt">完整生图指令</label>
+<textarea id="prompt" rows="14" readonly spellcheck="false"></textarea>
+<div class="actions">
+<button id="copy" disabled>复制完整指令</button>
+<a id="raw" href="main.txt">打开纯文本</a>
+<a id="source" href="https://github.com/RonnyMa-67/RonnyMa/blob/main/skills/aidewo-main-images/SKILL.md">GitHub 原文</a>
+</div>
+<p class="status" id="status" role="status"></p>
+<noscript><p><a href="main.txt">主图纯文本</a> · <a href="detail.txt">详情图纯文本</a></p></noscript>
 </section>
-<section class="panel" aria-label="图片预览"><h2>成图预览</h2><p class="hint" id="dimensions"></p><canvas id="canvas" aria-label="产品成图"></canvas><p class="hint">图片在当前浏览器本地处理。切换页面后，重新核对该页文字与素材。</p></section>
-</div></main></body></html>
+<p>如果平台一次只能生成一张，追加“先做第 01 张”，再用“继续第 02 张，沿用第 01 张版式”逐张推进。</p>
+</main>
+</body>
+</html>

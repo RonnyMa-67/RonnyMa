@@ -12,7 +12,7 @@
 
 ### AIDEWO 商用设备作图
 
-用 Muse 或 Gemini 生成场景，在浏览器用实拍、Logo 和确认文字合成。
+把同一份生图指令和原机素材发给 ChatGPT、Muse 或 Gemini，直接生成主图和详情图。
 
 [主图说明](aidewo-main-images/README.md) · [详情图说明](aidewo-product-details/README.md)
 
