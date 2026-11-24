@@ -10,6 +10,12 @@
 
 Small workflows from the bits of work I keep doing. Pick one for the task in front of you 🗃️
 
+### AIDEWO Product Artwork
+
+Generate scenes with Muse or Gemini and compose the original product photo, logo, and verified copy in the browser.
+
+[Main images guide](aidewo-main-images/README.md) · [Product details guide](aidewo-product-details/README.md)
+
 ### 🔎 Ronny Scout
 
 **Make sense of the leads you already have**

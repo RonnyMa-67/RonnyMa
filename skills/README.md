@@ -10,6 +10,12 @@
 
 工作里反复做的事，整理一下，放进抽屉。需要哪个就拿哪个 🗃️
 
+### AIDEWO 商用设备作图
+
+用 Muse 或 Gemini 生成场景，在浏览器用实拍、Logo 和确认文字合成。
+
+[主图说明](aidewo-main-images/README.md) · [详情图说明](aidewo-product-details/README.md)
+
 ### 🔎 Ronny Scout
 
 **把已有询盘研究明白**
