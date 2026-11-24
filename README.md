@@ -8,7 +8,7 @@
 
 **简体中文**　·　[English](https://github.com/RonnyMa-67/RonnyMa/blob/main/README.en.md)
 
-[![Ronny 的互联网小角落，点击图片进入](https://raw.githubusercontent.com/RonnyMa-67/RonnyMa/main/assets/site-preview.jpg)](https://ronnyma-67.github.io/RonnyMa/?lang=zh)
+[![像素风小站：AI 技能、工具项目和笔记，点图进入。](https://raw.githubusercontent.com/RonnyMa-67/RonnyMa/main/assets/ronny-pixel-cover.webp)](https://ronnyma-67.github.io/RonnyMa/?lang=zh)
 
 <sub>点上面的图就能进 · 手机电脑都能看 · 中英可切换</sub>
 
@@ -31,7 +31,7 @@
 > 💭 AI 多懂一点业务，我少解释两遍。
 > 🛠️ 能少翻几个网页、少整理一次表格，就算没白折腾。
 
-[![Skills](https://img.shields.io/badge/📦_Skills-打开抽屉-b7a7ff?style=flat-square)](https://github.com/RonnyMa-67/RonnyMa/tree/main/skills) [![Website](https://img.shields.io/badge/🌐_Website-去小站逛逛-9ee6c3?style=flat-square)](https://ronnyma-67.github.io/RonnyMa/) [![Guestbook](https://img.shields.io/badge/🫧_Guestbook-冒个泡-ffce88?style=flat-square)](https://github.com/RonnyMa-67/RonnyMa/issues/new?template=skill-usage.yml)
+[![Skills](https://img.shields.io/badge/📦_Skills-打开抽屉-1a6fd1?style=flat-square)](https://github.com/RonnyMa-67/RonnyMa/tree/main/skills) [![Website](https://img.shields.io/badge/🌐_Website-去小站逛逛-4f8946?style=flat-square)](https://ronnyma-67.github.io/RonnyMa/) [![Guestbook](https://img.shields.io/badge/🫧_Guestbook-冒个泡-ca9740?style=flat-square)](https://github.com/RonnyMa-67/RonnyMa/issues/new?template=skill-usage.yml)
 
 ## 📦 AI 技能
 

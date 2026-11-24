@@ -1,11 +1,13 @@
 (() => {
   'use strict';
   const english = {
-    skip:'Skip to content',navSkills:'AI Skills',navProjects:'Tools',navNotes:'Updates',navAbout:'About',
-    hello:'👋 hey, I’m Ronny',headline:'Too many tabs open.<br>Still making new things.',
+    skip:'Skip to content',navSkills:'AI Skills',navProjects:'Tools',navNotes:'Updates',navAbout:'About',menu:'Menu',
+    toastScout:'Lead research Skill',toastReleased:'Released',toastImage:'AIDEWO image skills',toastImageDetail:'Main and detail images',toastNew:'New',
+    aidewoMainDesc:'Six main images for commercial equipment · ChatGPT / Muse / Gemini',aidewoDetailDesc:'Five detail images for commercial equipment · ChatGPT / Muse / Gemini',aidewoMainCopy:'Copy the main-image prompts ↗',aidewoDetailCopy:'Copy the detail-image prompts ↗',
+    hello:'Hi, I’m Ronny',headline:'Too many tabs open.<br>Still making new things.',
     intro:'I work in foreign trade and tinker with AI. Here you’ll find Skills and tools for customer research, buyer discovery, and Meta marketing.',
-    browse:'Open the Skill drawer ↘',meet:'Meet the person 👀',tiny:'🫠 Saving time has become quite a time-consuming hobby.',
-    portrait:'🌏 Foreign-trade operations<br>🧪 AI experiments in progress',sticker:'Still growing.<br>Taking my time 🌱',avatarAlt:'Ronny’s line-art avatar with glasses and wavy hair',
+    browse:'Open the Skill drawer',meet:'About me',tiny:'🫠 Saving time has become quite a time-consuming hobby.',
+    portrait:'Foreign trade · AI experiments in progress',sticker:'Still growing, at my own pace 🌱',avatarAlt:'Ronny in pixel art, with glasses and curly hair',
     status:'Foreign trade · B2B · AI Skills',statusRight:'Currently writing · Alibaba.com operations guides',
     skillsTitle:'AI Skills <span>📦</span>',skillsDesc:'Lead research, buyer discovery, and Meta marketing. Pick one for your current task.',allDownloads:'All downloads ↗',
     scoutType:'🔎 Customer research',scoutQuestion:'“We have the inquiry.<br>Who’s behind it?”',scoutDesc:'Start with the customer’s original request. Research the company, website, and public contacts. Put the findings, commercial fit, and a useful next step into an A–J sheet.',

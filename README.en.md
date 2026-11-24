@@ -8,7 +8,7 @@
 
 [简体中文](https://github.com/RonnyMa-67/RonnyMa/blob/main/README.md)　·　**English**
 
-[![Preview of Ronny’s personal website — click to visit](https://raw.githubusercontent.com/RonnyMa-67/RonnyMa/main/assets/site-preview.jpg)](https://ronnyma-67.github.io/RonnyMa/?lang=en)
+[![Pixel-art site with Skills, tools and notes. Click the cover to enter.](https://raw.githubusercontent.com/RonnyMa-67/RonnyMa/main/assets/ronny-pixel-cover.webp)](https://ronnyma-67.github.io/RonnyMa/?lang=en)
 
 <sub>Click the preview to visit · Desktop and mobile · Chinese / English</sub>
 
@@ -31,7 +31,7 @@ Three things live here: **installable Skills, tools to try, and ongoing notes.**
 > 💭 Hoping AI learns a bit more about the business, so I can explain a bit less.
 > 🛠️ A few fewer tabs and one less spreadsheet to tidy? I'll take it.
 
-[![Skills](https://img.shields.io/badge/📦_Skills-open_the_drawer-b7a7ff?style=flat-square)](https://github.com/RonnyMa-67/RonnyMa/blob/main/skills/README.en.md) [![Website](https://img.shields.io/badge/🌐_Website-take_a_look-9ee6c3?style=flat-square)](https://ronnyma-67.github.io/RonnyMa/?lang=en) [![Guestbook](https://img.shields.io/badge/🫧_Guestbook-say_hi-ffce88?style=flat-square)](https://github.com/RonnyMa-67/RonnyMa/issues/new?template=skill-usage.yml)
+[![Skills](https://img.shields.io/badge/📦_Skills-open_the_drawer-1a6fd1?style=flat-square)](https://github.com/RonnyMa-67/RonnyMa/blob/main/skills/README.en.md) [![Website](https://img.shields.io/badge/🌐_Website-take_a_look-4f8946?style=flat-square)](https://ronnyma-67.github.io/RonnyMa/?lang=en) [![Guestbook](https://img.shields.io/badge/🫧_Guestbook-say_hi-ca9740?style=flat-square)](https://github.com/RonnyMa-67/RonnyMa/issues/new?template=skill-usage.yml)
 
 ## 📦 AI Skills
 
