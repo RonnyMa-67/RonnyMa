@@ -4,21 +4,35 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AIDEWO 通用生图技能</title>
+<meta name="theme-color" content="#f5f5f2">
+<link rel="icon" type="image/png" href="../../assets/ronny-pixel-avatar.png">
 <style>
 *{box-sizing:border-box}body{margin:0;color:#102d43;background:#f3f7f9;font:16px/1.65 system-ui,sans-serif}main{max-width:780px;margin:auto;padding:28px 20px 60px}nav{display:flex;flex-wrap:wrap;gap:8px 18px}a{color:#125f91}h1{margin:20px 0 6px;font-size:clamp(27px,5vw,42px)}p{margin:8px 0 16px}.panel{background:#fff;border:1px solid #d5e0e7;border-radius:12px;padding:18px;margin-top:18px}label{display:block;font-weight:650;margin-bottom:7px}textarea{display:block;width:100%;resize:vertical;min-height:300px;padding:12px;border:1px solid #a8bac7;border-radius:6px;font:14px/1.65 system-ui;color:inherit}button{font:inherit;color:#fff;background:#102d43;border:0;border-radius:6px;padding:8px 14px;cursor:pointer}button:disabled{opacity:.5;cursor:default}.actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin-top:12px}a[aria-current=page]{font-weight:750}.status{min-height:1.65em;margin-bottom:0}
 </style>
 <script defer src="skills.js"></script>
+<link rel="stylesheet" href="../../assets/ronny-skill-workspaces.css">
 </head>
-<body>
+<body class="px-workspace pxw-aidewo">
+<div class="pxw-rail"><div class="pxw-rail-inner">
+  <a class="pxw-origin" href="../../?lang=zh#skills" aria-label="Ronny 小站 · 技能">
+    <img src="../../assets/ronny-pixel-avatar.png" width="32" height="32" alt=""><span>ronny <span class="pxw-origin-section">/ 技能</span></span>
+  </a>
+  <span class="pxw-topic">AIDEWO / IMAGE SKILLS</span>
+  <a class="pxw-back pxw-guide-main" href="../../guides/aidewo-main-images/">主图使用说明</a>
+  <a class="pxw-back pxw-guide-detail" href="../../guides/aidewo-product-details/">详情图使用说明</a>
+  <span class="pxw-pixels" aria-hidden="true"></span>
+</div></div>
 <main>
-<nav aria-label="技能导航">
+<nav class="pxw-modes" aria-label="技能导航">
 <a href="../../?lang=zh#skills">← 返回技能页</a>
 <a id="nav-main" href="?mode=main">六张主图</a>
 <a id="nav-detail" href="?mode=detail">五张详情图</a>
 </nav>
+<header class="pxw-lead"><p class="pxw-chapter">SKILLS / IMAGE WORKSPACE</p>
 <h1 id="heading">AIDEWO 通用生图技能</h1>
 <p>上传原机照片、Logo、确认规格和可选的参考图，把同一份指令粘贴到 ChatGPT、Muse 或 Gemini 的生图对话。按页生成完整成图。</p>
-<section class="panel" aria-label="生图指令">
+</header>
+<section class="panel pxw-card" aria-label="生图指令">
 <label for="prompt">完整生图指令</label>
 <textarea id="prompt" rows="14" readonly spellcheck="false"></textarea>
 <div class="actions">

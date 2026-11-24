@@ -43,6 +43,9 @@
     document.title = language === 'en' ? 'Ronny’s little corner · Trade, AI & side quests' : 'Ronny 的互联网小角落 · 外贸与 AI 碎碎念';
     document.querySelector('meta[name="description"]').content = language === 'en' ? 'Ronny’s little corner: foreign trade, B2B customer research, AI Skills, and projects still growing.' : 'Ronny 的互联网小角落：外贸运营、B2B 客户研究、AI Skills 和一些还在长的小项目。';
     document.querySelectorAll('[data-doc]').forEach(el => { el.href = 'https://github.com/RonnyMa-67/RonnyMa/blob/main/' + el.dataset.doc + '/README' + (language === 'en' ? '.en' : '') + '.md'; });
+    document.querySelectorAll('[data-guide]').forEach(el => {
+      el.href = 'guides/' + el.dataset.guide + (language === 'en' ? '/en/' : '/');
+    });
     document.getElementById('changelog').href = 'https://github.com/RonnyMa-67/RonnyMa/blob/main/skills/CHANGELOG' + (language === 'en' ? '.en' : '') + '.md';
     const button = document.getElementById('language');
     button.textContent = language === 'en' ? '中' : 'EN';

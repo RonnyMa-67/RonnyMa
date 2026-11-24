@@ -2,10 +2,19 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#233d83"><meta name="description" content="Ronny Scout 海外客户研究工作台：本地导入、A–J 客户明细、商情看板与 CSV 导出。10 位虚构客户，静态离线演示。">
+<meta name="theme-color" content="#f5f5f2"><meta name="description" content="Ronny Scout 海外客户研究工作台：本地导入、A–J 客户明细、商情看板与 CSV 导出。10 位虚构客户，静态离线演示。">
 <title>Ronny Scout · 海外客户研究工作台</title><link rel="icon" href="logo.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../../assets/ronny-skill-workspaces.css">
 </head>
-<body>
+<body class="px-workspace pxw-scout">
+<div class="pxw-rail"><div class="pxw-rail-inner">
+  <a class="pxw-origin" href="../../?lang=zh#skills" aria-label="Ronny 小站 · 技能">
+    <img src="../../assets/ronny-pixel-avatar.png" width="32" height="32" alt=""><span>ronny <span class="pxw-origin-section">/ 技能</span></span>
+  </a>
+  <span class="pxw-topic">RONNY SCOUT / WORKBENCH</span>
+  <a class="pxw-back" href="../../guides/ronny-scout/">技能使用说明</a>
+  <span class="pxw-pixels" aria-hidden="true"></span>
+</div></div>
 <header class="masthead"><a class="brand" href="#" aria-label="Ronny Scout 首页"><img src="logo.svg" width="40" height="40" alt=""><span><strong>Ronny Scout</strong><small>海外客户研究工作台</small></span></a><span class="header-description">从原始线索，到有依据的下一步</span><div class="header-actions"><span class="offline"><i></i> 本地演示</span><a class="button" href="https://github.com/RonnyMa-67/RonnyMa/blob/main/skills/ronny-scout/references/no-api-quickstart.md">安装原生 Skill ↗</a></div></header>
 <main>
 <div class="workspace-nav"><nav role="tablist" aria-label="工作台页面"><button id="tab-import" role="tab" aria-selected="true" aria-controls="import" data-tab="import">↥ &nbsp;导入线索</button><button id="tab-customers" role="tab" aria-selected="false" aria-controls="customers" data-tab="customers" tabindex="-1">▦ &nbsp;客户明细 <span id="total" class="count">10</span></button><button id="tab-dashboard" role="tab" aria-selected="false" aria-controls="dashboard" data-tab="dashboard" tabindex="-1">▥ &nbsp;商情看板</button></nav><div class="actions"><button id="quality" class="outline">质量检测</button><button id="export" class="primary">↓ &nbsp;导出 CSV</button></div></div>
