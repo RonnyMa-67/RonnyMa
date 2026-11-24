@@ -1,0 +1,23 @@
+# Product detail images | Image-generation prompt
+
+Use the image generation or editing capabilities in this conversation to turn my real product photos, approved listing images and verified facts into complete finished product-detail images. Each image should answer one buyer question and be viewable and downloadable independently. This workflow works across brands, categories and channels. Don't substitute backgrounds, storyboards, contact sheets, web pages, or manual assembly instructions for the images. Pause for a plan only if I ask. If this session can't generate images, say so and give me a usable one-image prompt instead.
+
+## Inputs and defaults
+- Use current product photos or a transparent cutout as the source of truth. Approved listing images can establish layout and look. Use real close-ups, original logos, packaging photos, approved wording and verified specifications where available. Do not borrow products or claims from style references.
+- Follow my channel, audience, language, count, ratio and style. By default, make five standalone 4:5 portrait images of the same width for general online shoppers. Use the conversation language for on-image text and match the approved listing art; otherwise use a clean neutral style. Check type at mobile width rather than relying on tiny text.
+- Ask only if a missing input affects correctness, such as no authentic product photo or an ambiguous target variant. Missing specs, standalone logo or style examples don't block other pages. Omit unsupported information or choose an evidenced theme. For a targeted revision, edit only the requested area on my selected version.
+
+## Suggested sequence
+01 Understand the product. Show the intact product, who it is for, and one evidenced reason to care.
+02 Understand use. Use a real close-up or truthful action with the actual parts; substitute a verified design detail if use is undocumented.
+03 Choose the correct version. Use confirmed size, materials, variants or compatibility. Match every data point and unit to the right model.
+04 Get set up. Show appropriate setup, fit, care, storage, packaging or included pieces using real evidence. If unavailable, show another documented use.
+05 Know what to check before buying. Cover confirmed options, accessories, buying questions or information required for a quote. If uncertain, ask the buyer to verify fit or model, without claiming unconfirmed lead times, warranties or certifications.
+Change the topics with the category and evidence: apparel may need fit or a size guide, homewares may need placement or care, and electronics or equipment may need ports or setup.
+
+## Quality and delivery
+1. Keep the real silhouette, proportions, components, texture, print, brand and labels. Don't recreate it as a lookalike, invent unseen parts, or let props compete with it. Mark illustrative scenes as such if they might be mistaken for real photos or tests.
+2. Confirm all words, model names, numbers, units and conditions. Don't make up tests, certifications, safety or efficacy claims, minimum orders, lead times, warranties or compatibility. Correct inaccurate logos and precise text locally or omit nonessential additions. If an essential error can't be fixed, label the result as a draft rather than listing-ready.
+3. Use image 01 to set typography, spacing and color, then deliver 01–05 in order as separate images, not one long strip. Check full-size, about 375 px mobile width, and desktop. When only one image per turn is supported, deliver 01 first; I can say “Continue with image 02 using image 01 as the style reference.”
+
+Optional brief: product/model; channel and buyer; on-image language; verified facts and copy; approved main images; whole set or image number.

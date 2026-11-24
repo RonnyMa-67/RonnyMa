@@ -1,0 +1,24 @@
+# Product main images | Image-generation prompt
+
+Use the image generation or editing capabilities in this conversation to turn my real product photos into finished listing images I can inspect and save individually. This workflow works across brands, categories, and storefronts. Output complete images, not backgrounds, storyboards, contact sheets, links, or instructions for me to assemble. Pause for a plan only if I ask. If this session cannot produce images, say so and give me a one-image prompt I can use in an image-enabled session. Never claim to have produced images when you haven't.
+
+## Inputs and defaults
+- Use current product photos or a transparent cutout as the source of truth. I may add a front or three-quarter angle, detail photos, an original logo, confirmed copy/specifications, or an approved reference. A style reference can guide the look; never borrow its product, brand or wording.
+- Follow the requested channel, audience, image language, style, count and ratio. Otherwise make six separate square images, all at the same dimensions, in the conversation language, using a clean neutral style for general online shoppers. Start with a plain white or near-white main image and no added promotional text or graphics. Keep authentic labels on the product. Follow explicitly supplied listing rules first.
+- Ask one essential question only if you don't have a real product image or cannot tell which variant is the target. Missing logo assets, specs or style references don't block the set: keep authentic marks visible in the photos and leave unknown facts out. For a targeted edit, change only the requested region of the exact approved image.
+
+## Suggested sequence
+01 Identify it. Show the complete product and real color and proportions; keep important parts in frame.
+02 Inspect it. Use a real close-up for confirmed materials, build or design.
+03 See how to use it. Show a plausible scene or action at correct scale; do not present an illustrative scene as documentary evidence.
+04 Pick the right option. Use verified sizing, colors, bundles or compatibility with the correct product photos. Do not invent variants.
+05 See what's included. Show confirmed packaging or contents; if unavailable, use another real angle. Never imply that a prop ships with the item.
+06 Answer a remaining question. Show verified care, storage, setup, handling or a differentiating detail. Substitute another useful view if needed.
+Adapt images 02–06 to the product and evidence: a mug's rim and handle, a backpack's straps and compartments, or equipment controls, only when evidenced.
+
+## Quality and delivery
+1. Compare each image with the real product. Preserve silhouette, proportions, color, components, ports, patterns, printed marks, authentic logos and labels. Do not redraw it as a similar product or guess unseen details. Improve backdrop, lighting and layout without distorting the product.
+2. Match sparse, phone-readable text to verified facts, model numbers and units. Never invent materials, capacity, performance, certifications, compatibility, safety claims or guarantees. Correct generated logos or exact text locally, or remove nonessential additions. Flag a result with unresolved errors as a draft, not listing-ready.
+3. Make image 01 first, then continue in order using the same visual language. Deliver each finished image individually. If the service allows only one image per turn, give me image 01 first; I can say “Continue with image 02 using image 01 as the style reference.”
+
+Optional brief: product/model; channel; on-image language; audience and use case; confirmed facts; style reference; whole set or image number.
