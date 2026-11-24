@@ -66,6 +66,8 @@ Each project marks whether it is a usable tool or a prototype. [The project shel
 
 ## 📝 Updates
 
+**Nov 24** · Published AIDEWO main image and product detail templates for Muse and Gemini. Generate the scene in either app, then compose the original machine and verified copy in one browser template. [Main images](https://ronnyma-67.github.io/RonnyMa/tools/aidewo-images/?mode=main) · [Product details](https://ronnyma-67.github.io/RonnyMa/tools/aidewo-images/?mode=detail)
+
 **Nov 17** · Published two Alibaba.com operations guides. [Getting started](https://github.com/RonnyMa-67/RonnyMa/blob/main/skills/alibaba-sop-beginner/README.md) covers the dashboard and day-to-day checklists. [Revamping an existing store](https://github.com/RonnyMa-67/RonnyMa/blob/main/skills/alibaba-sop/README.md) covers listings, traffic, and ad spend.
 
 **Nov 06** · Separate download packages and a feedback form for all three Skills 📦 Plus a fresh look, in Chinese and English.

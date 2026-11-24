@@ -66,6 +66,8 @@
 
 ## 📝 更新记录
 
+**11.24** · AIDEWO 主图和详情图模板支持 Muse / Gemini。两个平台生成场景，网页统一合成原机与文案。[主图](https://ronnyma-67.github.io/RonnyMa/tools/aidewo-images/?mode=main) · [详情图](https://ronnyma-67.github.io/RonnyMa/tools/aidewo-images/?mode=detail)
+
 **11.17** · 发了两篇阿里国际站 SOP。[新手版](https://github.com/RonnyMa-67/RonnyMa/blob/main/skills/alibaba-sop-beginner/README.md)带你熟悉后台、发品和日常清单，[进阶版](https://github.com/RonnyMa-67/RonnyMa/blob/main/skills/alibaba-sop/README.md)聊老店怎么梳理产品链接、排查流量和控制投放。
 
 **11.06** · 三个 Skill 有独立下载包了，也可以留使用反馈了 📦 这次顺便给小站换了衣服，中英双份。

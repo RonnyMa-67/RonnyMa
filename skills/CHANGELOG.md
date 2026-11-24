@@ -6,6 +6,10 @@
 
 本记录根据公开仓库的提交历史补写，日期为北京时间（UTC+8）。这里的日期是提交日期，并不代表每项改动都有独立的正式发布或 GitHub Release。除已有记录明确使用的 v1.1 外，不为历史提交追认版本号。
 
+## 2026-11-24 — AIDEWO 跨平台作图模板
+
+AIDEWO 主图和详情图模板支持 Muse / Gemini。两个平台生成场景，网页统一合成原机与文案。[主图](https://ronnyma-67.github.io/RonnyMa/tools/aidewo-images/?mode=main) · [详情图](https://ronnyma-67.github.io/RonnyMa/tools/aidewo-images/?mode=detail)
+
 ## 2026-11-06 — 下载与使用反馈
 
 - 三个公开技能提供独立 GitHub Release ZIP，分别记录附件累计下载次数；历史直链下载无法补计。
