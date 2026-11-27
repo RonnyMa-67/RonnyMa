@@ -30,6 +30,8 @@
 
 原有安装说明、MIT 许可、A–J 字段、脚本命令和测试方法保留在[英文技术指南](GUIDE.en.md)。脚本负责整理已经研究过的数据，不会自己执行网页背调。
 
+[Meta 线索导出工作流](references/meta-export-workflow.md)说明身份与姓名联动、重点跟进、大数量标记，以及交付前如何逐行复核。
+
 ## 🫧 用过的话
 
 [好用、卡住，都可以说](https://github.com/RonnyMa-67/RonnyMa/issues/new?template=skill-usage.yml)。反馈公开且自愿，别贴真实客户或私人账户资料。

@@ -34,12 +34,16 @@ The example is fictional. `主营/背景` can include relevant business inferenc
 
 Any optional field may be absent. Supplier fit is usable only when explicitly mapped to a downstream column of an existing template.
 
+Set an explicit `product_group` per record for grouped delivery. With `--group-by-product`, each distinct product group gets its own worksheet in first-occurrence order.
+
+For Meta handoffs, `--meta-marking` adds the linked name and identity formatting and checks the saved Excel formatting row by row. Use the source and evidence fields defined in [Meta 线索导出与背调工作流](meta-export-workflow.md).
+
 `social_links` is a dictionary keyed `Facebook`, `Instagram`, `LinkedIn`, `Messenger`, etc. `sources` is an array of URL / claim pairs. `field_notes` is a field-name dictionary. All URLs should be exact discovered links rather than fabricated platform URLs.
 
 ## Workbook styling
 
-- Single standalone research worksheet, navy header, sensible blue hyperlink cues, assignment-colored label in A, event-intention emphasis when appropriate.
+- Standalone research worksheet or one worksheet per agreed product group. Use a navy header, visible hyperlink cues, the existing owner color in A and event-intention emphasis where applicable.
 - Freeze identifying columns, wrap text, allow readable 13-inch laptop review, modest row heights, filter; no notes inserted into the main cell as a giant blob.
 - F contact links: phone, WA and email in the same cell; at most one cell-level hyperlink (prefer explicit WA or email where sensible). G contains website/social URLs, at most one cell-level hyperlink. For fully independent clicks, online rich text/native UI is required; *not* extra columns by default.
-- Separate evidence and original raw data in field-specific Excel comments. **Excel comments are not cloud-sheet comments**.
+- Use D notes for research process and evidence, and E notes for matched Lead ID and original answers. Existing append workbooks can also retain their B-column ID notes for compatibility.
 - Existing master: preserve source sheets, visual styles, data validation, comments, formulas, charts, and sales feedback; never touch K–U when appending A–J.

@@ -30,6 +30,8 @@ Install the downloaded folder in a Skills-compatible AI host. This package does 
 
 The original installation notes, MIT license, A–J schema, local commands and test instructions are preserved in [the technical guide](GUIDE.en.md). The scripts format researched data; they do not perform web research.
 
+The [Meta export workflow](references/meta-export-workflow.md) documents linked identity and name marks, priority and quantity formatting, and row-by-row verification.
+
 ## 🫧 Tried it?
 
 [Tell me what worked or got stuck](https://github.com/RonnyMa-67/RonnyMa/issues/new?template=skill-usage.yml) — feedback is public and optional. Keep real customer and private account data out of it.

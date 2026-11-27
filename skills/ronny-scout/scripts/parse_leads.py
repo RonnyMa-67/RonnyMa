@@ -2,18 +2,46 @@
 """Read lead-form CSV, XLSX and Markdown tables while keeping raw fields."""
 import argparse,csv,json,re
 from pathlib import Path
+from xml.etree import ElementTree
+
+SPREADSHEETML = "{urn:schemas-microsoft-com:office:spreadsheet}"
 
 META_EXPORT_FIELDS=["lead_id","created_time","ad_id","ad_name","adset_id","adset_name","campaign_id","campaign_name","form_id","form_name","is_organic","platform","business_type","product_interest","meeting_preference","quantity","country","email","customer_name","company_name","phone","status"]
 ALIASES={
 "lead_id":["lead id","lead_id","id","线索编号","线索id"],
-"customer_name":["name","full name","customer name","姓名","名字"],
+"customer_name":["name","full name","full_name","customer name","姓名","名字"],
 "country":["country","国家","country/region"],
 "company_name":["company","company name","公司","公司名称"],
-"email":["email","邮箱"],"phone":["phone","phone number","mobile","telephone","电话"],
+"email":["email","邮箱"],"phone":["phone","phone number","mobile","telephone","whatsapp_number","电话"],
+"whatsapp":["whatsapp","whatsapp_number"],
+"business_type":["business_type","what_type_of_company_are_you?"],
 "product_interest":["interested products","products","产品","product"],
 "meeting_preference":["meeting preference","meeting","appointment"],
-"quantity":["expected quantity","quantity","数量"],
+"quantity":["expected quantity","quantity","how_many_units_are_you_planning_to_purchase?","数量"],
+"purchase_time_window":["purchase_time_window","when_are_you_planning_to_purchase?"],
 }
+
+def read_spreadsheetml(file):
+    """Read a Meta XML Spreadsheet export while preserving IDs as text."""
+    ns = SPREADSHEETML
+    root = ElementTree.parse(file).getroot()
+    if root.tag != ns + "Workbook":
+        raise ValueError("Expected a Meta XML Spreadsheet export")
+    result = []
+    for table in root.iter(ns + "Table"):
+        rows = []
+        for row in table.findall(ns + "Row"):
+            values = []
+            for cell in row.findall(ns + "Cell"):
+                index = int(cell.get(ns + "Index", len(values) + 1))
+                values.extend([""] * (index - len(values) - 1))
+                values.append(cell.findtext(ns + "Data", default=""))
+            if any(values):
+                rows.append(values)
+        if rows:
+            header, *data = rows
+            result.extend(dict(zip(header, row)) for row in data)
+    return result
 def split_markdown(line):
     s=line.strip()
     if s.startswith("|"):s=s[1:]
@@ -23,6 +51,11 @@ def load_rows(file):
     file=Path(file); ext=file.suffix.lower()
     if ext==".csv":
         with file.open(encoding="utf-8-sig",newline="") as f:return list(csv.DictReader(f))
+    if ext in (".xls", ".xml"):
+        try:
+            return read_spreadsheetml(file)
+        except ElementTree.ParseError as exc:
+            raise ValueError("For binary XLS, export as CSV or XLSX first") from exc
     if ext in (".xlsx",".xlsm"):
         from openpyxl import load_workbook
         w=load_workbook(file,read_only=True,data_only=True);rows=list(w.active.values)
@@ -32,10 +65,13 @@ def load_rows(file):
         lines=[row for row in lines if not all(re.fullmatch(r":?-{2,}:?",v.strip()) for v in row)]
         if not lines:return []
         first=lines[0]
-        header=first if any(re.search(r"(name|company|country|email|phone|姓名|公司|国家|邮箱)",v,re.I) for v in first) else (META_EXPORT_FIELDS if len(first)==len(META_EXPORT_FIELDS) else [f"field_{i}" for i in range(len(first))])
+        column_names = set(META_EXPORT_FIELDS) | {alias for aliases in ALIASES.values() for alias in aliases}
+        header = first if sum(v.strip().casefold() in column_names for v in first) >= 2 else (
+            META_EXPORT_FIELDS if len(first) == len(META_EXPORT_FIELDS) else [f"field_{i}" for i in range(len(first))]
+        )
         data=lines[1:] if header is first else lines
         return [dict(zip(header,row)) for row in data]
-    raise ValueError("Supported: CSV, XLSX, Markdown")
+    raise ValueError("Supported: CSV, XLSX, Meta SpreadsheetML XLS, Markdown")
 def canonicalize(rows):
     out=[];seen=set()
     for row in rows:
@@ -53,3 +89,4 @@ def main():
     p=argparse.ArgumentParser();p.add_argument("--input",required=True);p.add_argument("--output",required=True)
     a=p.parse_args();data=canonicalize(load_rows(a.input));Path(a.output).write_text(json.dumps(data,ensure_ascii=False,indent=2,default=str),encoding="utf-8");print(f"{len(data)} records parsed")
 if __name__=="__main__":main()
+
